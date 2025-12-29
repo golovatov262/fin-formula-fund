@@ -1,0 +1,11 @@
+{
+  "tests": [
+    {
+      "name": "Get current key rate",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBodyKeys": ["keyRate", "date", "source"]
+    }
+  ]
+}

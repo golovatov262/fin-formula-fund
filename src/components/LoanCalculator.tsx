@@ -5,17 +5,23 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import Icon from '@/components/ui/icon';
 
-const KEY_RATE = 16;
-
 export default function LoanCalculator() {
   const [amount, setAmount] = useState(500000);
   const [months, setMonths] = useState(12);
   const [interest, setInterest] = useState(0);
   const [totalPayment, setTotalPayment] = useState(0);
   const [monthlyPayment, setMonthlyPayment] = useState(0);
+  const [keyRate, setKeyRate] = useState(16);
 
   useEffect(() => {
-    const rate = KEY_RATE + 10;
+    fetch('https://functions.poehali.dev/ccf7de98-a7e2-4192-b19d-9d93fe63324e')
+      .then(res => res.json())
+      .then(data => setKeyRate(data.keyRate))
+      .catch(() => setKeyRate(16));
+  }, []);
+
+  useEffect(() => {
+    const rate = keyRate + 10;
     const monthlyRate = rate / 12 / 100;
     const calculatedInterest = amount * monthlyRate * months;
     const total = amount + calculatedInterest;
@@ -24,7 +30,7 @@ export default function LoanCalculator() {
     setInterest(calculatedInterest);
     setTotalPayment(total);
     setMonthlyPayment(monthly);
-  }, [amount, months]);
+  }, [amount, months, keyRate]);
 
   const formatNumber = (num: number) => {
     return new Intl.NumberFormat('ru-RU', {
@@ -34,7 +40,7 @@ export default function LoanCalculator() {
     }).format(num);
   };
 
-  const currentRate = KEY_RATE + 10;
+  const currentRate = keyRate + 10;
 
   return (
     <Card className="max-w-2xl mx-auto hover:shadow-2xl transition-shadow">
@@ -54,7 +60,7 @@ export default function LoanCalculator() {
             <span className="text-base md:text-lg font-bold text-accent">{currentRate}% годовых</span>
           </div>
           <div className="text-xs text-muted-foreground mt-0.5 md:mt-1">
-            Ключевая ставка ЦБ ({KEY_RATE}%) + 10%
+            Ключевая ставка ЦБ ({keyRate}%) + 10%
           </div>
         </div>
       </CardHeader>

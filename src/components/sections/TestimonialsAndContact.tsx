@@ -217,7 +217,7 @@ export default function TestimonialsAndContact() {
             <div>
               <h3 className="font-bold text-lg mb-3 md:mb-4">Контакты</h3>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>+7 (495) 123-45-67</li>
+                <li>+7 (800) 302-31-82</li>
                 <li>info@finformula.ru</li>
                 <li>г. Москва, ул. Примерная, д. 1</li>
               </ul>

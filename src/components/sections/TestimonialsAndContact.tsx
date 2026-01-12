@@ -122,7 +122,7 @@ export default function TestimonialsAndContact() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Телефон</h4>
-                    <p className="text-sm text-muted-foreground">+7 (495) 123-45-67</p>
+                    <p className="text-sm text-muted-foreground">+7 (800) 302-31-82</p>
                   </div>
                 </div>
 
@@ -132,7 +132,7 @@ export default function TestimonialsAndContact() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Email</h4>
-                    <p className="text-sm text-muted-foreground">info@finformula.ru</p>
+                    <p className="text-sm text-muted-foreground">ff@sll-expert.ru</p>
                   </div>
                 </div>
 

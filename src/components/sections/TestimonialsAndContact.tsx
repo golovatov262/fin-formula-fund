@@ -108,16 +108,6 @@ export default function TestimonialsAndContact() {
               <CardContent className="space-y-4">
                 <div className="flex gap-3 items-start">
                   <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="MapPin" size={20} className="text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Адрес</h4>
-                    <p className="text-sm text-muted-foreground">г. Москва, ул. Примерная, д. 1</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 items-start">
-                  <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
                     <Icon name="Phone" size={20} className="text-white" />
                   </div>
                   <div>

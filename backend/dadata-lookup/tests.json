@@ -1,0 +1,42 @@
+{
+  "tests": [
+    {
+      "name": "Test valid INN lookup",
+      "method": "POST",
+      "body": {
+        "inn": "7707083893"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "inn": "string",
+        "name": {
+          "short": "string"
+        }
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test invalid INN format",
+      "method": "POST",
+      "body": {
+        "inn": "123"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test missing INN",
+      "method": "POST",
+      "body": {},
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

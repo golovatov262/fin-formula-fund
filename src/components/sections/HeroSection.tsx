@@ -24,12 +24,12 @@ export default function HeroSection() {
             КПК "ФИН ФОРМУЛА" — объединение юридических лиц для взаимного финансирования и развития бизнеса с 2016 года
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
-            <Button size="lg" className="gradient-purple-blue text-white w-full sm:w-auto">
+            <Button size="lg" className="gradient-purple-blue text-white w-full sm:w-auto" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
               <Icon name="TrendingUp" size={20} />
               <span className="hidden sm:inline">Разместить средства</span>
               <span className="sm:hidden">Разместить</span>
             </Button>
-            <Button size="lg" variant="outline" className="border-2 w-full sm:w-auto">
+            <Button size="lg" variant="outline" className="border-2 w-full sm:w-auto" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
               <Icon name="Wallet" size={20} />
               <span className="hidden sm:inline">Получить финансирование</span>
               <span className="sm:hidden">Финансирование</span>

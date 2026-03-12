@@ -80,7 +80,7 @@ export default function AboutAndServices() {
                 <div className={`h-2 ${service.gradient}`}></div>
                 <CardHeader>
                   <div className={`w-12 h-12 md:w-16 md:h-16 ${service.gradient} rounded-2xl flex items-center justify-center mb-3 md:mb-4 animate-float`}>
-                    <Icon name={service.icon as any} size={24} className="text-white md:w-8 md:h-8" />
+                    <Icon name={service.icon as string} size={24} className="text-white md:w-8 md:h-8" />
                   </div>
                   <CardTitle className="text-xl md:text-2xl">{service.title}</CardTitle>
                   <CardDescription className="text-sm md:text-base">{service.description}</CardDescription>
@@ -94,7 +94,7 @@ export default function AboutAndServices() {
                       </li>
                     ))}
                   </ul>
-                  <Button className={`w-full mt-4 md:mt-6 ${service.gradient} text-white`}>
+                  <Button className={`w-full mt-4 md:mt-6 ${service.gradient} text-white`} onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                     Подробнее
                   </Button>
                 </CardContent>

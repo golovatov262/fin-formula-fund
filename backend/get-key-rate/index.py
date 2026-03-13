@@ -68,8 +68,13 @@ def handler(event: dict, context) -> dict:
         if not records:
             raise ValueError('No KR records found in response')
 
-        # Последний элемент — самая актуальная ставка
-        last = records[-1]
+        # Сортируем по дате и берём самую свежую запись
+        def get_date(r):
+            dt = r.find('cbr:DT', ns) or r.find('DT')
+            return dt.text if dt is not None else ''
+
+        records_sorted = sorted(records, key=get_date)
+        last = records_sorted[-1]
         rate_tag = last.find('cbr:Rate', ns) or last.find('Rate')
         date_tag = last.find('cbr:DT', ns) or last.find('DT')
 

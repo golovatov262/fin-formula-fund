@@ -6,6 +6,7 @@ import AboutAndServices from '@/components/sections/AboutAndServices';
 import AdvantagesAndMembership from '@/components/sections/AdvantagesAndMembership';
 import TestimonialsAndContact from '@/components/sections/TestimonialsAndContact';
 import DocumentsSection from '@/components/sections/DocumentsSection';
+import ComparisonSection from '@/components/sections/ComparisonSection';
 
 export default function Index() {
   return (
@@ -27,6 +28,7 @@ export default function Index() {
             <a href="#advantages" className="text-sm font-medium hover:text-primary transition-colors">Преимущества</a>
             <a href="#membership" className="text-sm font-medium hover:text-primary transition-colors">Членство</a>
             <a href="#documents" className="text-sm font-medium hover:text-primary transition-colors">Документы</a>
+            <a href="#comparison" className="text-sm font-medium hover:text-primary transition-colors">КПК vs Банк</a>
             <a href="#faq" className="text-sm font-medium hover:text-primary transition-colors">FAQ</a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
           </nav>
@@ -45,6 +47,7 @@ export default function Index() {
       <AboutAndServices />
       <AdvantagesAndMembership />
       <DocumentsSection />
+      <ComparisonSection />
       <TestimonialsAndContact />
     </div>
   );

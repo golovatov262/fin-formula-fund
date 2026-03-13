@@ -15,7 +15,7 @@ export default function LoanCalculator() {
   const [rateDate, setRateDate] = useState('');
 
   useEffect(() => {
-    fetch('https://functions.poehali.dev/ccf7de98-a7e2-4192-b19d-9d93fe63324e')
+    fetch('https://functions.poehali.dev/ccf7de98-a7e2-4192-b19d-9d93fe63324e', { cache: 'no-store' })
       .then(res => res.json())
       .then(data => {
         setKeyRate(data.keyRate);

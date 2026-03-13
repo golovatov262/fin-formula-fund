@@ -1,11 +1,12 @@
 {
   "tests": [
     {
-      "name": "Get current key rate",
+      "name": "Get current key rate from CBR",
       "method": "GET",
       "path": "/",
       "expectedStatus": 200,
-      "expectedBodyKeys": ["keyRate", "date", "source"]
+      "expectedBody": {"source": "cbr.ru"},
+      "bodyMatcher": "partial"
     }
   ]
 }

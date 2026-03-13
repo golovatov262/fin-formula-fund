@@ -10,16 +10,24 @@ export default function Calculator() {
   const [months, setMonths] = useState(6);
   const [income, setIncome] = useState(0);
   const [totalReturn, setTotalReturn] = useState(0);
-  const [keyRate, setKeyRate] = useState(16);
+  const [keyRate, setKeyRate] = useState<number | null>(null);
+  const [rateDate, setRateDate] = useState('');
 
   useEffect(() => {
     fetch('https://functions.poehali.dev/ccf7de98-a7e2-4192-b19d-9d93fe63324e')
       .then(res => res.json())
-      .then(data => setKeyRate(data.keyRate))
-      .catch(() => setKeyRate(16));
+      .then(data => {
+        setKeyRate(data.keyRate);
+        if (data.date) {
+          const d = new Date(data.date);
+          setRateDate(d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }));
+        }
+      })
+      .catch(() => setKeyRate(15.5));
   }, []);
 
   useEffect(() => {
+    if (keyRate === null) return;
     const rate = keyRate + 2;
     const monthlyRate = rate / 12 / 100;
     const calculatedIncome = amount * monthlyRate * months;
@@ -37,7 +45,7 @@ export default function Calculator() {
     }).format(num);
   };
 
-  const currentRate = keyRate + 2;
+  const currentRate = keyRate !== null ? keyRate + 2 : null;
 
   return (
     <Card className="max-w-2xl mx-auto hover:shadow-2xl transition-shadow">
@@ -54,10 +62,18 @@ export default function Calculator() {
         <div className="bg-primary/10 rounded-lg p-2 md:p-3 mt-3 md:mt-4">
           <div className="flex items-center justify-between flex-wrap gap-1">
             <span className="text-xs md:text-sm text-muted-foreground">Ставка размещения:</span>
-            <span className="text-base md:text-lg font-bold text-primary">{currentRate}% годовых</span>
+            {currentRate !== null ? (
+              <span className="text-base md:text-lg font-bold text-primary">{currentRate}% годовых</span>
+            ) : (
+              <span className="text-sm text-muted-foreground animate-pulse">Загрузка...</span>
+            )}
           </div>
           <div className="text-xs text-muted-foreground mt-0.5 md:mt-1">
-            Ключевая ставка ЦБ ({keyRate}%) + 2%
+            {keyRate !== null ? (
+              <>Ключевая ставка ЦБ ({keyRate}%) + 2%{rateDate ? ` · актуально на ${rateDate}` : ''}</>
+            ) : (
+              'Получаем актуальную ставку от ЦБ РФ...'
+            )}
           </div>
         </div>
       </CardHeader>

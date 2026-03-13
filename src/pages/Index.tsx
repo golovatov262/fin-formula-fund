@@ -5,6 +5,7 @@ import HeroSection from '@/components/sections/HeroSection';
 import AboutAndServices from '@/components/sections/AboutAndServices';
 import AdvantagesAndMembership from '@/components/sections/AdvantagesAndMembership';
 import TestimonialsAndContact from '@/components/sections/TestimonialsAndContact';
+import DocumentsSection from '@/components/sections/DocumentsSection';
 
 export default function Index() {
   return (
@@ -25,6 +26,7 @@ export default function Index() {
             <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Услуги</a>
             <a href="#advantages" className="text-sm font-medium hover:text-primary transition-colors">Преимущества</a>
             <a href="#membership" className="text-sm font-medium hover:text-primary transition-colors">Членство</a>
+            <a href="#documents" className="text-sm font-medium hover:text-primary transition-colors">Документы</a>
             <a href="#faq" className="text-sm font-medium hover:text-primary transition-colors">FAQ</a>
             <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
           </nav>
@@ -42,6 +44,7 @@ export default function Index() {
       <HeroSection />
       <AboutAndServices />
       <AdvantagesAndMembership />
+      <DocumentsSection />
       <TestimonialsAndContact />
     </div>
   );

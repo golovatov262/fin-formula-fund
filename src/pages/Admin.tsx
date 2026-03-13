@@ -31,7 +31,7 @@ export default function Admin() {
 
   const loadDocuments = async (t: string) => {
     const res = await fetch(DOCS_URL, {
-      headers: { Authorization: `Bearer ${t}` },
+      headers: { 'X-Authorization': `Bearer ${t}` },
     });
     const data = await res.json();
     setDocuments(data.documents || []);
@@ -40,7 +40,7 @@ export default function Admin() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await fetch(DOCS_URL, {
-      headers: { Authorization: `Bearer ${password}` },
+      headers: { 'X-Authorization': `Bearer ${password}` },
     });
     if (res.ok) {
       setToken(password);
@@ -62,7 +62,7 @@ export default function Admin() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          'X-Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({ slug, file: base64 }),
       });
@@ -85,7 +85,7 @@ export default function Admin() {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
+        'X-Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify({ slug }),
     });

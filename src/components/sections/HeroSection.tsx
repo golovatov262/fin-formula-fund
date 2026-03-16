@@ -4,10 +4,10 @@ import Icon from '@/components/ui/icon';
 import AnimatedCounter from '@/components/AnimatedCounter';
 
 const stats = [
-  { value: 2016, label: 'Год основания', isYear: true },
-  { value: 100, label: 'Активы фонда', suffix: '+ млн', decimals: 0 },
-  { value: 50, label: 'Участников', suffix: '+', decimals: 0 },
-  { value: 98, label: 'Удовлетворенность', suffix: '%', decimals: 0 }
+  { value: 2016, label: 'Работаем с', isYear: true },
+  { value: 100, label: 'Активы фонда, млн ₽', suffix: '+', decimals: 0 },
+  { value: 50, label: 'Участников-юрлиц', suffix: '+', decimals: 0 },
+  { value: 24, label: 'Решение за, часа', suffix: '', decimals: 0 }
 ];
 
 export default function HeroSection() {
@@ -17,11 +17,11 @@ export default function HeroSection() {
       <div className="container mx-auto relative">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
-            Финансирование бизнеса{' '}
-            <span className="text-gradient">без границ</span>
+            Доход выше банка —{' '}
+            <span className="text-gradient">финансирование без залога</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2">
-            КПК "ФИН ФОРМУЛА" — объединение юридических лиц для взаимного финансирования и развития бизнеса с 2016 года
+            Закрытый кооператив юридических лиц: размещайте свободные средства под Ключевую ставку&nbsp;+&nbsp;2% или получайте финансирование на бизнес за 24 часа — без банковской бюрократии
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
             <Button size="lg" className="gradient-purple-blue text-white w-full sm:w-auto" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>

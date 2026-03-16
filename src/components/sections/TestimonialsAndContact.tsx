@@ -96,7 +96,16 @@ export default function TestimonialsAndContact() {
           <div className="mt-8 flex gap-3 items-start rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-4">
             <Icon name="ShieldCheck" size={20} className="text-emerald-600 flex-shrink-0 mt-0.5" />
             <p className="text-sm md:text-base text-emerald-800 leading-snug">
-              <span className="font-bold">Важно:</span> паевой взнос — это не безвозвратный платёж. При выходе из кооператива ваши средства возвращаются в полном объёме. Механизм закреплён уставом и регулируется законодательством о кредитной кооперации.
+              <span className="font-bold">Важно:</span> паевой взнос — это не безвозвратный платёж. При выходе из кооператива ваши средства возвращаются в полном объёме. Механизм закреплён уставом и регулируется{' '}
+              <a
+                href="https://www.consultant.ru/document/cons_doc_LAW_89568/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 font-semibold hover:text-emerald-900 transition-colors"
+              >
+                Федеральным законом №190-ФЗ «О кредитной кооперации»
+              </a>
+              .
             </p>
           </div>
         </div>

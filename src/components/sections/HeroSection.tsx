@@ -4,10 +4,10 @@ import Icon from '@/components/ui/icon';
 import AnimatedCounter from '@/components/AnimatedCounter';
 
 const stats = [
-  { value: 2016, label: 'Работаем с', isYear: true },
-  { value: 100, label: 'Активы фонда, млн ₽', suffix: '+', decimals: 0 },
-  { value: 50, label: 'Участников-юрлиц', suffix: '+', decimals: 0 },
-  { value: 24, label: 'Решение за, часа', suffix: '', decimals: 0 }
+  { value: 2016, label: 'Год основания', isYear: true },
+  { value: 100, label: 'Активы фонда', suffix: '+ млн', decimals: 0 },
+  { value: 50, label: 'Участников', suffix: '+', decimals: 0 },
+  { value: 98, label: 'Удовлетворенность', suffix: '%', decimals: 0 }
 ];
 
 export default function HeroSection() {

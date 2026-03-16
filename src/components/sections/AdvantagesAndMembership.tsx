@@ -1,39 +1,102 @@
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
-const advantages = [
-  { icon: 'Users', title: 'Объединение юр. лиц', text: 'Формирование фонда за счет паевых взносов участников' },
-  { icon: 'Shield', title: 'Независимость', text: 'Финансирование без условий и ограничений банков' },
-  { icon: 'Percent', title: 'Выгодные ставки', text: 'Доходность выше банковских депозитов' },
-  { icon: 'Vote', title: 'Участие в управлении', text: 'Каждый член может влиять на решения фонда' },
-  { icon: 'FileText', title: 'Прозрачность', text: 'Полная отчетность и открытость операций' },
-  { icon: 'Zap', title: 'Быстрые решения', text: 'Оперативное рассмотрение заявок' }
+const investorAdvantages = [
+  { icon: 'Percent', title: 'Доходность: Ключевая ставка + 2%', text: 'Прозрачное ценообразование — ставка привязана к ключевой ЦБ, а не устанавливается произвольно' },
+  { icon: 'ShieldCheck', title: 'Защищённость капитала', text: 'Средства работают внутри кооператива среди проверенных участников, а не уходят на внешний рынок' },
+  { icon: 'CalendarDays', title: 'Гибкие сроки размещения', text: 'От 3 месяцев до 3 лет — выбирайте горизонт под свои задачи' },
+];
+
+const borrowerAdvantages = [
+  { icon: 'Zap', title: 'Решение за 24 часа', text: 'Без затяжных банковских процедур — ответ по заявке на следующий рабочий день' },
+  { icon: 'Ban', title: 'Без залога', text: 'Для членов кооператива финансирование доступно без обеспечения — главное конкурентное преимущество перед банками' },
+  { icon: 'Shield', title: 'Без банковских ковенантов', text: 'Никаких жёстких ограничений на деятельность компании, обязательных оборотов по счёту и навязанных продуктов' },
+];
+
+const governanceAdvantages = [
+  { icon: 'Vote', title: 'Один член — один голос', text: 'Независимо от размера взноса каждый участник имеет равный голос на собрании' },
+  { icon: 'Settings', title: 'Влияние на кредитную политику', text: 'Члены кооператива участвуют в утверждении ставок, лимитов и правил финансирования фонда' },
+  { icon: 'Users', title: 'Закрытый клуб партнёров', text: 'Только юридические лица — деловая среда без розничных заёмщиков и случайных участников' },
 ];
 
 export default function AdvantagesAndMembership() {
   return (
     <>
       <section id="advantages" className="py-12 md:py-20 px-4 bg-muted/30">
-        <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
+        <div className="container mx-auto max-w-6xl">
+          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-14">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Преимущества фонда</h2>
             <p className="text-base md:text-lg text-muted-foreground px-4">
-              Почему стоит выбрать КПК "ФИН ФОРМУЛА"
+              Конкретные выгоды для вашего бизнеса — в зависимости от роли в кооперативе
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {advantages.map((adv, idx) => (
-              <Card key={idx} className="text-center hover:shadow-xl transition-all hover:-translate-y-1 group">
-                <CardContent className="pt-6 md:pt-8 pb-6">
-                  <div className="w-12 h-12 md:w-16 md:h-16 gradient-purple-blue rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                    <Icon name={adv.icon as string} size={24} className="text-white" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2">{adv.title}</h3>
-                  <p className="text-sm md:text-base text-muted-foreground">{adv.text}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="space-y-10 md:space-y-14">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-9 h-9 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name="TrendingUp" size={18} className="text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Для инвесторов</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                {investorAdvantages.map((adv, idx) => (
+                  <Card key={idx} className="hover:shadow-xl transition-all hover:-translate-y-1 group">
+                    <CardContent className="pt-5 md:pt-6 pb-5">
+                      <div className="w-11 h-11 gradient-purple-blue rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Icon name={adv.icon as string} size={20} className="text-white" />
+                      </div>
+                      <h4 className="text-base md:text-lg font-bold mb-1.5">{adv.title}</h4>
+                      <p className="text-sm text-muted-foreground">{adv.text}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-9 h-9 gradient-orange-pink rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name="Banknote" size={18} className="text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Для заёмщиков</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                {borrowerAdvantages.map((adv, idx) => (
+                  <Card key={idx} className="hover:shadow-xl transition-all hover:-translate-y-1 group">
+                    <CardContent className="pt-5 md:pt-6 pb-5">
+                      <div className="w-11 h-11 gradient-orange-pink rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Icon name={adv.icon as string} size={20} className="text-white" />
+                      </div>
+                      <h4 className="text-base md:text-lg font-bold mb-1.5">{adv.title}</h4>
+                      <p className="text-sm text-muted-foreground">{adv.text}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-9 h-9 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name="Crown" size={18} className="text-white" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold">Участие в управлении</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                {governanceAdvantages.map((adv, idx) => (
+                  <Card key={idx} className="hover:shadow-xl transition-all hover:-translate-y-1 group">
+                    <CardContent className="pt-5 md:pt-6 pb-5">
+                      <div className="w-11 h-11 bg-slate-700 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <Icon name={adv.icon as string} size={20} className="text-white" />
+                      </div>
+                      <h4 className="text-base md:text-lg font-bold mb-1.5">{adv.title}</h4>
+                      <p className="text-sm text-muted-foreground">{adv.text}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

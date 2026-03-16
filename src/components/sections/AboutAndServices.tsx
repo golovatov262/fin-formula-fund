@@ -4,22 +4,31 @@ import Icon from '@/components/ui/icon';
 import Calculator from '@/components/Calculator';
 import LoanCalculator from '@/components/LoanCalculator';
 
-const services = [
-  {
-    icon: 'TrendingUp',
-    title: 'Разместить средства',
-    description: 'Получайте доход выше банковских депозитов при размещении свободных денежных средств',
-    features: ['Высокие ставки', 'Прозрачность условий', 'Гибкие сроки'],
-    gradient: 'gradient-purple-blue'
-  },
-  {
-    icon: 'Wallet',
-    title: 'Получить финансирование',
-    description: 'Финансирование бизнеса без зависимости от банковских кредитов и их условий',
-    features: ['Быстрое решение', 'Лояльные условия', 'Без залогов'],
-    gradient: 'gradient-orange-pink'
-  }
-];
+const investorService = {
+  icon: 'TrendingUp',
+  gradient: 'gradient-purple-blue',
+  title: 'Для инвесторов — разместить средства',
+  description: 'Получайте стабильный доход от размещения свободных средств компании по прозрачной формуле',
+  features: [
+    { icon: 'Percent', text: 'Ставка: Ключевая ЦБ + 2% — выше банковских депозитов' },
+    { icon: 'CalendarDays', text: 'Гибкие сроки: от 3 месяцев до 3 лет' },
+    { icon: 'ShieldCheck', text: 'Капитал работает внутри кооператива, среди проверенных участников' },
+    { icon: 'FileText', text: 'Полная прозрачность: договор, отчётность, устав' },
+  ]
+};
+
+const borrowerService = {
+  icon: 'Wallet',
+  gradient: 'gradient-orange-pink',
+  title: 'Для заёмщиков — получить финансирование',
+  description: 'Финансирование бизнеса без банковской бюрократии, залогов и жёстких ковенантов',
+  features: [
+    { icon: 'Zap', text: 'Решение за 24 часа после подачи заявки' },
+    { icon: 'Ban', text: 'Без залога — для членов кооператива' },
+    { icon: 'Shield', text: 'Без ковенантов: никаких ограничений на деятельность компании' },
+    { icon: 'Users', text: 'Работаем с сегментами, которым отказывают банки' },
+  ]
+};
 
 export default function AboutAndServices() {
   return (
@@ -75,7 +84,7 @@ export default function AboutAndServices() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 md:gap-8 max-w-6xl mx-auto mb-8 md:mb-16">
-            {services.map((service, idx) => (
+            {[investorService, borrowerService].map((service, idx) => (
               <Card key={idx} className="overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2">
                 <div className={`h-2 ${service.gradient}`}></div>
                 <CardHeader>
@@ -88,14 +97,16 @@ export default function AboutAndServices() {
                 <CardContent>
                   <ul className="space-y-2 md:space-y-3">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <Icon name="CheckCircle2" size={18} className="text-primary" />
-                        <span className="text-sm md:text-base">{feature}</span>
+                      <li key={i} className="flex items-start gap-2.5">
+                        <div className={`w-7 h-7 ${service.gradient} rounded-md flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                          <Icon name={feature.icon as string} size={14} className="text-white" />
+                        </div>
+                        <span className="text-sm md:text-base">{feature.text}</span>
                       </li>
                     ))}
                   </ul>
                   <Button className={`w-full mt-4 md:mt-6 ${service.gradient} text-white`} onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                    Подробнее
+                    Оставить заявку
                   </Button>
                 </CardContent>
               </Card>

@@ -36,9 +36,9 @@ export default function AboutAndServices() {
       <section id="about" className="py-12 md:py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">О фонде</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Альтернатива банку — внутри вашего бизнес-сообщества</h2>
             <p className="text-base md:text-lg text-muted-foreground px-4">
-              Мы создаем условия для роста вашего бизнеса через взаимное финансирование
+              КПК «ФИН ФОРМУЛА» — закрытый кооператив юридических лиц: одни участники размещают свободные средства под доходность выше рынка, другие получают финансирование без залогов и бюрократии
             </p>
           </div>
 
@@ -48,11 +48,11 @@ export default function AboutAndServices() {
                 <div className="w-12 h-12 gradient-purple-blue rounded-lg flex items-center justify-center mb-4">
                   <Icon name="Building2" size={24} className="text-white" />
                 </div>
-                <CardTitle>Что такое КПК?</CardTitle>
+                <CardTitle>Как это работает?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Кредитный потребительский кооператив — это объединение юридических лиц, которые формируют фонд за счет паевых взносов. Члены кооператива могут получать финансирование на развитие бизнеса без зависимости от банковских условий.
+                  Участники вносят паевые взносы и формируют общий фонд. Из этого фонда выдаётся финансирование другим членам кооператива — быстро, без залогов и банковских условий. Взнос возвращается при выходе в полном объёме.
                 </p>
               </CardContent>
             </Card>
@@ -62,11 +62,11 @@ export default function AboutAndServices() {
                 <div className="w-12 h-12 gradient-orange-pink rounded-lg flex items-center justify-center mb-4">
                   <Icon name="Target" size={24} className="text-white" />
                 </div>
-                <CardTitle>Наша миссия</CardTitle>
+                <CardTitle>Почему это выгодно?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Обеспечить доступное финансирование для развития бизнеса и создать выгодные условия для размещения свободных средств участников с гарантией прозрачности и надежности.
+                  Инвестор получает доходность выше банка без риска внешнего рынка. Заёмщик — деньги на развитие без залога и за 24 часа. Оба управляют фондом на равных правах. Работаем с 2016 года, активы — более 100 млн рублей.
                 </p>
               </CardContent>
             </Card>

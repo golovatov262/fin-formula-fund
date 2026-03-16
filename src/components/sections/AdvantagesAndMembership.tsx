@@ -27,7 +27,7 @@ export default function AdvantagesAndMembership() {
               <Card key={idx} className="text-center hover:shadow-xl transition-all hover:-translate-y-1 group">
                 <CardContent className="pt-6 md:pt-8 pb-6">
                   <div className="w-12 h-12 md:w-16 md:h-16 gradient-purple-blue rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                    <Icon name={adv.icon as any} size={24} className="text-white" />
+                    <Icon name={adv.icon as string} size={24} className="text-white" />
                   </div>
                   <h3 className="text-lg md:text-xl font-bold mb-2">{adv.title}</h3>
                   <p className="text-sm md:text-base text-muted-foreground">{adv.text}</p>
@@ -56,7 +56,11 @@ export default function AdvantagesAndMembership() {
                   </div>
                   <div>
                     <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Как стать членом</h3>
-                    <p className="text-sm md:text-base text-muted-foreground">Для вступления в кооператив необходимо внести паевой взнос, который формирует фонд финансирования. Размер взноса зависит от активов организации его минимальная величина составляет 30 000 руб. внесение допускается частями и самое важное, что эти средства возвращаются при выходе из фонда.</p>
+                    <p className="text-sm md:text-base text-muted-foreground">Для вступления в кооператив необходимо внести паевой взнос, который формирует фонд финансирования. Размер взноса зависит от активов организации, его минимальная величина составляет 30 000 руб. Внесение допускается частями.</p>
+                    <div className="mt-3 flex gap-2 items-start rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3">
+                      <Icon name="ShieldCheck" size={18} className="text-emerald-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-emerald-800 font-medium leading-snug"><span className="font-bold">Важно:</span> ваши средства возвращаются при выходе из кооператива — паевой взнос не является безвозвратным платежом или взносом в уставный капитал.</p>
+                    </div>
                   </div>
                 </div>
 

@@ -17,8 +17,8 @@ export default function HeroSection() {
       <div className="container mx-auto relative">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
-            Доход выше банка —{' '}
-            <span className="text-gradient">финансирование без залога</span>
+            Экосистема взаимного финансирования: от доходных инвестиций до{' '}
+            <span className="text-gradient">беззалоговых займов</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2">
             Закрытый кооператив юридических лиц: размещайте свободные средства под Ключевую ставку&nbsp;+&nbsp;2% или получайте финансирование на бизнес за 24 часа — без банковской бюрократии

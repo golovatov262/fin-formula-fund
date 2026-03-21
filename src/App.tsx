@@ -11,6 +11,14 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const UnderConstruction = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#0f172a', color: '#f1f5f9', textAlign: 'center', padding: '2rem' }}>
+    <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🚧</div>
+    <h1 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1rem' }}>Сайт в разработке</h1>
+    <p style={{ fontSize: '1.1rem', color: '#94a3b8', maxWidth: '400px' }}>Извините, сайт находится в разработке. Скоро вернёмся — совсем немного осталось!</p>
+  </div>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -18,11 +26,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="*" element={<UnderConstruction />} />
           <Route path="/admin" element={<Admin />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

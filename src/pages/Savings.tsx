@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Calculator from '@/components/Calculator';
 import { Card, CardContent } from '@/components/ui/card';
@@ -5,40 +6,74 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import MembershipForm from '@/components/MembershipForm';
 
-const programs = [
-  {
-    gradient: 'gradient-purple-blue',
-    bgLight: 'bg-primary/5',
-    title: 'ДИНАМИЧНЫЙ ДОХОД',
-    subtitle: 'Фиксированные сроки от 3 до 18 месяцев',
-    rate: null,
-    rateLabel: 'КС ЦБ + до 3%',
-    features: [
-      { icon: 'CalendarDays', text: 'Срок: 3, 6, 12 или 18 месяцев' },
-      { icon: 'Percent', text: 'Ставка: Ключевая ЦБ + бонус по сроку' },
-      { icon: 'BadgeCheck', text: '+0,5% за выплату процентов в конце срока' },
-      { icon: 'ShieldCheck', text: 'Пай возвращается при выходе в полном объёме' },
-    ]
-  },
-  {
-    gradient: 'bg-gradient-to-r from-emerald-500 to-teal-500',
-    bgLight: 'bg-emerald-50 dark:bg-emerald-950/20',
-    title: 'ОБОРОТНЫЙ ДОХОД',
-    subtitle: 'Краткосрочное размещение 7–30 дней',
-    rate: '14%',
-    rateLabel: null,
-    features: [
-      { icon: 'RefreshCw', text: 'Срок: от 7 до 30 дней с автопролонгацией' },
-      { icon: 'BadgeRussianRuble', text: 'Мин. сумма от 500 000 ₽' },
-      { icon: 'Calculator', text: 'Начисление ежедневно на фактический остаток' },
-      { icon: 'ArrowDownToLine', text: 'Вывод в любой рабочий день без потери %' },
-      { icon: 'PlusCircle', text: 'Пополнение в любое время' },
-      { icon: 'ShieldCheck', text: 'Защита от блокировок' },
-    ]
-  }
-];
-
 export default function Savings() {
+  const [keyRate, setKeyRate] = useState<number | null>(null);
+  const [rateDate, setRateDate] = useState('');
+
+  useEffect(() => {
+    fetch('https://functions.poehali.dev/ccf7de98-a7e2-4192-b19d-9d93fe63324e', { cache: 'no-store' })
+      .then(r => r.json())
+      .then(data => {
+        setKeyRate(data.keyRate);
+        if (data.date) {
+          const d = new Date(data.date);
+          setRateDate(d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }));
+        }
+      })
+      .catch(() => setKeyRate(21));
+  }, []);
+
+  // Максимальная ставка по Динамичному доходу (18 мес. + выплата в конце)
+  const maxRate = keyRate !== null ? keyRate + 3 + 0.5 : null;
+
+  const programs = [
+    {
+      gradient: 'gradient-purple-blue',
+      bgLight: 'bg-primary/5',
+      title: 'ДИНАМИЧНЫЙ ДОХОД',
+      subtitle: 'Фиксированные сроки от 3 до 18 месяцев',
+      rateNode: maxRate !== null ? (
+        <div className="flex items-baseline gap-2 mb-5">
+          <span className="text-5xl font-black text-primary leading-none">до {maxRate}%</span>
+          <span className="text-lg font-semibold text-muted-foreground">годовых</span>
+        </div>
+      ) : (
+        <div className="flex items-baseline gap-2 mb-5">
+          <span className="text-5xl font-black text-primary/40 leading-none animate-pulse">—%</span>
+          <span className="text-lg font-semibold text-muted-foreground">годовых</span>
+        </div>
+      ),
+      rateHint: keyRate !== null ? `КС ЦБ (${keyRate}%) + до 3% + 0,5% бонус · актуально на ${rateDate}` : 'Загружаем актуальную ставку ЦБ...',
+      features: [
+        { icon: 'CalendarDays', text: 'Срок: 3, 6, 12 или 18 месяцев' },
+        { icon: 'Percent', text: 'Ставка: КС ЦБ + бонус в зависимости от срока' },
+        { icon: 'BadgeCheck', text: '+0,5% за выплату процентов в конце срока' },
+        { icon: 'ShieldCheck', text: 'Пай возвращается при выходе в полном объёме' },
+      ]
+    },
+    {
+      gradient: 'bg-gradient-to-r from-emerald-500 to-teal-500',
+      bgLight: 'bg-emerald-50 dark:bg-emerald-950/20',
+      title: 'ОБОРОТНЫЙ ДОХОД',
+      subtitle: 'Краткосрочное размещение 7–30 дней',
+      rateNode: (
+        <div className="flex items-baseline gap-2 mb-5">
+          <span className="text-5xl font-black text-emerald-500 leading-none">14%</span>
+          <span className="text-lg font-semibold text-muted-foreground">годовых</span>
+        </div>
+      ),
+      rateHint: 'Фиксированная ставка · начисление ежедневно на фактический остаток',
+      features: [
+        { icon: 'RefreshCw', text: 'Срок: от 7 до 30 дней с автопролонгацией' },
+        { icon: 'BadgeRussianRuble', text: 'Мин. сумма от 500 000 ₽' },
+        { icon: 'Calculator', text: 'Начисление ежедневно на фактический остаток' },
+        { icon: 'ArrowDownToLine', text: 'Вывод в любой рабочий день без потери %' },
+        { icon: 'PlusCircle', text: 'Пополнение в любое время' },
+        { icon: 'ShieldCheck', text: 'Защита от блокировок' },
+      ]
+    }
+  ];
+
   return (
     <Layout>
       {/* Hero */}
@@ -52,7 +87,7 @@ export default function Savings() {
             Размещайте средства <span className="text-gradient">выгоднее банка</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Два продукта для разных задач: долгосрочные накопления по ставке ЦБ+3% или краткосрочный оборотный доход с ежедневным начислением и свободным выводом
+            Два продукта для разных задач: долгосрочные накопления по высокой ставке или краткосрочный оборотный доход с ежедневным начислением и свободным выводом
           </p>
         </div>
       </section>
@@ -69,17 +104,8 @@ export default function Savings() {
                     {p.subtitle}
                   </div>
                   <h2 className="text-2xl font-black tracking-wide mb-3">{p.title}</h2>
-                  {p.rate ? (
-                    <div className="flex items-baseline gap-2 mb-5">
-                      <span className="text-5xl font-black text-emerald-500 leading-none">{p.rate}</span>
-                      <span className="text-lg font-semibold text-muted-foreground">годовых</span>
-                    </div>
-                  ) : (
-                    <div className="mb-5">
-                      <div className="text-4xl font-black text-primary leading-none mb-1">{p.rateLabel}</div>
-                      <div className="text-sm text-muted-foreground">актуальная ставка привязана к ключевой ЦБ</div>
-                    </div>
-                  )}
+                  {p.rateNode}
+                  <div className="text-xs text-muted-foreground mb-5 -mt-3">{p.rateHint}</div>
                   <ul className="space-y-2.5">
                     {p.features.map((f, j) => (
                       <li key={j} className="flex items-start gap-2.5">

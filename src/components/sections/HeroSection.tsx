@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import { Link } from 'react-router-dom';
 
 const stats = [
   { value: 2016, label: 'Год основания', isYear: true },
@@ -20,18 +21,24 @@ export default function HeroSection() {
             Экосистема взаимного финансирования: от доходных инвестиций до{' '}
             <span className="text-gradient">беззалоговых займов</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2">Закрытый кооператив юридических лиц: размещайте свободные средства под Ключевую ставку + 3% или получайте финансирование на бизнес за 24 часа — без банковской бюрократии</p>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2">
+            Закрытый кооператив юридических лиц: размещайте свободные средства под Ключевую ставку + 3% или получайте финансирование на бизнес за 24 часа без банковской бюрократии
+          </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
-            <Button size="lg" className="gradient-purple-blue text-white w-full sm:w-auto" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
-              <Icon name="TrendingUp" size={20} />
-              <span className="hidden sm:inline">Разместить средства</span>
-              <span className="sm:hidden">Разместить</span>
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 w-full sm:w-auto" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}>
-              <Icon name="Wallet" size={20} />
-              <span className="hidden sm:inline">Получить финансирование</span>
-              <span className="sm:hidden">Финансирование</span>
-            </Button>
+            <Link to="/savings" className="w-full sm:w-auto">
+              <Button size="lg" className="gradient-purple-blue text-white w-full">
+                <Icon name="TrendingUp" size={20} />
+                <span className="hidden sm:inline">Разместить средства</span>
+                <span className="sm:hidden">Разместить</span>
+              </Button>
+            </Link>
+            <Link to="/loans" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="border-2 w-full">
+                <Icon name="Wallet" size={20} />
+                <span className="hidden sm:inline">Получить финансирование</span>
+                <span className="sm:hidden">Финансирование</span>
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -43,10 +50,10 @@ export default function HeroSection() {
                   {stat.isYear ? (
                     stat.value
                   ) : (
-                    <AnimatedCounter 
-                      end={stat.value} 
-                      suffix={stat.suffix || ''} 
-                      decimals={stat.decimals || 0} 
+                    <AnimatedCounter
+                      end={stat.value}
+                      suffix={stat.suffix || ''}
+                      decimals={stat.decimals || 0}
                     />
                   )}
                 </div>

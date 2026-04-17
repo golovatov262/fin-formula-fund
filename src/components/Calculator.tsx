@@ -92,7 +92,7 @@ export default function Calculator() {
             }`}
           >
             <Icon name="TrendingUp" size={14} />
-            Сберегательная
+            Динамичный доход
           </button>
           <button
             onClick={() => setProgram('turnover')}

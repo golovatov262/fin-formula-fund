@@ -9,9 +9,10 @@ const programs = [
   {
     gradient: 'gradient-purple-blue',
     bgLight: 'bg-primary/5',
-    title: 'Сберегательная программа',
+    title: 'ДИНАМИЧНЫЙ ДОХОД',
     subtitle: 'Фиксированные сроки от 3 до 18 месяцев',
-    rate: 'КС ЦБ + до 3%',
+    rate: null,
+    rateLabel: 'КС ЦБ + до 3%',
     features: [
       { icon: 'CalendarDays', text: 'Срок: 3, 6, 12 или 18 месяцев' },
       { icon: 'Percent', text: 'Ставка: Ключевая ЦБ + бонус по сроку' },
@@ -22,9 +23,10 @@ const programs = [
   {
     gradient: 'bg-gradient-to-r from-emerald-500 to-teal-500',
     bgLight: 'bg-emerald-50 dark:bg-emerald-950/20',
-    title: 'Оборотный доход',
+    title: 'ОБОРОТНЫЙ ДОХОД',
     subtitle: 'Краткосрочное размещение 7–30 дней',
-    rate: '14% годовых',
+    rate: '14%',
+    rateLabel: null,
     features: [
       { icon: 'RefreshCw', text: 'Срок: от 7 до 30 дней с автопролонгацией' },
       { icon: 'BadgeRussianRuble', text: 'Мин. сумма от 500 000 ₽' },
@@ -66,13 +68,18 @@ export default function Savings() {
                   <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${p.bgLight}`}>
                     {p.subtitle}
                   </div>
-                  <div className="flex items-end justify-between mb-5">
-                    <h2 className="text-xl font-bold">{p.title}</h2>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-primary">{p.rate}</div>
-                      <div className="text-xs text-muted-foreground">годовых</div>
+                  <h2 className="text-2xl font-black tracking-wide mb-3">{p.title}</h2>
+                  {p.rate ? (
+                    <div className="flex items-baseline gap-2 mb-5">
+                      <span className="text-5xl font-black text-emerald-500 leading-none">{p.rate}</span>
+                      <span className="text-lg font-semibold text-muted-foreground">годовых</span>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="mb-5">
+                      <div className="text-4xl font-black text-primary leading-none mb-1">{p.rateLabel}</div>
+                      <div className="text-sm text-muted-foreground">актуальная ставка привязана к ключевой ЦБ</div>
+                    </div>
+                  )}
                   <ul className="space-y-2.5">
                     {p.features.map((f, j) => (
                       <li key={j} className="flex items-start gap-2.5">

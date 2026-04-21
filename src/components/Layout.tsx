@@ -36,8 +36,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (location.hash) scrollToAnchor(location.hash);
-  }, [location]);
+    if (location.hash) {
+      scrollToAnchor(location.hash);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {

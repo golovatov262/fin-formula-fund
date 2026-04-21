@@ -15,9 +15,17 @@ const TERMS = [
 const END_OF_TERM_BONUS = 0.5;
 const TURNOVER_RATE = 14; // фиксированная ставка для Оборотного дохода
 
-export default function Calculator() {
-  const [program, setProgram] = useState<'savings' | 'turnover'>('savings');
+interface CalculatorProps {
+  initialProgram?: 'savings' | 'turnover';
+}
+
+export default function Calculator({ initialProgram = 'savings' }: CalculatorProps) {
+  const [program, setProgram] = useState<'savings' | 'turnover'>(initialProgram);
   const [amount, setAmount] = useState(500000);
+
+  useEffect(() => {
+    setProgram(initialProgram);
+  }, [initialProgram]);
   const [termIndex, setTermIndex] = useState(1);
   const [paymentType, setPaymentType] = useState<'monthly' | 'end'>('monthly');
   // Оборотный доход

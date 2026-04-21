@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Layout from '@/components/Layout';
 import Calculator from '@/components/Calculator';
 import { Card, CardContent } from '@/components/ui/card';
@@ -9,6 +9,15 @@ import MembershipForm from '@/components/MembershipForm';
 export default function Savings() {
   const [keyRate, setKeyRate] = useState<number | null>(null);
   const [rateDate, setRateDate] = useState('');
+  const [calcProgram, setCalcProgram] = useState<'savings' | 'turnover'>('savings');
+  const calcRef = useRef<HTMLDivElement>(null);
+
+  const handleCalculate = (program: 'savings' | 'turnover') => {
+    setCalcProgram(program);
+    setTimeout(() => {
+      calcRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  };
 
   useEffect(() => {
     fetch('https://functions.poehali.dev/ccf7de98-a7e2-4192-b19d-9d93fe63324e', { cache: 'no-store' })
@@ -26,10 +35,22 @@ export default function Savings() {
   // Максимальная ставка по Динамичному доходу (18 мес. + выплата в конце)
   const maxRate = keyRate !== null ? keyRate + 3 + 0.5 : null;
 
-  const programs = [
+  const programs: Array<{
+    key: 'savings' | 'turnover';
+    gradient: string;
+    bgLight: string;
+    title: string;
+    subtitle: string;
+    rateNode: React.ReactNode;
+    rateHint: string;
+    btnColor: string;
+    features: { icon: string; text: string }[];
+  }> = [
     {
+      key: 'savings',
       gradient: 'gradient-purple-blue',
       bgLight: 'bg-primary/5',
+      btnColor: 'gradient-purple-blue',
       title: 'ДИНАМИЧНЫЙ ДОХОД',
       subtitle: 'Фиксированные сроки от 3 до 18 месяцев',
       rateNode: maxRate !== null ? (
@@ -52,8 +73,10 @@ export default function Savings() {
       ]
     },
     {
+      key: 'turnover',
       gradient: 'bg-gradient-to-r from-emerald-500 to-teal-500',
       bgLight: 'bg-emerald-50 dark:bg-emerald-950/20',
+      btnColor: 'bg-gradient-to-r from-emerald-500 to-teal-500',
       title: 'ОБОРОТНЫЙ ДОХОД',
       subtitle: 'Краткосрочное размещение 7–30 дней',
       rateNode: (
@@ -106,7 +129,7 @@ export default function Savings() {
                   <h2 className="text-2xl font-black tracking-wide mb-3">{p.title}</h2>
                   {p.rateNode}
                   <div className="text-xs text-muted-foreground mb-5 -mt-3">{p.rateHint}</div>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-2.5 mb-5">
                     {p.features.map((f, j) => (
                       <li key={j} className="flex items-start gap-2.5">
                         <div className={`w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 mt-0.5 ${p.gradient}`}>
@@ -116,6 +139,13 @@ export default function Savings() {
                       </li>
                     ))}
                   </ul>
+                  <Button
+                    className={`w-full text-white ${p.btnColor}`}
+                    onClick={() => handleCalculate(p.key)}
+                  >
+                    <Icon name="Calculator" size={16} />
+                    Рассчитать доход
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -202,9 +232,9 @@ export default function Savings() {
           </div>
 
           {/* Калькулятор */}
-          <div className="mb-12">
+          <div className="mb-12" ref={calcRef} id="calculator">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Рассчитайте ваш доход</h2>
-            <Calculator />
+            <Calculator initialProgram={calcProgram} />
           </div>
 
           {/* Как это работает */}

@@ -121,7 +121,7 @@ export default function LoanCalculator() {
                   className={`flex items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-xs font-semibold transition-all border-2 ${
                     isActive
                       ? `${c.active} border-transparent shadow-md`
-                      : 'bg-muted/40 text-muted-foreground border-transparent hover:border-muted-foreground/20'
+                      : 'bg-muted/40 text-muted-foreground border-muted-foreground/25 hover:border-muted-foreground/50'
                   }`}
                 >
                   <Icon name={p.icon} size={13} />

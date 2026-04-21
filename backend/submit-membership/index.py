@@ -9,9 +9,10 @@ import urllib.error
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
-    Отправка заявки на членство в КПК через Email и Telegram
-    Принимает: POST запрос с данными формы (inn, phone, fullName, source)
-    Возвращает: HTTP ответ с результатом отправки
+    Отправка заявки на членство в КПК через Email и Telegram.
+    Принимает: POST запрос с данными формы (inn, phone, fullName, source).
+    Опционально: loanProgram, loanAmount, loanMonths — параметры желаемого займа из калькулятора.
+    Возвращает: HTTP ответ с результатом отправки.
     '''
     method: str = event.get('httpMethod', 'GET')
 
@@ -45,6 +46,9 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     kpp: str = body_data.get('kpp', '')
     ogrn: str = body_data.get('ogrn', '')
     source: str = body_data.get('source', 'Не указано')
+    loan_program: str = body_data.get('loanProgram', '')
+    loan_amount: str = body_data.get('loanAmount', '')
+    loan_months: str = body_data.get('loanMonths', '')
 
     if not inn or not phone or not full_name:
         return {
@@ -62,6 +66,16 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     telegram_chat_id = os.environ.get('TELEGRAM_CHAT_ID')
 
     results = {'email': False, 'telegram': False, 'errors': []}
+
+    loan_block_html = ''
+    if loan_program:
+        loan_block_html = f'''
+        <div style="background-color: #fff7ed; border-left: 4px solid #f97316; padding: 16px 20px; border-radius: 6px; margin-top: 16px;">
+            <h3 style="margin: 0 0 12px; color: #c2410c; font-size: 15px;">💰 Параметры желаемого займа</h3>
+            <p style="margin: 6px 0;"><strong>Программа:</strong> {loan_program}</p>
+            {"<p style='margin: 6px 0;'><strong>Сумма:</strong> " + loan_amount + "</p>" if loan_amount else ""}
+            {"<p style='margin: 6px 0;'><strong>Срок:</strong> " + loan_months + "</p>" if loan_months else ""}
+        </div>'''
 
     try:
         msg = MIMEMultipart('alternative')
@@ -93,6 +107,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                     {"<p style='margin: 10px 0;'><strong>Адрес:</strong> " + address + "</p>" if address else ""}
                 </div>
 
+                {loan_block_html}
+
                 <div style="margin-top: 20px; padding: 15px; background-color: #e0e7ff; border-left: 4px solid #6366f1; border-radius: 4px;">
                     <p style="margin: 0; color: #4338ca; font-size: 14px;">
                         <strong>Следующий шаг:</strong> Свяжитесь с клиентом для обсуждения условий вступления и размера паевого взноса.
@@ -118,13 +134,22 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 
     try:
         company_line = f'\n🏢 <b>Компания:</b> {company_name}' if company_name else ''
+        loan_block_tg = ''
+        if loan_program:
+            loan_block_tg = f'\n\n💰 <b>Желаемый займ:</b>'
+            loan_block_tg += f'\n📌 Программа: {loan_program}'
+            if loan_amount:
+                loan_block_tg += f'\n💵 Сумма: {loan_amount}'
+            if loan_months:
+                loan_block_tg += f'\n📅 Срок: {loan_months}'
+
         telegram_message = f'''🆕 <b>Новая заявка на членство</b>
 
 📍 <b>Источник:</b> {source}
 
 👤 <b>ФИО:</b> {full_name}
 📞 <b>Телефон:</b> {phone}
-🔢 <b>ИНН:</b> {inn}{company_line}
+🔢 <b>ИНН:</b> {inn}{company_line}{loan_block_tg}
 
 💡 Свяжитесь с клиентом для обсуждения условий вступления'''
 

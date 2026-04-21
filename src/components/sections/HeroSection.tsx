@@ -13,7 +13,7 @@ const stats = [
 
 export default function HeroSection() {
   return (
-    <section className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 relative overflow-hidden">
+    <section className="pt-16 md:pt-20 pb-12 md:pb-20 px-4 relative overflow-hidden">
       <div className="absolute inset-0 gradient-purple-blue opacity-5"></div>
       <div className="container mx-auto relative">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">

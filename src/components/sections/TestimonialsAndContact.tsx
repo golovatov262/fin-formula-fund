@@ -209,45 +209,6 @@ export default function TestimonialsAndContact() {
         </div>
       </section>
 
-      <footer className="bg-slate-900 text-white py-8 md:py-12 px-4">
-        <div className="container mx-auto">
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-8">
-            <div>
-              <h3 className="font-bold text-lg mb-3 md:mb-4">О нас</h3>
-              <p className="text-sm text-slate-300">
-                КПК "ФИН ФОРМУЛА" — надежный партнер для развития вашего бизнеса с 2016 года.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-bold text-lg mb-3 md:mb-4">Услуги</h3>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li><a href="#services" className="hover:text-white transition-colors">Размещение средств</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Финансирование</a></li>
-                <li><a href="#membership" className="hover:text-white transition-colors">Членство</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold text-lg mb-3 md:mb-4">Информация</h3>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li><a href="#about" className="hover:text-white transition-colors">О фонде</a></li>
-                <li><a href="#advantages" className="hover:text-white transition-colors">Преимущества</a></li>
-                <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold text-lg mb-3 md:mb-4">Контакты</h3>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li>+7 (800) 302-31-82</li>
-                <li>ff@sll-expert.ru</li>
-                <li></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-slate-700 pt-6 md:pt-8 text-center text-sm text-slate-400">
-            <p>© 2024 КПК "ФИН ФОРМУЛА". Все права защищены.</p>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

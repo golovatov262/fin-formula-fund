@@ -84,12 +84,6 @@ const advantages = [
   { icon: 'CalendarClock', title: 'Гибкий график', text: 'Учитываем сезонность бизнеса и кассовые разрывы' },
 ];
 
-const requirements = [
-  'Юридическое лицо или ИП',
-  'Деятельность от 6 месяцев',
-  'Членство в кооперативе',
-  'Базовый пакет документов',
-];
 
 export default function Loans() {
   return (
@@ -133,10 +127,7 @@ export default function Loans() {
                         <Icon name={p.icon} size={22} className="text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <span className={`text-xs font-bold uppercase tracking-wide ${c.tag}`}>Займ {p.num}</span>
-                        </div>
-                        <h3 className="text-lg font-bold leading-tight">«{p.name}»</h3>
+                            <h3 className="text-lg font-bold leading-tight">«{p.name}»</h3>
                         <p className="text-xs text-muted-foreground mt-0.5">{p.tagline}</p>
                       </div>
                     </div>
@@ -201,75 +192,6 @@ export default function Loans() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          {/* Условия + Требования */}
-          <div className="grid md:grid-cols-2 gap-6 mb-14">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 gradient-orange-pink rounded-lg flex items-center justify-center">
-                    <Icon name="FileText" size={20} className="text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold">Условия финансирования</h3>
-                </div>
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Сумма</span>
-                    <span className="font-semibold">от 50 000 до 10 000 000 ₽</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Срок</span>
-                    <span className="font-semibold">от 1 до 60 месяцев</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Ставка</span>
-                    <span className="font-semibold">Ключевая ЦБ + 10%</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Залог</span>
-                    <span className="font-semibold text-emerald-600">Не требуется</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b">
-                    <span className="text-muted-foreground">Решение</span>
-                    <span className="font-semibold">24 часа</span>
-                  </div>
-                  <div className="flex justify-between py-2">
-                    <span className="text-muted-foreground">График платежей</span>
-                    <span className="font-semibold">Индивидуальный</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 gradient-purple-blue rounded-lg flex items-center justify-center">
-                    <Icon name="ClipboardList" size={20} className="text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold">Требования к заёмщику</h3>
-                </div>
-                <ul className="space-y-3">
-                  {requirements.map((r, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm">
-                      <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Icon name="Check" size={13} className="text-emerald-600" />
-                      </div>
-                      {r}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800">
-                  <div className="flex gap-2">
-                    <Icon name="Info" size={16} className="text-amber-600 flex-shrink-0 mt-0.5" />
-                    <p className="text-xs text-amber-900 dark:text-amber-100">
-                      Условия финансирования обсуждаются индивидуально. Для членов кооператива предусмотрены льготные условия.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Калькулятор */}

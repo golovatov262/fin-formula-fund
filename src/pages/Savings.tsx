@@ -259,7 +259,7 @@ export default function Savings() {
           </div>
 
           <div className="text-center">
-            <MembershipForm>
+            <MembershipForm source="Страница «Сбережения» — кнопка «Оставить заявку» (нижний блок)">
               <Button size="lg" className="gradient-purple-blue text-white px-10">
                 <Icon name="UserPlus" size={18} />
                 Оставить заявку

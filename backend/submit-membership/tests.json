@@ -1,23 +1,40 @@
 {
   "tests": [
     {
-      "name": "Отправка заявки с корректными данными",
+      "name": "Тест: заявка с источником — Главная страница",
       "method": "POST",
       "path": "/",
       "body": {
-        "inn": "1234567890",
+        "inn": "7743013902",
         "phone": "+7 (999) 123-45-67",
-        "fullName": "Иванов Иван Иванович"
+        "fullName": "Иванов Иван Иванович",
+        "companyName": "ООО Тест",
+        "source": "Главная страница — кнопка «Стать членом кооператива»"
       },
       "expectedStatus": 200,
       "expectedBody": {
-        "success": true,
-        "message": "string"
+        "success": true
       },
       "bodyMatcher": "partial"
     },
     {
-      "name": "Отправка без обязательных полей",
+      "name": "Тест: заявка с источником — Страница Займы",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "inn": "7743013902",
+        "phone": "+7 (999) 987-65-43",
+        "fullName": "Петров Пётр Петрович",
+        "source": "Страница «Займы» — кнопка «Получить финансирование» (Hero)"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Тест: заявка без обязательных полей",
       "method": "POST",
       "path": "/",
       "body": {

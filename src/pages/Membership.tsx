@@ -34,7 +34,7 @@ export default function Membership() {
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Кооператив юридических лиц — равные права для всех участников. Паевой взнос возвращается при выходе в полном объёме
           </p>
-          <MembershipForm>
+          <MembershipForm source="Страница «Членство» — кнопка «Подать заявку на членство» (Hero)">
             <Button size="lg" className="gradient-purple-blue text-white px-10">
               <Icon name="UserPlus" size={18} />
               Подать заявку на членство
@@ -159,7 +159,7 @@ export default function Membership() {
           <div className="text-center py-8 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20 rounded-2xl">
             <h2 className="text-2xl font-bold mb-3">Готовы вступить?</h2>
             <p className="text-muted-foreground mb-6">Оставьте заявку — менеджер свяжется в течение рабочего дня</p>
-            <MembershipForm>
+            <MembershipForm source="Страница «Членство» — кнопка «Подать заявку» (нижний блок)">
               <Button size="lg" className="gradient-purple-blue text-white px-10">
                 <Icon name="UserPlus" size={18} />
                 Подать заявку

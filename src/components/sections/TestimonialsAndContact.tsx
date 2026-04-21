@@ -48,7 +48,7 @@ export default function TestimonialsAndContact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, source: 'Страница «О Фонде» — форма «Свяжитесь с нами»' }),
       });
       
       const result = await response.json();

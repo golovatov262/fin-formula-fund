@@ -37,7 +37,7 @@ export default function Loans() {
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Деньги на развитие бизнеса без залогов, ковенантов и долгих проверок. Решение за 24 часа — для членов кооператива
           </p>
-          <MembershipForm>
+          <MembershipForm source="Страница «Займы» — кнопка «Получить финансирование» (Hero)">
             <Button size="lg" className="gradient-orange-pink text-white px-10">
               <Icon name="Zap" size={18} />
               Получить финансирование
@@ -162,7 +162,7 @@ export default function Loans() {
           </div>
 
           <div className="text-center">
-            <MembershipForm>
+            <MembershipForm source="Страница «Займы» — кнопка «Оставить заявку» (нижний блок)">
               <Button size="lg" className="gradient-orange-pink text-white px-10">
                 <Icon name="Zap" size={18} />
                 Оставить заявку

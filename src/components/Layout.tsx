@@ -138,7 +138,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Личный кабинет
               </Button>
             </a>
-            <MembershipForm>
+            <MembershipForm source="Шапка сайта — кнопка «Получить консультацию»">
               <Button size="sm" className="gradient-purple-blue text-white hidden md:flex">
                 <Icon name="MessageCircle" size={15} />
                 Получить консультацию
@@ -217,7 +217,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </nav>
 
                 <div className="px-5 pt-3 border-t space-y-2">
-                  <MembershipForm>
+                  <MembershipForm source="Мобильное меню — кнопка «Получить консультацию»">
                     <Button className="w-full gradient-purple-blue text-white" size="lg">
                       <Icon name="MessageCircle" size={18} />
                       Получить консультацию

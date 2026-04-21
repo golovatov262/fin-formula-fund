@@ -143,7 +143,7 @@ export default function Index() {
             Паевой взнос от 30 000 ₽ возвращается при выходе. Работаем с 2016 года — более 100 млн рублей активов.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <MembershipForm>
+            <MembershipForm source="Главная страница — кнопка «Стать членом кооператива»">
               <Button size="lg" className="gradient-purple-blue text-white px-8">
                 <Icon name="UserPlus" size={18} />
                 Стать членом кооператива

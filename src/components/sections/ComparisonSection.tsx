@@ -145,7 +145,7 @@ export default function ComparisonSection() {
 
         {/* CTA block */}
         <div className="mt-10 text-center space-y-4">
-          <MembershipForm>
+          <MembershipForm source="Блок «Где выгоднее развивать бизнес» — кнопка «Получить решение за 24 часа»">
             <Button size="lg" className="gradient-purple-blue text-white px-10 py-6 text-base font-semibold shadow-lg hover:opacity-90 transition-opacity">
               Получить решение за 24 часа
             </Button>

@@ -8,6 +8,7 @@ import Icon from '@/components/ui/icon';
 
 interface MembershipFormProps {
   children: React.ReactNode;
+  source?: string;
 }
 
 interface CompanyData {
@@ -26,7 +27,7 @@ interface CompanyData {
   type: string;
 }
 
-export default function MembershipForm({ children }: MembershipFormProps) {
+export default function MembershipForm({ children, source = 'Не указано' }: MembershipFormProps) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -120,7 +121,7 @@ export default function MembershipForm({ children }: MembershipFormProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, source }),
       });
       
       const result = await response.json();

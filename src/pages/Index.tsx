@@ -1,5 +1,6 @@
 import Layout from '@/components/Layout';
 import HeroSection from '@/components/sections/HeroSection';
+import ComparisonSection from '@/components/sections/ComparisonSection';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
@@ -54,6 +55,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Где выгоднее развивать бизнес */}
+      <ComparisonSection />
 
       {/* Два направления */}
       <section className="py-12 md:py-20 px-4">

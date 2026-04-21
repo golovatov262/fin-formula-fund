@@ -121,6 +121,86 @@ export default function Savings() {
             ))}
           </div>
 
+          {/* Гарантии и защита */}
+          <div className="mb-12">
+            <div className="rounded-2xl border border-primary/20 bg-primary/3 overflow-hidden">
+              <div className="gradient-purple-blue px-6 py-4">
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <Icon name="ShieldCheck" size={22} className="text-white" />
+                  Надёжность и защита ваших средств
+                </h2>
+              </div>
+              <div className="p-6 md:p-8 grid md:grid-cols-2 gap-6">
+                {/* Реестры */}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 border border-emerald-100">
+                    <div className="w-9 h-9 bg-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon name="BadgeCheck" size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-emerald-800 mb-0.5">Реестр ЦБ РФ</div>
+                      <p className="text-sm text-emerald-700">
+                        КПК включён в реестр Банка России.{' '}
+                        <a
+                          href="https://cbr.ru/finorg/foinfo/?ogrn=1163668081895"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline underline-offset-2 font-semibold hover:text-emerald-900 transition-colors"
+                        >
+                          Проверить в реестре ЦБ
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 p-4 rounded-xl bg-blue-50 border border-blue-100">
+                    <div className="w-9 h-9 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon name="Building2" size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-blue-800 mb-0.5">Реестр СРО</div>
+                      <p className="text-sm text-blue-700">
+                        Включены в реестр саморегулируемой организации. Компенсационный и резервные фонды обеспечивают защиту в случае банкротства.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 p-4 rounded-xl bg-violet-50 border border-violet-100">
+                    <div className="w-9 h-9 bg-violet-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon name="Layers" size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-violet-800 mb-0.5">Единый подход к фонду</div>
+                      <p className="text-sm text-violet-700">
+                        Минимальные риски за счёт единого подхода к формированию и расходованию средств только внутри фонда. Сохранность средств членов фонда от блокировок ФНС и ФССП.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Правовая защита */}
+                <div className="flex items-start gap-3 p-5 rounded-xl bg-slate-50 border border-slate-200 h-fit">
+                  <div className="w-9 h-9 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon name="Scale" size={18} className="text-white" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-800 mb-2 uppercase text-sm tracking-wide">Правовая основа защиты</div>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      Счета пайщиков в КПК не являются банковскими счетами в смысле{' '}
+                      <span className="font-semibold">ст. 845 ГК РФ</span>.
+                      Требования ИФНС по ст. 76 НК РФ и требования ФССП распространяются исключительно на банковские счета.
+                    </p>
+                    <div className="mt-3 p-3 bg-slate-100 rounded-lg">
+                      <p className="text-sm text-slate-700 font-medium">
+                        Средства в КПК защищены от блокировок вне зависимости от налоговых споров и исполнительных производств.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Калькулятор */}
           <div className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Рассчитайте ваш доход</h2>

@@ -6,7 +6,7 @@ import Icon from '@/components/ui/icon';
 import MembershipForm from './MembershipForm';
 
 const aboutSubmenu = [
-  { label: 'Преимущества', href: '/about#advantages', icon: 'Star' },
+  { label: 'Преимущества', href: '/about', icon: 'Star' },
   { label: 'Документы', href: '/about#documents', icon: 'FileText' },
   { label: 'КПК vs Банк', href: '/about#comparison', icon: 'BarChart2' },
   { label: 'FAQ', href: '/about#faq', icon: 'HelpCircle' },
@@ -128,10 +128,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="flex items-center gap-2">
+            <a href="https://mykpk.ru" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
+              <Button size="sm" variant="outline">
+                <Icon name="LogIn" size={15} />
+                Личный кабинет
+              </Button>
+            </a>
             <MembershipForm>
               <Button size="sm" className="gradient-purple-blue text-white hidden md:flex">
-                <Icon name="UserPlus" size={15} />
-                Стать членом
+                <Icon name="MessageCircle" size={15} />
+                Получить консультацию
               </Button>
             </MembershipForm>
 
@@ -206,13 +212,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   ))}
                 </nav>
 
-                <div className="px-5 pt-3 border-t">
+                <div className="px-5 pt-3 border-t space-y-2">
                   <MembershipForm>
                     <Button className="w-full gradient-purple-blue text-white" size="lg">
-                      <Icon name="UserPlus" size={18} />
-                      Стать членом
+                      <Icon name="MessageCircle" size={18} />
+                      Получить консультацию
                     </Button>
                   </MembershipForm>
+                  <a href="https://mykpk.ru" target="_blank" rel="noopener noreferrer" className="block">
+                    <Button className="w-full" variant="outline" size="lg">
+                      <Icon name="LogIn" size={18} />
+                      Личный кабинет
+                    </Button>
+                  </a>
                 </div>
 
                 <div className="px-5 mt-4 space-y-2.5">

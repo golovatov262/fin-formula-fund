@@ -41,18 +41,10 @@ export default function About() {
       </section>
 
       {/* Якорные разделы */}
-      <div id="advantages">
-        <AdvantagesAndMembership />
-      </div>
-      <div id="documents">
-        <DocumentsSection />
-      </div>
-      <div id="comparison">
-        <ComparisonSection />
-      </div>
-      <div id="faq">
-        <TestimonialsAndContact />
-      </div>
+      <AdvantagesAndMembership />
+      <DocumentsSection />
+      <ComparisonSection />
+      <TestimonialsAndContact />
     </Layout>
   );
 }

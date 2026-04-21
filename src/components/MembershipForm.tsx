@@ -9,6 +9,8 @@ import Icon from '@/components/ui/icon';
 interface MembershipFormProps {
   children: React.ReactNode;
   source?: string;
+  title?: string;
+  description?: string;
 }
 
 interface CompanyData {
@@ -27,7 +29,7 @@ interface CompanyData {
   type: string;
 }
 
-export default function MembershipForm({ children, source = 'Не указано' }: MembershipFormProps) {
+export default function MembershipForm({ children, source = 'Не указано', title = 'Заявка на членство', description = 'Заполните форму для вступления в КПК' }: MembershipFormProps) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -158,9 +160,9 @@ export default function MembershipForm({ children, source = 'Не указано
               <Icon name="UserPlus" size={24} className="text-white" />
             </div>
             <div>
-              <DialogTitle className="text-2xl">Заявка на членство</DialogTitle>
+              <DialogTitle className="text-2xl">{title}</DialogTitle>
               <DialogDescription>
-                Заполните форму для вступления в КПК
+                {description}
               </DialogDescription>
             </div>
           </div>

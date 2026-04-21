@@ -163,7 +163,11 @@ export default function Loans() {
                     </ul>
 
                     {/* CTA */}
-                    <MembershipForm source={`Страница «Займы» — программа «${p.name}»`}>
+                    <MembershipForm
+                      source={`Страница «Займы» — программа «${p.name}»`}
+                      title={`Заявка на займ «${p.name}»`}
+                      description={p.tagline}
+                    >
                       <Button className={`w-full ${p.color === 'blue' || p.color === 'emerald' ? 'gradient-purple-blue' : 'gradient-orange-pink'} text-white`}>
                         Подать заявку на «{p.name}»
                       </Button>

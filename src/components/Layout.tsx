@@ -132,6 +132,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="flex items-center gap-2">
+            {/* Телефон */}
+            <a href="tel:88003023182" className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-primary/5 transition-colors">
+              <Icon name="Phone" size={14} className="text-primary flex-shrink-0" />
+              <span className="text-sm font-medium">8 (800) 302-31-82</span>
+            </a>
+            {/* MAX */}
+            <a
+              href="https://max.ru/u/f9LHodD0cOKlhlHdQBcCTxnF2xJzOrOZrDbcKvHWJZ8kAoLbEol6TCNeJOc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border hover:bg-muted/50 transition-colors text-sm font-medium"
+            >
+              <img src="https://max.ru/favicon.ico" alt="MAX" className="w-4 h-4 rounded-sm" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
+              Написать в MAX
+            </a>
             <a href="https://mykpk.ru" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
               <Button size="sm" variant="outline">
                 <Icon name="LogIn" size={15} />
@@ -233,14 +248,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
                 <div className="px-5 mt-4 space-y-2.5">
                   <div className="text-xs text-muted-foreground font-semibold uppercase tracking-wide mb-2">Контакты</div>
-                  <div className="flex items-center gap-2 text-sm">
+                  <a href="tel:88003023182" className="flex items-center gap-2 text-sm hover:text-primary transition-colors">
                     <Icon name="Phone" size={14} className="text-primary" />
-                    <span>+7 (800) 302-31-82</span>
-                  </div>
+                    <span>8 (800) 302-31-82</span>
+                  </a>
                   <div className="flex items-center gap-2 text-sm">
                     <Icon name="Mail" size={14} className="text-primary" />
                     <span>ff@sll-expert.ru</span>
                   </div>
+                  <a
+                    href="https://max.ru/u/f9LHodD0cOKlhlHdQBcCTxnF2xJzOrOZrDbcKvHWJZ8kAoLbEol6TCNeJOc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
+                  >
+                    <img src="https://max.ru/favicon.ico" alt="MAX" className="w-4 h-4 rounded-sm" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
+                    <span>Написать в MAX</span>
+                  </a>
                 </div>
               </SheetContent>
             </Sheet>
@@ -271,9 +295,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </div>
-            <div className="text-xs text-muted-foreground">
-              <div>+7 (800) 302-31-82</div>
-              <div>ff@sll-expert.ru</div>
+            <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+              <a href="tel:88003023182" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                <Icon name="Phone" size={14} className="text-primary flex-shrink-0" />
+                8 (800) 302-31-82
+              </a>
+              <a href="mailto:ff@sll-expert.ru" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                <Icon name="Mail" size={14} className="text-primary flex-shrink-0" />
+                ff@sll-expert.ru
+              </a>
+              <a
+                href="https://max.ru/u/f9LHodD0cOKlhlHdQBcCTxnF2xJzOrOZrDbcKvHWJZ8kAoLbEol6TCNeJOc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-primary transition-colors"
+              >
+                <img src="https://max.ru/favicon.ico" alt="MAX" className="w-4 h-4 rounded-sm" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
+                Написать в MAX
+              </a>
             </div>
           </div>
           <div className="mt-6 pt-4 border-t text-xs text-muted-foreground text-center">

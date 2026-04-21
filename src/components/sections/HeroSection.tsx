@@ -40,6 +40,65 @@ export default function HeroSection() {
               </Button>
             </Link>
           </div>
+
+          {/* Знаки доверия — реестры */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6 px-4">
+            <a
+              href="https://cbr.ru/finorg/foinfo/?ogrn=1163668081895"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-white border-2 border-emerald-200 hover:border-emerald-400 rounded-xl px-5 py-3.5 shadow-sm hover:shadow-md transition-all group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <img
+                  src="https://cbr.ru/favicon.ico"
+                  alt="ЦБ РФ"
+                  className="w-7 h-7 object-contain"
+                  onError={(e) => {
+                    const el = e.target as HTMLImageElement;
+                    el.style.display = 'none';
+                    el.parentElement!.innerHTML = '<span class="text-emerald-700 font-black text-xs">ЦБ</span>';
+                  }}
+                />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center gap-1.5">
+                  <Icon name="BadgeCheck" size={14} className="text-emerald-600 flex-shrink-0" />
+                  <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide">Включены в реестр</span>
+                </div>
+                <div className="text-sm font-bold text-foreground group-hover:text-emerald-700 transition-colors">Банка России (ЦБ РФ)</div>
+              </div>
+              <Icon name="ExternalLink" size={14} className="text-muted-foreground ml-auto flex-shrink-0" />
+            </a>
+
+            <a
+              href="https://coopfin.ru/cpage/8034"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-white border-2 border-blue-200 hover:border-blue-400 rounded-xl px-5 py-3.5 shadow-sm hover:shadow-md transition-all group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <img
+                  src="https://coopfin.ru/img/favicon.ico"
+                  alt="СРО"
+                  className="w-7 h-7 object-contain"
+                  onError={(e) => {
+                    const el = e.target as HTMLImageElement;
+                    el.style.display = 'none';
+                    el.parentElement!.innerHTML = '<span class="text-blue-700 font-black text-xs">СРО</span>';
+                  }}
+                />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center gap-1.5">
+                  <Icon name="BadgeCheck" size={14} className="text-blue-600 flex-shrink-0" />
+                  <span className="text-xs font-bold text-blue-700 uppercase tracking-wide">Включены в реестр</span>
+                </div>
+                <div className="text-sm font-bold text-foreground group-hover:text-blue-700 transition-colors">СРО «Кооперативные Финансы»</div>
+              </div>
+              <Icon name="ExternalLink" size={14} className="text-muted-foreground ml-auto flex-shrink-0" />
+            </a>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-16 max-w-4xl mx-auto">

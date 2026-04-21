@@ -180,24 +180,9 @@ export default function Loans() {
         </div>
       </section>
 
-      {/* Преимущества */}
+      {/* Калькулятор + Как получить */}
       <section className="py-10 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Почему выбирают нас</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
-            {advantages.map((a, i) => (
-              <Card key={i} className="hover:shadow-lg transition-all hover:-translate-y-1 group">
-                <CardContent className="pt-5 pb-5">
-                  <div className="w-11 h-11 gradient-orange-pink rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <Icon name={a.icon} size={20} className="text-white" />
-                  </div>
-                  <h3 className="font-bold mb-1.5">{a.title}</h3>
-                  <p className="text-sm text-muted-foreground">{a.text}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
           {/* Калькулятор */}
           <div className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Рассчитайте стоимость займа</h2>
@@ -226,13 +211,33 @@ export default function Loans() {
             </div>
           </div>
 
-          <div className="text-center">
+          <div className="text-center mb-0">
             <MembershipForm source="Страница «Займы» — кнопка «Оставить заявку» (нижний блок)">
               <Button size="lg" className="gradient-orange-pink text-white px-10">
                 <Icon name="Zap" size={18} />
                 Оставить заявку
               </Button>
             </MembershipForm>
+          </div>
+        </div>
+      </section>
+
+      {/* Преимущества */}
+      <section className="py-10 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Почему выбирают нас</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {advantages.map((a, i) => (
+              <Card key={i} className="hover:shadow-lg transition-all hover:-translate-y-1 group">
+                <CardContent className="pt-5 pb-5">
+                  <div className="w-11 h-11 gradient-orange-pink rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                    <Icon name={a.icon} size={20} className="text-white" />
+                  </div>
+                  <h3 className="font-bold mb-1.5">{a.title}</h3>
+                  <p className="text-sm text-muted-foreground">{a.text}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

@@ -78,10 +78,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Верхняя строка — контакты (только десктоп) */}
         <div className="hidden md:block border-b border-border/50 bg-muted/20">
           <div className="container mx-auto px-4 py-1.5 flex justify-end items-center gap-4">
-            <a href="tel:88003023182" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-              <Icon name="Phone" size={12} className="text-primary" />
-              8 (800) 302-31-82 — бесплатно
-            </a>
+            <a href="tel:88003023182" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">8 (800) 302-31-82</a>
             <a
               href="https://max.ru/u/f9LHodD0cOKlhlHdQBcCTxnF2xJzOrOZrDbcKvHWJZ8kAoLbEol6TCNeJOc"
               target="_blank"

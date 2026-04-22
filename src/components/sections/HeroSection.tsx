@@ -25,9 +25,7 @@ export default function HeroSection() {
             Экосистема взаимного финансирования: от доходных инвестиций до{' '}
             <span className="text-gradient">беззалоговых займов</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2">
-            Закрытый кооператив юридических лиц: размещайте свободные средства под Ключевую ставку + 3% или получайте финансирование на бизнес за 24 часа без банковской бюрократии
-          </p>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2">Закрытый кооператив юридических лиц: размещайте свободные средства под Ключевую ставку + 3% или получайте финансирование для бизнеса за 24 часа без банковской бюрократии</p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
             <Link to="/savings" className="w-full sm:w-auto">
               <Button size="lg" className="gradient-purple-blue text-white w-full">

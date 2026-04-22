@@ -14,7 +14,11 @@ const stats = [
 export default function HeroSection() {
   return (
     <section className="pt-16 md:pt-20 pb-12 md:pb-20 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 gradient-purple-blue opacity-5"></div>
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('https://cdn.poehali.dev/projects/1051bbab-a467-4b71-b050-32335ddce05d/bucket/934daf35-b6c9-41f2-b418-09e15fb1517a.png')" }}
+      />
+      <div className="absolute inset-0 bg-white/60" />
       <div className="container mx-auto relative">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">

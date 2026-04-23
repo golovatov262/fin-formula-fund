@@ -3,7 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import SavingsApplicationDialog from '@/components/SavingsApplicationDialog';
 
 const TERMS = [
   { months: 3,  label: '3 мес.',  bonus: 0 },
@@ -22,6 +24,7 @@ interface CalculatorProps {
 export default function Calculator({ initialProgram = 'savings' }: CalculatorProps) {
   const [program, setProgram] = useState<'savings' | 'turnover'>(initialProgram);
   const [amount, setAmount] = useState(500000);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     setProgram(initialProgram);
@@ -77,6 +80,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
   const minAmount = program === 'turnover' ? 500000 : 100000;
 
   return (
+    <>
     <Card className="max-w-2xl mx-auto hover:shadow-2xl transition-shadow">
       <CardHeader>
         <div className="flex items-start gap-2 md:gap-3 mb-3">
@@ -333,7 +337,29 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
             <strong>Важно:</strong> Расчёт является предварительным. Точные условия размещения обсуждаются индивидуально с менеджером фонда.
           </div>
         </div>
+
+        <Button
+          size="lg"
+          className="w-full gradient-purple-blue text-white"
+          onClick={() => setDialogOpen(true)}
+        >
+          <Icon name="TrendingUp" size={20} />
+          Разместить средства
+        </Button>
       </CardContent>
     </Card>
+
+    <SavingsApplicationDialog
+      open={dialogOpen}
+      onOpenChange={setDialogOpen}
+      program={program === 'savings' ? 'Динамичный доход' : 'Оборотный доход'}
+      amount={formatNumber(amount)}
+      term={program === 'savings' ? `${months} мес.` : `${days} дн.`}
+      paymentType={program === 'savings' ? (paymentType === 'monthly' ? 'Ежемесячно' : 'В конце срока') : 'Ежедневно'}
+      rate={program === 'savings' ? `${currentRate?.toFixed(1) ?? '—'}% годовых` : `${TURNOVER_RATE}% годовых`}
+      income={program === 'savings' ? formatNumber(savingsIncome) : formatNumber(turnoverIncome)}
+      total={program === 'savings' ? formatNumber(savingsTotal) : formatNumber(turnoverTotal)}
+    />
+    </>
   );
 }

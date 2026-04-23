@@ -49,6 +49,13 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     loan_program: str = body_data.get('loanProgram', '')
     loan_amount: str = body_data.get('loanAmount', '')
     loan_months: str = body_data.get('loanMonths', '')
+    savings_program: str = body_data.get('savingsProgram', '')
+    savings_amount: str = body_data.get('savingsAmount', '')
+    savings_term: str = body_data.get('savingsTerm', '')
+    savings_payment_type: str = body_data.get('savingsPaymentType', '')
+    savings_rate: str = body_data.get('savingsRate', '')
+    savings_income: str = body_data.get('savingsIncome', '')
+    savings_total: str = body_data.get('savingsTotal', '')
 
     if not inn or not phone or not full_name:
         return {
@@ -75,6 +82,27 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             <p style="margin: 6px 0;"><strong>Программа:</strong> {loan_program}</p>
             {"<p style='margin: 6px 0;'><strong>Сумма:</strong> " + loan_amount + "</p>" if loan_amount else ""}
             {"<p style='margin: 6px 0;'><strong>Срок:</strong> " + loan_months + "</p>" if loan_months else ""}
+        </div>'''
+
+    savings_block_html = ''
+    if savings_program:
+        savings_block_html = f'''
+        <div style="background-color: #f5f3ff; border-left: 4px solid #7c3aed; padding: 16px 20px; border-radius: 6px; margin-top: 16px;">
+            <h3 style="margin: 0 0 12px; color: #5b21b6; font-size: 15px;">📈 Параметры размещения средств</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 5px 0; color: #6b7280; width: 50%">Программа</td>
+                    <td style="padding: 5px 0; font-weight: bold;">{savings_program}</td>
+                </tr>
+                {"<tr><td style='padding: 5px 0; color: #6b7280;'>Сумма размещения</td><td style='padding: 5px 0; font-weight: bold;'>" + savings_amount + "</td></tr>" if savings_amount else ""}
+                {"<tr><td style='padding: 5px 0; color: #6b7280;'>Срок</td><td style='padding: 5px 0; font-weight: bold;'>" + savings_term + "</td></tr>" if savings_term else ""}
+                {"<tr><td style='padding: 5px 0; color: #6b7280;'>Вид выплаты</td><td style='padding: 5px 0; font-weight: bold;'>" + savings_payment_type + "</td></tr>" if savings_payment_type else ""}
+                {"<tr><td style='padding: 5px 0; color: #6b7280;'>Ставка</td><td style='padding: 5px 0; font-weight: bold; color: #7c3aed;'>" + savings_rate + "</td></tr>" if savings_rate else ""}
+            </table>
+            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ddd6fe; display: flex; gap: 16px;">
+                {"<div style='flex: 1; background: #ede9fe; border-radius: 6px; padding: 10px; text-align: center;'><div style='font-size: 11px; color: #6b7280; margin-bottom: 4px;'>Доход за период</div><div style='font-size: 17px; font-weight: bold; color: #7c3aed;'>" + savings_income + "</div></div>" if savings_income else ""}
+                {"<div style='flex: 1; background: #ede9fe; border-radius: 6px; padding: 10px; text-align: center;'><div style='font-size: 11px; color: #6b7280; margin-bottom: 4px;'>Итого к получению</div><div style='font-size: 17px; font-weight: bold; color: #5b21b6;'>" + savings_total + "</div></div>" if savings_total else ""}
+            </div>
         </div>'''
 
     try:
@@ -108,6 +136,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 </div>
 
                 {loan_block_html}
+                {savings_block_html}
 
                 <div style="margin-top: 20px; padding: 15px; background-color: #e0e7ff; border-left: 4px solid #6366f1; border-radius: 4px;">
                     <p style="margin: 0; color: #4338ca; font-size: 14px;">
@@ -143,13 +172,28 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             if loan_months:
                 loan_block_tg += f'\n📅 Срок: {loan_months}'
 
+        savings_block_tg = ''
+        if savings_program:
+            savings_block_tg = f'\n\n📈 <b>Размещение средств:</b>'
+            savings_block_tg += f'\n📌 Программа: {savings_program}'
+            if savings_amount:
+                savings_block_tg += f'\n💵 Сумма: {savings_amount}'
+            if savings_term:
+                savings_block_tg += f'\n📅 Срок: {savings_term}'
+            if savings_rate:
+                savings_block_tg += f'\n📊 Ставка: {savings_rate}'
+            if savings_income:
+                savings_block_tg += f'\n✅ Доход: {savings_income}'
+            if savings_total:
+                savings_block_tg += f'\n💎 Итого: {savings_total}'
+
         telegram_message = f'''🆕 <b>Новая заявка на членство</b>
 
 📍 <b>Источник:</b> {source}
 
 👤 <b>ФИО:</b> {full_name}
 📞 <b>Телефон:</b> {phone}
-🔢 <b>ИНН:</b> {inn}{company_line}{loan_block_tg}
+🔢 <b>ИНН:</b> {inn}{company_line}{loan_block_tg}{savings_block_tg}
 
 💡 Свяжитесь с клиентом для обсуждения условий вступления'''
 

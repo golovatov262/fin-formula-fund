@@ -118,7 +118,7 @@ export default function HeroSection() {
                     />
                   )}
                 </div>
-                <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-xs md:text-sm text-muted-foreground break-words hyphens-auto">{stat.label}</div>
               </CardContent>
             </Card>
           ))}

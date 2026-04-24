@@ -94,10 +94,10 @@ export default function Agent() {
                 Стать агентом
               </Button>
             </MembershipForm>
-            <a href="tel:88003023182">
+            <a href="#">
               <Button size="lg" variant="outline" className="px-8">
-                <Icon name="Phone" size={20} />
-                8-800-302-31-82
+                <Icon name="LayoutDashboard" size={20} />
+                Личный кабинет агента
               </Button>
             </a>
           </div>

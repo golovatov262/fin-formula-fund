@@ -148,7 +148,7 @@ export default function Agent() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Ваши потенциальные доходы</h2>
-            <p className="text-muted-foreground">Каждый пятый пайщик в месяц оплачивается в двойном размере — 10 000 ₽</p>
+            <p className="text-blue-700 font-semibold">Каждый пятый пайщик в месяц оплачивается в двойном размере — 10 000 ₽</p>
           </div>
 
           <Card className="overflow-hidden mb-6">

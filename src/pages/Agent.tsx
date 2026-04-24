@@ -16,7 +16,7 @@ const steps = [
   {
     num: '01',
     title: 'Свяжитесь с нами',
-    desc: 'Позвоните по номеру 8-800-302-31-82 или напишите на info@sll-expert.ru. Расскажите о вашей базе клиентов — подберём формат сотрудничества.',
+    desc: 'Позвоните по номеру 8-800-302-31-82 или напишите на ff@sll-expert.ru. Расскажите о вашей базе клиентов — подберём формат сотрудничества.',
     icon: 'Phone',
   },
   {
@@ -362,10 +362,10 @@ export default function Agent() {
                 <div className="text-white/80 text-sm">8-800-302-31-82</div>
                 <div className="text-white/60 text-xs">бесплатно</div>
               </a>
-              <a href="mailto:info@sll-expert.ru" className="bg-white/15 rounded-xl p-4 hover:bg-white/25 transition-colors">
+              <a href="mailto:ff@sll-expert.ru" className="bg-white/15 rounded-xl p-4 hover:bg-white/25 transition-colors">
                 <Icon name="Mail" size={22} className="mx-auto mb-2" />
                 <div className="font-semibold text-sm">Email</div>
-                <div className="text-white/80 text-sm">info@sll-expert.ru</div>
+                <div className="text-white/80 text-sm">ff@sll-expert.ru</div>
               </a>
               <div className="bg-white/15 rounded-xl p-4">
                 <Icon name="MapPin" size={22} className="mx-auto mb-2" />

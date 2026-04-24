@@ -125,7 +125,7 @@ export default function Agent() {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Ваши преимущества как агента</h2>
-            <p className="text-muted-foreground">Программа создана так, чтобы агент не рисковал и мог сосредоточиться на рекомендациях</p>
+            <p className="text-muted-foreground">Программа создана так, чтобы вы не рисковали и могли сосредоточиться на рекомендациях</p>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {advantages.map((adv) => (

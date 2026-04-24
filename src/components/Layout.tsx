@@ -78,16 +78,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b shadow-sm">
         {/* Верхняя строка — контакты (только десктоп) */}
         <div className="hidden md:block border-b border-border/50 bg-muted/20">
-          <div className="container mx-auto px-4 py-1.5 flex justify-end items-center gap-4">
-            <a href="tel:88003023182" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">8 (800) 302-31-82</a>
-            <a
-              href="https://max.ru/u/f9LHodD0cOKlhlHdQBcCTxnF2xJzOrOZrDbcKvHWJZ8kAoLbEol6TCNeJOc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
-            >
-              <img src="https://max.ru/favicon.ico" alt="MAX" className="w-3.5 h-3.5 rounded-sm" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
-              Написать в MAX
+          <div className="container mx-auto px-4 py-1.5 flex justify-end items-center">
+            <a href="tel:88003023182" className="flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+              <Icon name="Phone" size={14} className="text-primary" />
+              8 (800) 302-31-82
             </a>
           </div>
         </div>
@@ -157,12 +151,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 Личный кабинет
               </Button>
             </a>
-            <MembershipForm source="Шапка сайта — кнопка «Получить консультацию»">
-              <Button size="sm" className="gradient-purple-blue text-white hidden md:flex text-xs px-3">
-                <Icon name="MessageCircle" size={14} />
-                Консультация
+            <a
+              href="https://max.ru/u/f9LHodD0cOKlhlHdQBcCTxnF2xJzOrOZrDbcKvHWJZ8kAoLbEol6TCNeJOc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex"
+            >
+              <Button size="sm" className="gradient-purple-blue text-white text-xs px-3">
+                <img src="https://max.ru/favicon.ico" alt="MAX" className="w-3.5 h-3.5 rounded-sm" onError={(e) => { (e.target as HTMLImageElement).style.display='none'; }} />
+                Консультация в MAX
               </Button>
-            </MembershipForm>
+            </a>
 
             {/* Mobile burger */}
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>

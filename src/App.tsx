@@ -11,6 +11,7 @@ import Loans from "./pages/Loans";
 import Membership from "./pages/Membership";
 import ThankYou from "./pages/ThankYou";
 import Admin from "./pages/Admin";
+import Agent from "./pages/Agent";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/membership" element={<Membership />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/agent" element={<Agent />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

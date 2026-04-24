@@ -18,6 +18,7 @@ const navItems = [
   { label: 'Сбережения', href: '/savings', icon: 'TrendingUp', submenu: null },
   { label: 'Займы', href: '/loans', icon: 'Wallet', submenu: null },
   { label: 'Членство', href: '/membership', icon: 'Users', submenu: null },
+  { label: 'Стать агентом', href: '/agent', icon: 'Handshake', submenu: null },
 ];
 
 function scrollToAnchor(hash: string) {

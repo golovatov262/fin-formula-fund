@@ -296,14 +296,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   {item.label}
                 </Link>
               ))}
-              <a
-                href="https://mykpk.ru/agent"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
+              <Link to="/agent" className="hover:text-primary transition-colors">
                 Для партнёров
-              </a>
+              </Link>
             </div>
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <a href="tel:88003023182" className="flex items-center gap-1.5 hover:text-primary transition-colors">

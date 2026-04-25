@@ -90,7 +90,7 @@ export default function Agent() {
                 Стать агентом
               </Button>
             </a>
-            <a href="#">
+            <a href="https://mykpk.ru/agent" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="px-8">
                 <Icon name="LayoutDashboard" size={20} />
                 Личный кабинет агента

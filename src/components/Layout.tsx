@@ -296,7 +296,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   {item.label}
                 </Link>
               ))}
-              <Link to="/agent" className="hover:text-primary transition-colors">
+              <Link to="/agent" className="hover:text-primary transition-colors cursor-pointer pointer-events-auto relative z-10">
                 Для партнёров
               </Link>
             </div>

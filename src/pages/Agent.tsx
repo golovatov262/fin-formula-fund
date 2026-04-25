@@ -84,16 +84,12 @@ export default function Agent() {
             Рекомендуйте КПК «ФИН ФОРМУЛА» вашим клиентам — юридическим лицам. Без вложений, без рисков, на базе уже существующих отношений.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <MembershipForm
-              source="Страница агентов — кнопка «Стать агентом»"
-              title="Заявка на агентский договор"
-              description="Оставьте контакты — менеджер свяжется и расскажет об условиях сотрудничества"
-            >
+            <a href="https://mykpk.ru/agent" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="gradient-purple-blue text-white px-8">
                 <Icon name="Handshake" size={20} />
                 Стать агентом
               </Button>
-            </MembershipForm>
+            </a>
             <a href="#">
               <Button size="lg" variant="outline" className="px-8">
                 <Icon name="LayoutDashboard" size={20} />

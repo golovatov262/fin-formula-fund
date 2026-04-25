@@ -18,7 +18,6 @@ const navItems = [
   { label: 'Сбережения', href: '/savings', icon: 'TrendingUp', submenu: null },
   { label: 'Займы', href: '/loans', icon: 'Wallet', submenu: null },
   { label: 'Членство', href: '/membership', icon: 'Users', submenu: null },
-  { label: 'Стать агентом', href: '/agent', icon: 'Handshake', submenu: null },
 ];
 
 function scrollToAnchor(hash: string) {
@@ -297,6 +296,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   {item.label}
                 </Link>
               ))}
+              <a
+                href="https://mykpk.ru/agent"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Для партнёров
+              </a>
             </div>
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <a href="tel:88003023182" className="flex items-center gap-1.5 hover:text-primary transition-colors">

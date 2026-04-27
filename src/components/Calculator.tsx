@@ -8,10 +8,10 @@ import Icon from '@/components/ui/icon';
 import SavingsApplicationDialog from '@/components/SavingsApplicationDialog';
 
 const TERMS = [
-  { months: 3,  label: '3 мес.',  bonus: 0 },
-  { months: 6,  label: '6 мес.',  bonus: 1 },
-  { months: 12, label: '12 мес.', bonus: 2 },
-  { months: 18, label: '18 мес.', bonus: 3 },
+  { months: 3,  label: '3 мес.',  bonus: 0.5 },
+  { months: 6,  label: '6 мес.',  bonus: 1.5 },
+  { months: 12, label: '12 мес.', bonus: 2.5 },
+  { months: 18, label: '18 мес.', bonus: 3.5 },
 ];
 
 const END_OF_TERM_BONUS = 0.5;

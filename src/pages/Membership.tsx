@@ -63,6 +63,34 @@ export default function Membership() {
             ))}
           </div>
 
+          {/* Взносы */}
+          <Card className="mb-14">
+            <CardContent className="pt-5">
+              <div className="text-center text-base font-bold text-primary uppercase tracking-wide mb-4">Условия вступления</div>
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-xs text-muted-foreground mb-1">Вступительный взнос</div>
+                  <div className="text-xl font-bold">10 000 ₽</div>
+                  <div className="text-xs text-muted-foreground">единоразово</div>
+                </div>
+                <div>
+                  <div className="text-xs text-muted-foreground mb-1">Паевой взнос</div>
+                  <div className="text-xl font-bold">30–80 тыс. ₽</div>
+                  <div className="text-xs text-muted-foreground">возвращается при выходе · рассрочка 3–6 мес.</div>
+                </div>
+                <div>
+                  <div className="text-xs text-muted-foreground mb-1">Членский взнос</div>
+                  <div className="text-xl font-bold">12 000 ₽/год</div>
+                  <div className="text-xs text-muted-foreground">= 1 000 ₽ в месяц</div>
+                </div>
+              </div>
+              <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-3 flex gap-2">
+                <Icon name="Info" size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-blue-900">Паевой взнос — это не расходы. Это возвратный капитал, который формирует фонд взаимопомощи и возвращается в полном объёме при выходе из КПК.</p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Как стать членом */}
           <div className="mb-14">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Как вступить в кооператив</h2>

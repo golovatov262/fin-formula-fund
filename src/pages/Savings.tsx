@@ -32,9 +32,6 @@ export default function Savings() {
       .catch(() => setKeyRate(21));
   }, []);
 
-  // Максимальная ставка по Динамичному доходу (18 мес. + выплата в конце)
-  const maxRate = keyRate !== null ? keyRate + 3 + 0.5 : null;
-
   const programs: Array<{
     key: 'savings' | 'turnover';
     gradient: string;
@@ -53,18 +50,13 @@ export default function Savings() {
       btnColor: 'gradient-purple-blue',
       title: 'ДИНАМИЧНЫЙ ДОХОД',
       subtitle: 'Фиксированные сроки от 3 до 18 месяцев',
-      rateNode: maxRate !== null ? (
+      rateNode: (
         <div className="flex items-baseline gap-2 mb-5">
-          <span className="text-5xl font-black text-primary leading-none">до {maxRate}%</span>
-          <span className="text-lg font-semibold text-muted-foreground">годовых</span>
-        </div>
-      ) : (
-        <div className="flex items-baseline gap-2 mb-5">
-          <span className="text-5xl font-black text-primary/40 leading-none animate-pulse">—%</span>
+          <span className="text-5xl font-black text-primary leading-none">до 18,5%</span>
           <span className="text-lg font-semibold text-muted-foreground">годовых</span>
         </div>
       ),
-      rateHint: keyRate !== null ? `КС ЦБ (${keyRate}%) + до 3% + 0,5% бонус · актуально на ${rateDate}` : 'Загружаем актуальную ставку ЦБ...',
+      rateHint: keyRate !== null ? `КС ЦБ (${keyRate}%) + до 3,5% + 0,5% бонус · актуально на ${rateDate}` : 'Загружаем актуальную ставку ЦБ...',
       features: [
         { icon: 'CalendarDays', text: 'Срок: 3, 6, 12 или 18 месяцев' },
         { icon: 'Percent', text: 'Ставка: КС ЦБ + бонус в зависимости от срока' },

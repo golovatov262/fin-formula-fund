@@ -207,10 +207,10 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
                 ))}
               </div>
               <div className="flex justify-between text-xs text-muted-foreground px-1">
-                <span>КС ЦБ</span>
-                <span>КС + 1%</span>
-                <span>КС + 2%</span>
-                <span>КС + 3%</span>
+                <span>КС+0,5%</span>
+                <span>КС+1,5%</span>
+                <span>КС+2,5%</span>
+                <span>КС+3,5%</span>
               </div>
             </div>
 

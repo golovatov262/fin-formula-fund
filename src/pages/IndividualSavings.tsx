@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import Icon from '@/components/ui/icon';
 import IndividualApplicationForm from '@/components/IndividualApplicationForm';
 import SavingsCalculator from '@/components/SavingsCalculator';
+import SEO from '@/components/SEO';
 
 const program = {
   name: '«Динамичный доход»',
@@ -31,6 +32,11 @@ const advantages = [
 export default function IndividualSavings() {
   return (
     <Layout>
+      <SEO
+        title="Сбережения для физлиц до 18,5% годовых — КПК «ФИН ФОРМУЛА»"
+        description="Программа «Динамичный доход» для физических лиц и самозанятых: сумма от 50 000 ₽ до 30 000 000 ₽, срок 3–18 месяцев, ставка до 18,50% годовых. Выплата ежемесячно, авансом или в конце срока."
+        path="/individual/savings"
+      />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-purple-50/60 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">

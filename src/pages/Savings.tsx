@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import MembershipForm from '@/components/MembershipForm';
+import SEO from '@/components/SEO';
 
 export default function Savings() {
   const [keyRate, setKeyRate] = useState<number | null>(null);
@@ -91,6 +92,11 @@ export default function Savings() {
 
   return (
     <Layout>
+      <SEO
+        title="Сбережения для бизнеса до 18,5% годовых — КПК «ФИН ФОРМУЛА»"
+        description="Размещение средств юридических лиц и ИП в кредитном потребительском кооперативе под ставку до 18,5% годовых. Продукты «Динамичный доход» и «Оборотный доход» для бизнеса."
+        path="/savings"
+      />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">

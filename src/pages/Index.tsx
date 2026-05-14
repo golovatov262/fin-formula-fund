@@ -6,10 +6,16 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Link } from 'react-router-dom';
 import MembershipForm from '@/components/MembershipForm';
+import SEO from '@/components/SEO';
 
 export default function Index() {
   return (
     <Layout>
+      <SEO
+        title="КПК «ФИН ФОРМУЛА» — сбережения до 18,5% и займы для бизнеса и физлиц"
+        description="Кредитный потребительский кооператив в Ростовской области и Краснодарском крае. Сбережения под 18,50% годовых, займы для бизнеса, физлиц и самозанятых. Регулируется Банком России."
+        path="/"
+      />
       <HeroSection />
 
       {/* О фонде */}

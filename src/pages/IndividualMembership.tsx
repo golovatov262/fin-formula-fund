@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import IndividualApplicationForm from '@/components/IndividualApplicationForm';
+import SEO from '@/components/SEO';
 
 const eligibility = [
   { icon: 'User', title: 'Возраст от 18 лет', text: 'Полная дееспособность на момент подачи заявления' },
@@ -33,6 +34,11 @@ const obligations = [
 export default function IndividualMembership() {
   return (
     <Layout>
+      <SEO
+        title="Условия членства для физлиц — КПК «ФИН ФОРМУЛА»"
+        description="Как стать пайщиком кооператива «ФИН ФОРМУЛА»: требования, документы (паспорт и заявление), паевой взнос 2 500 ₽, права и обязанности. Для жителей Ростовской области и Краснодарского края."
+        path="/individual/membership"
+      />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-emerald-50/60 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">

@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import MembershipForm from '@/components/MembershipForm';
+import SEO from '@/components/SEO';
 
 const loanPrograms = [
   {
@@ -88,6 +89,11 @@ const advantages = [
 export default function Loans() {
   return (
     <Layout>
+      <SEO
+        title="Займы для бизнеса — оборотные, инвестиционные, рефинансирование"
+        description="Займы для ЮЛ и ИП от КПК «ФИН ФОРМУЛА»: оборотный, кассовый экспресс, инвестиционный, рефинансирование. Без залогов и ковенантов, решение за 48 часов. Ростовская область и Краснодарский край."
+        path="/loans"
+      />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-orange-50/60 to-transparent dark:from-orange-950/10">
         <div className="container mx-auto max-w-4xl text-center">

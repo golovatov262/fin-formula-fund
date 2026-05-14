@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import IndividualApplicationForm from '@/components/IndividualApplicationForm';
 import IndividualLoanCalculator from '@/components/IndividualLoanCalculator';
+import SEO from '@/components/SEO';
 
 const loanPrograms = [
   {
@@ -77,6 +78,11 @@ const advantages = [
 export default function IndividualLoans() {
   return (
     <Layout>
+      <SEO
+        title="Займы для физических лиц и самозанятых — КПК «ФИН ФОРМУЛА»"
+        description="Займы для физлиц и самозанятых: без обеспечения, под залог недвижимости, ипотека, авто займ, рефинансирование. Суммы от 20 000 ₽ до 3 000 000 ₽, решение за 24 часа. Ростовская область и Краснодарский край."
+        path="/individual/loans"
+      />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-orange-50/60 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">

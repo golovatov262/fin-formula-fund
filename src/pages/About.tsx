@@ -6,10 +6,16 @@ import TestimonialsAndContact from '@/components/sections/TestimonialsAndContact
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
+import SEO from '@/components/SEO';
 
 export default function About() {
   return (
     <Layout>
+      <SEO
+        title="О фонде КПК «ФИН ФОРМУЛА» — преимущества, документы, FAQ"
+        description="О кредитном потребительском кооперативе «ФИН ФОРМУЛА»: документы, сравнение с банком, ответы на частые вопросы и контакты. Работаем в Ростовской области и Краснодарском крае под контролем Банка России."
+        path="/about"
+      />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">

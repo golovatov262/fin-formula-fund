@@ -3,6 +3,7 @@ import MembershipForm from '@/components/MembershipForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import SEO from '@/components/SEO';
 
 const steps = [
   { icon: 'Send', title: 'Оставить заявку', text: 'Заполните форму на сайте — укажите ИНН и контакт. Данные о компании подгрузятся автоматически из реестра.' },
@@ -21,6 +22,11 @@ const rights = [
 export default function Membership() {
   return (
     <Layout>
+      <SEO
+        title="Членство для бизнеса — КПК «ФИН ФОРМУЛА»"
+        description="Условия вступления в кредитный потребительский кооператив для ЮЛ и ИП. Паевой взнос возвращается при выходе. Доступ к сбережениям и займам на льготных условиях."
+        path="/membership"
+      />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">
         <div className="container mx-auto max-w-4xl text-center">

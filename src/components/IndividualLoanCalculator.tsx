@@ -141,13 +141,14 @@ export default function IndividualLoanCalculator() {
   if (prog.commissionMin && commission < prog.commissionMin) commission = prog.commissionMin;
   if (prog.commissionMax && commission > prog.commissionMax) commission = prog.commissionMax;
 
-  // Тело займа = сумма к получению + комиссия
+  // Тело займа = сумма к получению + комиссия (комиссия включается в займ)
   const loanBody = amount + commission;
+  // Сумма к получению на руки = запрошенная сумма (комиссия добавлена к телу займа)
+  const cashOut = amount;
 
   const rate = prog.rate / 100 / 12;
   const monthlyPayment = months > 0 ? (loanBody * rate * Math.pow(1 + rate, months)) / (Math.pow(1 + rate, months) - 1) : 0;
   const totalPayment = monthlyPayment * months;
-  const totalInterest = totalPayment - loanBody;
 
   const colors = tabColors[prog.color];
 
@@ -247,6 +248,19 @@ export default function IndividualLoanCalculator() {
           </div>
         </div>
 
+        {/* Сумма к получению на руки — акцентный блок */}
+        <div className="rounded-2xl p-5 bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <Icon name="Wallet" size={24} className="text-white" />
+            </div>
+            <div className="flex-1">
+              <div className="text-xs uppercase tracking-wide text-white/80 font-semibold">Сумма к получению на руки</div>
+              <div className="text-3xl font-extrabold leading-tight mt-0.5">{fmt(cashOut)}</div>
+            </div>
+          </div>
+        </div>
+
         {/* Результат */}
         <div className="bg-gradient-to-r from-orange-50 to-pink-50 rounded-xl p-5 space-y-3">
           <div className="flex justify-between items-center text-sm">
@@ -261,10 +275,6 @@ export default function IndividualLoanCalculator() {
             <span className="text-sm text-muted-foreground">Ежемесячный платёж</span>
             <span className="text-2xl font-bold text-gradient">{fmt(monthlyPayment)}</span>
           </div>
-          <div className="flex justify-between items-center text-sm">
-            <span className="text-muted-foreground">Переплата по процентам</span>
-            <span className="font-semibold">{fmt(totalInterest)}</span>
-          </div>
           <div className="flex justify-between items-center pt-3 border-t">
             <span className="text-sm text-muted-foreground">Итого к возврату</span>
             <span className="text-xl font-bold">{fmt(totalPayment)}</span>
@@ -274,7 +284,7 @@ export default function IndividualLoanCalculator() {
         {/* Кнопка подачи заявки */}
         <IndividualApplicationForm
           source={`Калькулятор займа — программа «${prog.name}»`}
-          defaultMessage={`Программа: ${prog.name}\nСумма к получению: ${fmtNum(amount)} ₽\nКомиссия: ${fmt(commission)}\nТело займа: ${fmt(loanBody)}\nСрок: ${months} мес.\nЕжемесячный платёж: ${fmt(monthlyPayment)}`}
+          defaultMessage={`Программа: ${prog.name}\nСумма к получению на руки: ${fmt(cashOut)}\nКомиссия: ${fmt(commission)}\nТело займа: ${fmt(loanBody)}\nСрок: ${months} мес.\nЕжемесячный платёж: ${fmt(monthlyPayment)}\nИтого к возврату: ${fmt(totalPayment)}`}
         >
           <Button className="w-full gradient-orange-pink text-white text-base py-6">
             <Icon name="Send" size={18} />

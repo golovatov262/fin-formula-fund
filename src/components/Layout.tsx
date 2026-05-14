@@ -13,11 +13,18 @@ const aboutSubmenu = [
   { label: 'Контакты', href: '/about#contact', icon: 'Phone' },
 ];
 
+const individualSubmenu = [
+  { label: 'Сбережения', href: '/individual/savings', icon: 'TrendingUp' },
+  { label: 'Займы', href: '/individual/loans', icon: 'Wallet' },
+  { label: 'Условия членства', href: '/individual/membership', icon: 'Users' },
+];
+
 const navItems = [
   { label: 'О фонде', href: '/about', icon: 'Building2', submenu: aboutSubmenu },
   { label: 'Сбережения', href: '/savings', icon: 'TrendingUp', submenu: null },
   { label: 'Займы', href: '/loans', icon: 'Wallet', submenu: null },
   { label: 'Членство', href: '/membership', icon: 'Users', submenu: null },
+  { label: 'Для физических лиц', href: '/individual', icon: 'UserCircle', submenu: individualSubmenu },
 ];
 
 function scrollToAnchor(hash: string) {

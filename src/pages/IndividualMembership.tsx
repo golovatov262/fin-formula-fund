@@ -8,14 +8,12 @@ import IndividualApplicationForm from '@/components/IndividualApplicationForm';
 const eligibility = [
   { icon: 'User', title: 'Возраст от 18 лет', text: 'Полная дееспособность на момент подачи заявления' },
   { icon: 'Flag', title: 'Гражданство РФ', text: 'Принимаем граждан Российской Федерации' },
-  { icon: 'MapPin', title: 'Регион присутствия', text: 'Жители регионов, где работает кооператив' },
+  { icon: 'MapPin', title: 'Ростовская область и Краснодарский край', text: 'Жители регионов присутствия кооператива' },
   { icon: 'BadgeCheck', title: 'Физлица и самозанятые', text: 'В том числе плательщики НПД' },
 ];
 
 const documents = [
   { icon: 'IdCard', title: 'Паспорт гражданина РФ', text: 'Разворот с фото и страница с регистрацией' },
-  { icon: 'FileSignature', title: 'СНИЛС', text: 'Для идентификации в Пенсионном фонде' },
-  { icon: 'Hash', title: 'ИНН', text: 'Свидетельство ИНН или уведомление о постановке на учёт' },
   { icon: 'FileText', title: 'Заявление о вступлении', text: 'Заполняется в офисе или дистанционно' },
 ];
 
@@ -104,7 +102,7 @@ export default function IndividualMembership() {
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Документы для вступления</h2>
           <p className="text-center text-muted-foreground mb-8">Стандартный пакет — без лишних бумаг</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
             {documents.map((d) => (
               <Card key={d.title} className="border hover:shadow-md transition-shadow">
                 <CardContent className="pt-5 pb-5">

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import Icon from '@/components/ui/icon';
 import IndividualApplicationForm from '@/components/IndividualApplicationForm';
+import SavingsCalculator from '@/components/SavingsCalculator';
 
 const program = {
   name: '«Динамичный доход»',
@@ -112,24 +113,18 @@ export default function IndividualSavings() {
                   <TableRow className="bg-muted/60 hover:bg-muted/60">
                     <TableHead rowSpan={2} className="font-bold text-foreground align-middle">Срок</TableHead>
                     <TableHead colSpan={2} className="font-bold text-foreground text-center border-l">Ставка (годовых)</TableHead>
-                    <TableHead rowSpan={2} className="font-bold text-foreground align-middle border-l">Выплата %%</TableHead>
                   </TableRow>
                   <TableRow className="bg-muted/40 hover:bg-muted/40">
-                    <TableHead className="font-semibold text-foreground border-l">% Ежемесячно</TableHead>
+                    <TableHead className="font-semibold text-foreground border-l">% Ежемесячно или авансом</TableHead>
                     <TableHead className="font-semibold text-foreground">% В конце срока</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {rows.map((r, idx) => (
+                  {rows.map((r) => (
                     <TableRow key={r.term}>
                       <TableCell className="font-semibold">{r.term}</TableCell>
                       <TableCell className="font-bold text-lg text-primary">{r.monthly}</TableCell>
                       <TableCell className="font-bold text-lg text-purple-700">{r.end}</TableCell>
-                      {idx === 0 && (
-                        <TableCell rowSpan={rows.length} className="text-xs align-middle border-l">
-                          {program.payout}
-                        </TableCell>
-                      )}
                     </TableRow>
                   ))}
                 </TableBody>
@@ -178,6 +173,15 @@ export default function IndividualSavings() {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Калькулятор доходности */}
+      <section className="py-10 md:py-14 px-4 bg-muted/30">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Рассчитайте свой доход</h2>
+          <p className="text-center text-muted-foreground mb-8">Выберите сумму, срок и способ выплаты процентов</p>
+          <SavingsCalculator />
         </div>
       </section>
 

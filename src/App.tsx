@@ -9,6 +9,9 @@ import About from "./pages/About";
 import Savings from "./pages/Savings";
 import Loans from "./pages/Loans";
 import Membership from "./pages/Membership";
+import IndividualLoans from "./pages/IndividualLoans";
+import IndividualSavings from "./pages/IndividualSavings";
+import IndividualMembership from "./pages/IndividualMembership";
 import ThankYou from "./pages/ThankYou";
 import Admin from "./pages/Admin";
 import Agent from "./pages/Agent";
@@ -28,6 +31,9 @@ const App = () => (
           <Route path="/savings" element={<Savings />} />
           <Route path="/loans" element={<Loans />} />
           <Route path="/membership" element={<Membership />} />
+          <Route path="/individual/loans" element={<IndividualLoans />} />
+          <Route path="/individual/savings" element={<IndividualSavings />} />
+          <Route path="/individual/membership" element={<IndividualMembership />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/agent" element={<Agent />} />

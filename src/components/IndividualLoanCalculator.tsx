@@ -102,6 +102,23 @@ const programs: Program[] = [
     commissionMax: 200000,
     commissionLabel: '0,3% в мес. от суммы займа, min 10 000 ₽, max 200 000 ₽',
   },
+  {
+    id: 'refi',
+    name: 'Рефинансирование',
+    icon: 'ArrowLeftRight',
+    rate: 27,
+    rateMax: 49,
+    amountMin: 50000,
+    amountMax: 2000000,
+    monthsMin: 12,
+    monthsMax: 60,
+    amountDefault: 500000,
+    monthsDefault: 36,
+    color: 'purple',
+    commissionType: 'oneTime',
+    commissionPercent: 8.5,
+    commissionLabel: '8,5% от суммы займа единовременно',
+  },
 ];
 
 const tabColors: Record<string, { active: string; text: string }> = {
@@ -109,6 +126,7 @@ const tabColors: Record<string, { active: string; text: string }> = {
   blue:    { active: 'bg-blue-600 text-white',     text: 'text-blue-600' },
   emerald: { active: 'bg-emerald-600 text-white',  text: 'text-emerald-600' },
   amber:   { active: 'bg-amber-500 text-white',    text: 'text-amber-600' },
+  purple:  { active: 'bg-purple-600 text-white',   text: 'text-purple-600' },
 };
 
 const fmt = (n: number) =>
@@ -169,7 +187,7 @@ export default function IndividualLoanCalculator() {
         </div>
 
         {/* Табы программ */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
           {programs.map((p, i) => {
             const isActive = i === activeProg;
             const c = tabColors[p.color];

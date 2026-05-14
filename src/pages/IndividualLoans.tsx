@@ -47,6 +47,16 @@ const loanPrograms = [
     icon: 'Car',
     color: 'amber',
   },
+  {
+    name: 'Рефинансирование',
+    amount: 'от 50 — 2 000 тыс. ₽',
+    term: 'от 12 до 60 мес.',
+    rate: 'от 27% до 49%',
+    commission: '8,5% от суммы займа',
+    collateral: 'До 300 000 ₽ без обеспечения, свыше — залог недвижимости и/или автомобиля',
+    icon: 'ArrowLeftRight',
+    color: 'purple',
+  },
 ];
 
 const colorMap: Record<string, { badge: string; icon: string; border: string }> = {
@@ -54,6 +64,7 @@ const colorMap: Record<string, { badge: string; icon: string; border: string }> 
   blue:    { badge: 'bg-blue-100 text-blue-700',      icon: 'gradient-purple-blue',   border: 'border-blue-200' },
   emerald: { badge: 'bg-emerald-100 text-emerald-700',icon: 'bg-emerald-600',         border: 'border-emerald-200' },
   amber:   { badge: 'bg-amber-100 text-amber-700',    icon: 'bg-amber-500',           border: 'border-amber-200' },
+  purple:  { badge: 'bg-purple-100 text-purple-700',  icon: 'bg-purple-600',          border: 'border-purple-200' },
 };
 
 const advantages = [

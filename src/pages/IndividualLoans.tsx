@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import Icon from '@/components/ui/icon';
 import IndividualApplicationForm from '@/components/IndividualApplicationForm';
+import IndividualLoanCalculator from '@/components/IndividualLoanCalculator';
 
 const loanPrograms = [
   {
@@ -47,16 +47,6 @@ const loanPrograms = [
     icon: 'Car',
     color: 'amber',
   },
-  {
-    name: 'Корпоративный для сотрудников',
-    amount: 'от 50 — 1 000 тыс. ₽\nне более 90% от рыночной стоимости',
-    term: 'от 3 до 60 мес.',
-    rate: 'от 24% до 30%',
-    commission: 'Отсутствует',
-    collateral: 'Без обеспечения (при недостаточности дохода и/или плохой КИ может потребоваться залог)',
-    icon: 'Briefcase',
-    color: 'purple',
-  },
 ];
 
 const colorMap: Record<string, { badge: string; icon: string; border: string }> = {
@@ -64,11 +54,10 @@ const colorMap: Record<string, { badge: string; icon: string; border: string }> 
   blue:    { badge: 'bg-blue-100 text-blue-700',      icon: 'gradient-purple-blue',   border: 'border-blue-200' },
   emerald: { badge: 'bg-emerald-100 text-emerald-700',icon: 'bg-emerald-600',         border: 'border-emerald-200' },
   amber:   { badge: 'bg-amber-100 text-amber-700',    icon: 'bg-amber-500',           border: 'border-amber-200' },
-  purple:  { badge: 'bg-purple-100 text-purple-700',  icon: 'bg-purple-600',          border: 'border-purple-200' },
 };
 
 const advantages = [
-  { icon: 'Zap', title: 'Быстрое решение', text: 'Рассматриваем заявку в течение 1–2 рабочих дней' },
+  { icon: 'Zap', title: 'Быстрое решение', text: 'Рассматриваем заявку в течение 24 часов' },
   { icon: 'Users', title: 'Самозанятым тоже', text: 'Работаем с гражданами и самозанятыми' },
   { icon: 'ShieldCheck', title: 'Прозрачные условия', text: 'Никаких скрытых комиссий и платежей' },
   { icon: 'Heart', title: 'Индивидуальный подход', text: 'Подбираем программу под вашу ситуацию' },
@@ -88,7 +77,7 @@ export default function IndividualLoans() {
             Займы для физических лиц <span className="text-gradient">и самозанятых</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Программы под любые цели — от потребительских займов без залога до ипотеки и займов под залог недвижимости. Действуют для членов кооператива.
+            Деньги на ваши цели — от потребительских займов без залога до ипотеки и кредита под залог недвижимости или авто. Программы доступны членам кооператива.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <IndividualApplicationForm source="Страница «Займы для физлиц» — Hero">
@@ -185,43 +174,12 @@ export default function IndividualLoans() {
         </div>
       </section>
 
-      {/* Сводная таблица */}
+      {/* Калькулятор займа */}
       <section className="py-10 md:py-14 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Сводная таблица</h2>
-          <p className="text-center text-muted-foreground mb-8">Полные условия по всем кредитным продуктам для ФЛ, в том числе самозанятых</p>
-
-          <Card className="border-2 overflow-hidden">
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-muted/60 hover:bg-muted/60">
-                    <TableHead className="font-bold text-foreground">Наименование</TableHead>
-                    <TableHead className="font-bold text-foreground">Сумма</TableHead>
-                    <TableHead className="font-bold text-foreground">Срок</TableHead>
-                    <TableHead className="font-bold text-foreground">Ставка (годовых)</TableHead>
-                    <TableHead className="font-bold text-foreground">Единовременная комиссия</TableHead>
-                    <TableHead className="font-bold text-foreground">Обеспечение</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {loanPrograms.map((p) => (
-                    <TableRow key={p.name}>
-                      <TableCell className="font-semibold">{p.name}</TableCell>
-                      <TableCell className="whitespace-pre-line text-xs">{p.amount}</TableCell>
-                      <TableCell className="text-xs">{p.term}</TableCell>
-                      <TableCell className="font-bold text-primary text-sm">{p.rate}</TableCell>
-                      <TableCell className="text-xs">{p.commission}</TableCell>
-                      <TableCell className="text-xs">{p.collateral}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </Card>
-          <p className="text-xs text-muted-foreground mt-3 text-center">
-            Окончательные условия определяются индивидуально после рассмотрения заявки. Займы предоставляются только членам кооператива.
-          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Рассчитайте свой займ</h2>
+          <p className="text-center text-muted-foreground mb-8">Выберите программу, сумму и срок — увидите примерный платёж</p>
+          <IndividualLoanCalculator />
         </div>
       </section>
 
@@ -229,13 +187,32 @@ export default function IndividualLoans() {
       <section className="py-12 md:py-16 px-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">Подобрать программу займа</h2>
-          <p className="text-white/90 mb-6">Оставьте заявку — перезвоним и подберём условия под вашу ситуацию</p>
-          <IndividualApplicationForm source="Страница «Займы для физлиц» — нижний CTA">
-            <Button size="lg" variant="secondary" className="px-10">
-              <Icon name="Send" size={18} />
-              Получить консультацию
-            </Button>
-          </IndividualApplicationForm>
+          <p className="text-white/90 mb-6">Напишите нам в мессенджере MAX — ответим и подберём условия под вашу ситуацию</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a
+              href="https://max.ru/u/f9LHodD0cOKlhlHdQBcCTxnF2xJzOrOZrDbcKvHWJZ8kAoLbEol6TCNeJOc"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" variant="secondary" className="px-10">
+                <img
+                  src="https://max.ru/favicon.ico"
+                  alt="MAX"
+                  className="w-4 h-4 rounded-sm"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+                Получить консультацию в MAX
+              </Button>
+            </a>
+            <IndividualApplicationForm source="Страница «Займы для физлиц» — нижний CTA (форма)">
+              <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-purple-700 px-10">
+                <Icon name="Send" size={18} />
+                Оставить заявку
+              </Button>
+            </IndividualApplicationForm>
+          </div>
         </div>
       </section>
     </Layout>

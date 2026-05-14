@@ -1,5 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 
+export interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 interface SEOProps {
   title: string;
   description: string;
@@ -7,6 +12,7 @@ interface SEOProps {
   image?: string;
   type?: string;
   jsonLd?: object | object[];
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const SITE_URL = 'https://ffrf.ru';
@@ -91,11 +97,27 @@ export default function SEO({
   image = DEFAULT_IMAGE,
   type = 'website',
   jsonLd,
+  breadcrumbs,
 }: SEOProps) {
   const url = `${SITE_URL}${path}`;
   const fullTitle = title.includes('ФИН ФОРМУЛА') ? title : `${title} — КПК «ФИН ФОРМУЛА»`;
 
   const ldArray: object[] = [organizationJsonLd, websiteJsonLd];
+
+  if (breadcrumbs && breadcrumbs.length > 0) {
+    const breadcrumbLd = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((b, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: b.name,
+        item: `${SITE_URL}${b.path}`,
+      })),
+    };
+    ldArray.push(breadcrumbLd);
+  }
+
   if (jsonLd) {
     if (Array.isArray(jsonLd)) ldArray.push(...jsonLd);
     else ldArray.push(jsonLd);

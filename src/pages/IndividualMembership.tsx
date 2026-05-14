@@ -38,6 +38,11 @@ export default function IndividualMembership() {
         title="Условия членства для физлиц — КПК «ФИН ФОРМУЛА»"
         description="Как стать пайщиком кооператива «ФИН ФОРМУЛА»: требования, документы (паспорт и заявление), паевой взнос 2 500 ₽, права и обязанности. Для жителей Ростовской области и Краснодарского края."
         path="/individual/membership"
+        breadcrumbs={[
+          { name: 'Главная', path: '/' },
+          { name: 'Для физических лиц', path: '/individual/membership' },
+          { name: 'Условия членства', path: '/individual/membership' },
+        ]}
       />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-emerald-50/60 to-transparent">

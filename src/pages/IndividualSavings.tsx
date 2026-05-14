@@ -36,6 +36,11 @@ export default function IndividualSavings() {
         title="Сбережения для физлиц до 18,5% годовых — КПК «ФИН ФОРМУЛА»"
         description="Программа «Динамичный доход» для физических лиц и самозанятых: сумма от 50 000 ₽ до 30 000 000 ₽, срок 3–18 месяцев, ставка до 18,50% годовых. Выплата ежемесячно, авансом или в конце срока."
         path="/individual/savings"
+        breadcrumbs={[
+          { name: 'Главная', path: '/' },
+          { name: 'Для физических лиц', path: '/individual/savings' },
+          { name: 'Сбережения', path: '/individual/savings' },
+        ]}
       />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-purple-50/60 to-transparent">

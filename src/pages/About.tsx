@@ -15,6 +15,10 @@ export default function About() {
         title="О фонде КПК «ФИН ФОРМУЛА» — преимущества, документы, FAQ"
         description="О кредитном потребительском кооперативе «ФИН ФОРМУЛА»: документы, сравнение с банком, ответы на частые вопросы и контакты. Работаем в Ростовской области и Краснодарском крае под контролем Банка России."
         path="/about"
+        breadcrumbs={[
+          { name: 'Главная', path: '/' },
+          { name: 'О фонде', path: '/about' },
+        ]}
       />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">

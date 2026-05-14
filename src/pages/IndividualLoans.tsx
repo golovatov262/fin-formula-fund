@@ -82,6 +82,11 @@ export default function IndividualLoans() {
         title="Займы для физических лиц и самозанятых — КПК «ФИН ФОРМУЛА»"
         description="Займы для физлиц и самозанятых: без обеспечения, под залог недвижимости, ипотека, авто займ, рефинансирование. Суммы от 20 000 ₽ до 3 000 000 ₽, решение за 24 часа. Ростовская область и Краснодарский край."
         path="/individual/loans"
+        breadcrumbs={[
+          { name: 'Главная', path: '/' },
+          { name: 'Для физических лиц', path: '/individual/loans' },
+          { name: 'Займы', path: '/individual/loans' },
+        ]}
       />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-orange-50/60 to-transparent">

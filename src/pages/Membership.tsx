@@ -26,6 +26,11 @@ export default function Membership() {
         title="Членство для бизнеса — КПК «ФИН ФОРМУЛА»"
         description="Условия вступления в кредитный потребительский кооператив для ЮЛ и ИП. Паевой взнос возвращается при выходе. Доступ к сбережениям и займам на льготных условиях."
         path="/membership"
+        breadcrumbs={[
+          { name: 'Главная', path: '/' },
+          { name: 'Для бизнеса', path: '/membership' },
+          { name: 'Членство', path: '/membership' },
+        ]}
       />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-primary/5 to-transparent">

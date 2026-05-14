@@ -93,6 +93,11 @@ export default function Loans() {
         title="Займы для бизнеса — оборотные, инвестиционные, рефинансирование"
         description="Займы для ЮЛ и ИП от КПК «ФИН ФОРМУЛА»: оборотный, кассовый экспресс, инвестиционный, рефинансирование. Без залогов и ковенантов, решение за 48 часов. Ростовская область и Краснодарский край."
         path="/loans"
+        breadcrumbs={[
+          { name: 'Главная', path: '/' },
+          { name: 'Для бизнеса', path: '/loans' },
+          { name: 'Займы', path: '/loans' },
+        ]}
       />
       {/* Hero */}
       <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-orange-50/60 to-transparent dark:from-orange-950/10">

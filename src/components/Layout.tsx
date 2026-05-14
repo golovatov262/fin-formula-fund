@@ -24,7 +24,7 @@ const navItems = [
   { label: 'Сбережения', href: '/savings', icon: 'TrendingUp', submenu: null },
   { label: 'Займы', href: '/loans', icon: 'Wallet', submenu: null },
   { label: 'Членство', href: '/membership', icon: 'Users', submenu: null },
-  { label: 'Для физических лиц', href: '/individual', icon: 'UserCircle', submenu: individualSubmenu },
+  { label: 'Для физических лиц', href: '/individual', icon: 'UserCircle', submenu: individualSubmenu, highlight: true },
 ];
 
 function scrollToAnchor(hash: string) {
@@ -107,14 +107,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-0.5" ref={dropdownRef}>
-            {navItems.map((item) => (
+            {navItems.map((item) => {
+              const highlightClasses = item.highlight
+                ? 'border border-primary/30 hover:border-primary/60 hover:bg-primary/5'
+                : '';
+              return (
               <div key={item.href} className="relative">
                 {item.submenu ? (
                   <button
                     onClick={() => setOpenDropdown(openDropdown === item.href ? null : item.href)}
                     className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors
-                      ${isActive(item.href) ? 'text-primary bg-primary/10' : 'text-foreground hover:text-primary hover:bg-primary/5'}`}
+                      ${isActive(item.href) ? 'text-primary bg-primary/10' : 'text-foreground hover:text-primary hover:bg-primary/5'} ${highlightClasses}`}
                   >
+                    {item.highlight && <Icon name={item.icon} size={14} className="text-primary" />}
                     {item.label}
                     <Icon name="ChevronDown" size={13} className={`transition-transform ${openDropdown === item.href ? 'rotate-180' : ''}`} />
                   </button>
@@ -123,7 +128,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     to={item.href}
                     onClick={() => handleNavLink(item.href)}
                     className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors
-                      ${isActive(item.href) ? 'text-primary bg-primary/10' : 'text-foreground hover:text-primary hover:bg-primary/5'}`}
+                      ${isActive(item.href) ? 'text-primary bg-primary/10' : 'text-foreground hover:text-primary hover:bg-primary/5'} ${highlightClasses}`}
                   >
                     {item.label}
                   </Link>
@@ -146,7 +151,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                 )}
               </div>
-            ))}
+              );
+            })}
           </nav>
 
           {/* Правый блок кнопок */}

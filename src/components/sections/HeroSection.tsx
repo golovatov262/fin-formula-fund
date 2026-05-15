@@ -29,9 +29,7 @@ export default function HeroSection() {
             <span className="block text-lg sm:text-xl md:text-2xl font-bold text-gradient mb-2">
               Партнерское объединение юридических лиц
             </span>
-            <span className="block text-base sm:text-lg md:text-xl text-muted-foreground">
-              Размещайте свободные средства под Ключевую ставку + до 3,5% или получайте финансирование для бизнеса за 24 часа без банковской бюрократии
-            </span>
+            <span className="block text-base sm:text-lg md:text-xl text-muted-foreground">Размещайте свободные средства под ключевую ставку + до 3,5% или получайте финансирование для бизнеса за 24 часа без банковской бюрократии</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
             <Link to="/savings" className="w-full sm:w-auto">

@@ -98,8 +98,7 @@ export default function Savings() {
         path="/savings"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Для бизнеса', path: '/savings' },
-          { name: 'Сбережения', path: '/savings' },
+          { name: 'Сбережения для бизнеса', path: '/savings' },
         ]}
       />
       {/* Hero */}

@@ -95,8 +95,7 @@ export default function Loans() {
         path="/loans"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Для бизнеса', path: '/loans' },
-          { name: 'Займы', path: '/loans' },
+          { name: 'Займы для бизнеса', path: '/loans' },
         ]}
       />
       {/* Hero */}

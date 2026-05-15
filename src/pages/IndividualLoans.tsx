@@ -84,8 +84,7 @@ export default function IndividualLoans() {
         path="/individual/loans"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Для физических лиц', path: '/individual/loans' },
-          { name: 'Займы', path: '/individual/loans' },
+          { name: 'Займы для физических лиц', path: '/individual/loans' },
         ]}
       />
       {/* Hero */}

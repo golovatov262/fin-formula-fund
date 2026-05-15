@@ -38,8 +38,7 @@ export default function IndividualSavings() {
         path="/individual/savings"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Для физических лиц', path: '/individual/savings' },
-          { name: 'Сбережения', path: '/individual/savings' },
+          { name: 'Сбережения для физических лиц', path: '/individual/savings' },
         ]}
       />
       {/* Hero */}

@@ -28,8 +28,7 @@ export default function Membership() {
         path="/membership"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Для бизнеса', path: '/membership' },
-          { name: 'Членство', path: '/membership' },
+          { name: 'Членство для бизнеса', path: '/membership' },
         ]}
       />
       {/* Hero */}

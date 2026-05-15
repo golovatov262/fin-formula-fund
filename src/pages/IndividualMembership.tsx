@@ -40,8 +40,7 @@ export default function IndividualMembership() {
         path="/individual/membership"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Для физических лиц', path: '/individual/membership' },
-          { name: 'Условия членства', path: '/individual/membership' },
+          { name: 'Членство для физических лиц', path: '/individual/membership' },
         ]}
       />
       {/* Hero */}

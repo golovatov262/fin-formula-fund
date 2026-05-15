@@ -91,12 +91,16 @@ export default function Membership() {
                 <div>
                   <div className="text-xs text-muted-foreground mb-1">Членский взнос</div>
                   <div className="text-xl font-bold">12 000 ₽/год</div>
-                  <div className="text-xs text-muted-foreground">= 1 000 ₽ в месяц</div>
+                  <div className="text-xs text-muted-foreground">= 1 000 ₽ в месяц · только со 2-го года членства</div>
                 </div>
               </div>
               <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-3 flex gap-2">
                 <Icon name="Info" size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-blue-900">Паевой взнос — это не расходы. Это возвратный капитал, который формирует фонд взаимопомощи и возвращается в полном объёме при выходе из КПК.</p>
+              </div>
+              <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg p-3 flex gap-2">
+                <Icon name="CalendarClock" size={16} className="text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-amber-900">Членский взнос 12 000 ₽/год (1 000 ₽ в месяц) уплачивается только со <strong>второго года</strong> членства в КПК. В первый год — вступительный и паевой взносы.</p>
               </div>
             </CardContent>
           </Card>

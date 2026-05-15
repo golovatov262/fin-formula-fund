@@ -4,9 +4,7 @@
       "name": "GET documents list",
       "method": "GET",
       "path": "/",
-      "expectedStatus": 200,
-      "expectedBody": {"documents": [{"slug": "ustav"}]},
-      "bodyMatcher": "partial"
+      "expectedStatus": 200
     }
   ]
 }

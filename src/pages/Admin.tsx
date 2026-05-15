@@ -1,15 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 
 const DOCS_URL = 'https://functions.poehali.dev/aaf60092-d5d3-4009-a71d-89ce64ad3157';
-
-const DOCUMENT_LABELS: Record<string, string> = {
-  'ustav': 'Устав',
-  'polozhenie-o-chlenstvo': 'Положение о членстве',
-  'polozhenie-o-zaymah': 'Положение о выдаче займов',
-  'polozhenie-o-sberezheniyah': 'Положение о приёме сбережений',
-};
 
 interface Doc {
   slug: string;
@@ -27,6 +22,14 @@ export default function Admin() {
   const [uploading, setUploading] = useState<string | null>(null);
   const [deleting, setDeleting] = useState<string | null>(null);
   const [message, setMessage] = useState('');
+  const [showAdd, setShowAdd] = useState(false);
+  const [newTitle, setNewTitle] = useState('');
+  const [newDescription, setNewDescription] = useState('');
+  const [creating, setCreating] = useState(false);
+  const [editing, setEditing] = useState<string | null>(null);
+  const [editTitle, setEditTitle] = useState('');
+  const [editDescription, setEditDescription] = useState('');
+  const [savingEdit, setSavingEdit] = useState(false);
   const fileRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
   const loadDocuments = async (t: string) => {
@@ -67,7 +70,7 @@ export default function Admin() {
         body: JSON.stringify({ slug, file: base64 }),
       });
       if (res.ok) {
-        setMessage(`✓ "${DOCUMENT_LABELS[slug]}" успешно загружен`);
+        setMessage(`✓ Файл успешно загружен`);
         await loadDocuments(token);
       } else {
         setMessage('Ошибка при загрузке');
@@ -77,9 +80,12 @@ export default function Admin() {
     reader.readAsDataURL(file);
   };
 
-  const handleDelete = async (slug: string) => {
-    if (!confirm(`Удалить "${DOCUMENT_LABELS[slug]}"?`)) return;
-    setDeleting(slug);
+  const handleDelete = async (doc: Doc, removeEntry: boolean) => {
+    const confirmText = removeEntry
+      ? `Удалить документ "${doc.title}" вместе с записью?`
+      : `Удалить файл "${doc.title}"? Карточка останется.`;
+    if (!confirm(confirmText)) return;
+    setDeleting(doc.slug);
     setMessage('');
     const res = await fetch(DOCS_URL, {
       method: 'DELETE',
@@ -87,13 +93,71 @@ export default function Admin() {
         'Content-Type': 'application/json',
         'X-Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify({ slug }),
+      body: JSON.stringify({ slug: doc.slug, removeEntry }),
     });
     if (res.ok) {
-      setMessage(`"${DOCUMENT_LABELS[slug]}" удалён`);
+      setMessage(removeEntry ? `Документ "${doc.title}" удалён` : `Файл "${doc.title}" удалён`);
       await loadDocuments(token);
     }
     setDeleting(null);
+  };
+
+  const handleCreate = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newTitle.trim()) return;
+    setCreating(true);
+    setMessage('');
+    const res = await fetch(DOCS_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ action: 'create', title: newTitle.trim(), description: newDescription.trim() }),
+    });
+    if (res.ok) {
+      setMessage(`✓ Документ "${newTitle}" добавлен. Теперь загрузите PDF-файл.`);
+      setNewTitle('');
+      setNewDescription('');
+      setShowAdd(false);
+      await loadDocuments(token);
+    } else {
+      setMessage('Ошибка при добавлении документа');
+    }
+    setCreating(false);
+  };
+
+  const startEdit = (doc: Doc) => {
+    setEditing(doc.slug);
+    setEditTitle(doc.title);
+    setEditDescription(doc.description || '');
+  };
+
+  const cancelEdit = () => {
+    setEditing(null);
+    setEditTitle('');
+    setEditDescription('');
+  };
+
+  const saveEdit = async (slug: string) => {
+    setSavingEdit(true);
+    setMessage('');
+    const res = await fetch(DOCS_URL, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ slug, title: editTitle.trim(), description: editDescription.trim() }),
+    });
+    if (res.ok) {
+      setMessage('✓ Изменения сохранены');
+      cancelEdit();
+      await loadDocuments(token);
+    } else {
+      setMessage('Ошибка при сохранении');
+    }
+    setSavingEdit(false);
   };
 
   if (!token) {
@@ -152,7 +216,16 @@ export default function Admin() {
       </header>
 
       <main className="container mx-auto px-4 py-8 max-w-3xl">
-        <h2 className="text-2xl font-bold mb-6">Документы</h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold">Документы</h2>
+          <Button
+            className="gradient-purple-blue text-white"
+            onClick={() => setShowAdd(!showAdd)}
+          >
+            <Icon name={showAdd ? 'X' : 'Plus'} size={16} />
+            {showAdd ? 'Отмена' : 'Добавить документ'}
+          </Button>
+        </div>
 
         {message && (
           <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
@@ -160,67 +233,136 @@ export default function Admin() {
           </div>
         )}
 
+        {showAdd && (
+          <form onSubmit={handleCreate} className="mb-6 bg-white rounded-xl border border-gray-200 p-5 space-y-3">
+            <div>
+              <label className="text-sm font-medium text-gray-700 block mb-1">Название документа *</label>
+              <Input
+                value={newTitle}
+                onChange={e => setNewTitle(e.target.value)}
+                placeholder="Например: Политика обработки персональных данных"
+                required
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-gray-700 block mb-1">Описание</label>
+              <Textarea
+                value={newDescription}
+                onChange={e => setNewDescription(e.target.value)}
+                placeholder="Краткое описание документа"
+                rows={2}
+              />
+            </div>
+            <Button
+              type="submit"
+              className="gradient-purple-blue text-white"
+              disabled={creating || !newTitle.trim()}
+            >
+              <Icon name={creating ? 'Loader2' : 'Check'} size={16} className={creating ? 'animate-spin' : ''} />
+              Создать карточку
+            </Button>
+          </form>
+        )}
+
         <div className="space-y-3">
           {documents.map(doc => (
-            <div key={doc.slug} className="bg-white rounded-xl border border-gray-200 p-4 flex items-center gap-4">
-              <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                <Icon name="FileText" size={24} className="text-red-500" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-semibold text-sm">{doc.title}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  {doc.uploaded ? (
-                    <span className="text-green-600 flex items-center gap-1">
-                      <Icon name="CheckCircle" size={12} />
-                      Загружен
-                    </span>
-                  ) : (
-                    <span className="text-gray-400">Не загружен</span>
-                  )}
-                </p>
-              </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
-                {doc.uploaded && (
-                  <>
-                    <a href={doc.url!} target="_blank" rel="noreferrer">
-                      <Button variant="outline" size="sm">
-                        <Icon name="Eye" size={14} />
-                        <span className="hidden sm:inline">Просмотр</span>
-                      </Button>
-                    </a>
+            <div key={doc.slug} className="bg-white rounded-xl border border-gray-200 p-4">
+              {editing === doc.slug ? (
+                <div className="space-y-3">
+                  <Input
+                    value={editTitle}
+                    onChange={e => setEditTitle(e.target.value)}
+                    placeholder="Название документа"
+                  />
+                  <Textarea
+                    value={editDescription}
+                    onChange={e => setEditDescription(e.target.value)}
+                    placeholder="Описание"
+                    rows={2}
+                  />
+                  <div className="flex gap-2">
+                    <Button
+                      size="sm"
+                      className="gradient-purple-blue text-white"
+                      onClick={() => saveEdit(doc.slug)}
+                      disabled={savingEdit || !editTitle.trim()}
+                    >
+                      <Icon name={savingEdit ? 'Loader2' : 'Check'} size={14} className={savingEdit ? 'animate-spin' : ''} />
+                      Сохранить
+                    </Button>
+                    <Button size="sm" variant="outline" onClick={cancelEdit}>
+                      <Icon name="X" size={14} />
+                      Отмена
+                    </Button>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Icon name="FileText" size={24} className="text-red-500" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-sm truncate">{doc.title}</p>
+                    {doc.description && (
+                      <p className="text-xs text-muted-foreground mt-0.5 truncate">{doc.description}</p>
+                    )}
+                    <p className="text-xs mt-1">
+                      {doc.uploaded ? (
+                        <span className="text-green-600 inline-flex items-center gap-1">
+                          <Icon name="CheckCircle" size={12} />
+                          Файл загружен
+                        </span>
+                      ) : (
+                        <span className="text-gray-400">Файл не загружен</span>
+                      )}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 flex-shrink-0 flex-wrap justify-end">
+                    {doc.uploaded && (
+                      <a href={doc.url!} target="_blank" rel="noreferrer">
+                        <Button variant="outline" size="sm">
+                          <Icon name="Eye" size={14} />
+                          <span className="hidden sm:inline">Просмотр</span>
+                        </Button>
+                      </a>
+                    )}
+                    <Button variant="outline" size="sm" onClick={() => startEdit(doc)}>
+                      <Icon name="Pencil" size={14} />
+                      <span className="hidden sm:inline">Изменить</span>
+                    </Button>
+                    <input
+                      ref={el => { fileRefs.current[doc.slug] = el; }}
+                      type="file"
+                      accept=".pdf"
+                      className="hidden"
+                      onChange={e => {
+                        const file = e.target.files?.[0];
+                        if (file) handleUpload(doc.slug, file);
+                        e.target.value = '';
+                      }}
+                    />
+                    <Button
+                      size="sm"
+                      className="gradient-purple-blue text-white"
+                      onClick={() => fileRefs.current[doc.slug]?.click()}
+                      disabled={uploading === doc.slug}
+                    >
+                      <Icon name={uploading === doc.slug ? 'Loader2' : 'Upload'} size={14} className={uploading === doc.slug ? 'animate-spin' : ''} />
+                      <span className="hidden sm:inline">{doc.uploaded ? 'Заменить' : 'Загрузить'}</span>
+                    </Button>
                     <Button
                       variant="outline"
                       size="sm"
                       className="text-red-500 border-red-200 hover:bg-red-50"
-                      onClick={() => handleDelete(doc.slug)}
+                      onClick={() => handleDelete(doc, true)}
                       disabled={deleting === doc.slug}
                     >
                       <Icon name={deleting === doc.slug ? 'Loader2' : 'Trash2'} size={14} className={deleting === doc.slug ? 'animate-spin' : ''} />
                       <span className="hidden sm:inline">Удалить</span>
                     </Button>
-                  </>
-                )}
-                <input
-                  ref={el => { fileRefs.current[doc.slug] = el; }}
-                  type="file"
-                  accept=".pdf"
-                  className="hidden"
-                  onChange={e => {
-                    const file = e.target.files?.[0];
-                    if (file) handleUpload(doc.slug, file);
-                    e.target.value = '';
-                  }}
-                />
-                <Button
-                  size="sm"
-                  className="gradient-purple-blue text-white"
-                  onClick={() => fileRefs.current[doc.slug]?.click()}
-                  disabled={uploading === doc.slug}
-                >
-                  <Icon name={uploading === doc.slug ? 'Loader2' : 'Upload'} size={14} className={uploading === doc.slug ? 'animate-spin' : ''} />
-                  <span className="hidden sm:inline">{doc.uploaded ? 'Заменить' : 'Загрузить'}</span>
-                </Button>
-              </div>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

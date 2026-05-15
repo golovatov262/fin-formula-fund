@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 export interface BreadcrumbItem {
   name: string;
@@ -90,6 +90,29 @@ const websiteJsonLd = {
   publisher: { '@id': `${SITE_URL}/#organization` },
 };
 
+const MANAGED_ATTR = 'data-seo-managed';
+
+function setMeta(selector: string, attrs: Record<string, string>) {
+  let el = document.head.querySelector<HTMLMetaElement>(selector);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(MANAGED_ATTR, 'true');
+    document.head.appendChild(el);
+  }
+  Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
+}
+
+function setLink(rel: string, href: string) {
+  let el = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"][${MANAGED_ATTR}]`);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', rel);
+    el.setAttribute(MANAGED_ATTR, 'true');
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
 export default function SEO({
   title,
   description,
@@ -102,52 +125,55 @@ export default function SEO({
   const url = `${SITE_URL}${path}`;
   const fullTitle = title.includes('ФИН ФОРМУЛА') ? title : `${title} — КПК «ФИН ФОРМУЛА»`;
 
-  const ldArray: object[] = [organizationJsonLd, websiteJsonLd];
+  useEffect(() => {
+    document.documentElement.setAttribute('lang', 'ru');
+    document.title = fullTitle;
 
-  if (breadcrumbs && breadcrumbs.length > 0) {
-    const breadcrumbLd = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbs.map((b, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: b.name,
-        item: `${SITE_URL}${b.path}`,
-      })),
-    };
-    ldArray.push(breadcrumbLd);
-  }
+    setMeta('meta[name="description"]', { name: 'description', content: description });
+    setLink('canonical', url);
 
-  if (jsonLd) {
-    if (Array.isArray(jsonLd)) ldArray.push(...jsonLd);
-    else ldArray.push(jsonLd);
-  }
+    setMeta('meta[property="og:type"]', { property: 'og:type', content: type });
+    setMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: 'КПК «ФИН ФОРМУЛА»' });
+    setMeta('meta[property="og:title"]', { property: 'og:title', content: fullTitle });
+    setMeta('meta[property="og:description"]', { property: 'og:description', content: description });
+    setMeta('meta[property="og:url"]', { property: 'og:url', content: url });
+    setMeta('meta[property="og:image"]', { property: 'og:image', content: image });
+    setMeta('meta[property="og:image:alt"]', {
+      property: 'og:image:alt',
+      content: 'КПК «ФИН ФОРМУЛА» — финансовая поддержка для физлиц и бизнеса',
+    });
+    setMeta('meta[property="og:locale"]', { property: 'og:locale', content: 'ru_RU' });
 
-  return (
-    <Helmet>
-      <html lang="ru" />
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
+    setMeta('meta[name="twitter:card"]', { name: 'twitter:card', content: 'summary_large_image' });
+    setMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: fullTitle });
+    setMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description });
+    setMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: image });
 
-      {/* Open Graph */}
-      <meta property="og:type" content={type} />
-      <meta property="og:site_name" content="КПК «ФИН ФОРМУЛА»" />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
-      <meta property="og:image" content={image} />
-      <meta property="og:image:alt" content="КПК «ФИН ФОРМУЛА» — финансовая поддержка для физлиц и бизнеса" />
-      <meta property="og:locale" content="ru_RU" />
+    const ldArray: object[] = [organizationJsonLd, websiteJsonLd];
+    if (breadcrumbs && breadcrumbs.length > 0) {
+      ldArray.push({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.name,
+          item: `${SITE_URL}${b.path}`,
+        })),
+      });
+    }
+    if (jsonLd) {
+      if (Array.isArray(jsonLd)) ldArray.push(...jsonLd);
+      else ldArray.push(jsonLd);
+    }
 
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+    document.head.querySelectorAll(`script[type="application/ld+json"][${MANAGED_ATTR}]`).forEach((n) => n.remove());
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute(MANAGED_ATTR, 'true');
+    script.textContent = JSON.stringify(ldArray);
+    document.head.appendChild(script);
+  }, [fullTitle, description, url, image, type, jsonLd, breadcrumbs]);
 
-      {/* JSON-LD */}
-      <script type="application/ld+json">{JSON.stringify(ldArray)}</script>
-    </Helmet>
-  );
+  return null;
 }

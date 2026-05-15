@@ -35,7 +35,7 @@ const programs: Program[] = [
     icon: 'UserCheck',
     rate: 27,
     rateMax: 49,
-    amountMin: 20000,
+    amountMin: 50000,
     amountMax: 300000,
     monthsMin: 12,
     monthsMax: 60,

@@ -79,12 +79,12 @@ export default function IndividualLoans() {
   return (
     <Layout>
       <SEO
-        title="Займы для физических лиц и самозанятых — КПК «ФИН ФОРМУЛА»"
-        description="Займы для физлиц и самозанятых: без обеспечения, под залог недвижимости, ипотека, авто займ, рефинансирование. Суммы от 50 000 ₽ до 3 000 000 ₽, решение за 24 часа. Ростовская область и Краснодарский край."
+        title="Финансовая поддержка для физических лиц и самозанятых — ФИН ФОРМУЛА"
+        description="Программы кооперативной поддержки для физлиц и самозанятых: без обеспечения, под залог недвижимости, ипотека, авто, рефинансирование. Суммы от 50 000 ₽ до 3 000 000 ₽, решение за 24 часа. Ростовская область и Краснодарский край."
         path="/individual/loans"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Займы для физических лиц', path: '/individual/loans' },
+          { name: 'Финансовая поддержка для физических лиц', path: '/individual/loans' },
         ]}
       />
       {/* Hero */}
@@ -95,13 +95,13 @@ export default function IndividualLoans() {
             Для физических лиц
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Займы для физических лиц <span className="text-gradient">и самозанятых</span>
+            Финансовая поддержка для физлиц <span className="text-gradient">и самозанятых</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Деньги на ваши цели — от потребительских займов без залога до ипотеки и кредита под залог недвижимости или авто. Программы доступны членам кооператива.
+            Средства на ваши цели — от программ без обеспечения до поддержки под залог недвижимости или авто. Программы доступны пайщикам кооператива.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <IndividualApplicationForm source="Страница «Займы для физлиц» — Hero">
+            <IndividualApplicationForm source="Страница «Финансовая поддержка для физлиц» — Hero">
               <Button size="lg" className="gradient-orange-pink text-white px-10">
                 <Icon name="Send" size={18} />
                 Оставить заявку
@@ -139,7 +139,7 @@ export default function IndividualLoans() {
       {/* Карточки программ */}
       <section className="py-10 md:py-14 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Программы займов</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Программы финансовой поддержки</h2>
           <p className="text-center text-muted-foreground mb-8">Для физических лиц, в том числе самозанятых</p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -179,7 +179,7 @@ export default function IndividualLoans() {
                     </div>
 
                     <IndividualApplicationForm
-                      source={`Страница «Займы для физлиц» — программа «${p.name}»`}
+                      source={`Страница «Финансовая поддержка для физлиц» — программа «${p.name}»`}
                       defaultMessage={`Интересует программа: ${p.name}`}
                     >
                       <Button className="w-full mt-5" variant="outline">

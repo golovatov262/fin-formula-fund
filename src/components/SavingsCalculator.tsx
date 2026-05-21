@@ -25,7 +25,7 @@ const terms: TermOption[] = [
 const payoutOptions: { id: PayoutType; label: string; icon: string; hint: string }[] = [
   { id: 'monthly', label: 'Ежемесячно', icon: 'Calendar', hint: 'Проценты приходят каждый месяц' },
   { id: 'advance', label: 'Авансом', icon: 'Zap', hint: 'Все проценты сразу при открытии' },
-  { id: 'end', label: 'В конце срока', icon: 'Trophy', hint: 'Максимальная ставка' },
+  { id: 'end', label: 'В конце срока', icon: 'Trophy', hint: 'Максимальная доходность' },
 ];
 
 const fmt = (n: number) =>
@@ -63,14 +63,14 @@ export default function SavingsCalculator() {
           </div>
           <div>
             <div className="font-bold text-lg">Калькулятор доходности</div>
-            <div className="text-xs text-muted-foreground">Рассчитайте, сколько заработаете на сбережениях</div>
+            <div className="text-xs text-muted-foreground">Рассчитайте доход от паевого взноса</div>
           </div>
         </div>
 
         {/* Сумма */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <Label className="text-sm">Сумма сбережений</Label>
+            <Label className="text-sm">Сумма паевого взноса</Label>
             <span className="font-bold text-base">{fmtNum(amount)} ₽</span>
           </div>
           <Slider
@@ -89,7 +89,7 @@ export default function SavingsCalculator() {
 
         {/* Срок */}
         <div className="space-y-2">
-          <Label className="text-sm">Срок размещения</Label>
+          <Label className="text-sm">Срок участия</Label>
           <div className="grid grid-cols-4 gap-2">
             {terms.map((t, i) => {
               const isActive = i === termIdx;
@@ -137,7 +137,7 @@ export default function SavingsCalculator() {
 
         {/* Ставка */}
         <div className="flex items-center justify-between rounded-lg px-4 py-2.5 bg-purple-50 border border-purple-200">
-          <span className="text-sm text-purple-900">Ставка по выбранным параметрам</span>
+          <span className="text-sm text-purple-900">Расчётная доходность по выбранным параметрам</span>
           <span className="text-lg font-bold text-purple-700">{rate}% годовых</span>
         </div>
 
@@ -175,7 +175,7 @@ export default function SavingsCalculator() {
             </div>
           )}
           <div className="flex justify-between items-center text-sm">
-            <span className="text-muted-foreground">Сумма размещения</span>
+            <span className="text-muted-foreground">Сумма паевого взноса</span>
             <span className="font-semibold">{fmt(amount)}</span>
           </div>
           <div className="flex justify-between items-center pt-3 border-t">
@@ -186,17 +186,17 @@ export default function SavingsCalculator() {
 
         {/* Кнопка подачи заявки */}
         <IndividualApplicationForm
-          source={`Калькулятор сбережений — ${term.label}, ${payoutInfo.label}`}
-          defaultMessage={`Программа: «Динамичный доход»\nСумма: ${fmtNum(amount)} ₽\nСрок: ${term.label}\nВыплата: ${payoutInfo.label}\nСтавка: ${rate}% годовых\nДоход за весь срок: ${fmt(totalIncome)}`}
+          source={`Калькулятор паевого счёта — ${term.label}, ${payoutInfo.label}`}
+          defaultMessage={`Программа: «Динамичный доход»\nСумма: ${fmtNum(amount)} ₽\nСрок: ${term.label}\nВыплата: ${payoutInfo.label}\nРасчётная доходность: ${rate}% годовых\nДоход за весь срок: ${fmt(totalIncome)}`}
         >
           <Button className="w-full gradient-purple-blue text-white text-base py-6">
             <Icon name="Send" size={18} />
-            Открыть сбережения
+            Открыть паевой счёт
           </Button>
         </IndividualApplicationForm>
 
         <p className="text-xs text-muted-foreground text-center -mt-2">
-          Расчёт предварительный. Сбережения принимаются только от членов кооператива.
+          Расчёт предварительный. Доходность ориентировочная, не является фиксированной. Паевые взносы принимаются только от членов кооператива.
         </p>
       </CardContent>
     </Card>

@@ -21,13 +21,13 @@ const DEFAULT_IMAGE =
 
 export const organizationJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'FinancialService',
+  '@type': 'Organization',
   '@id': `${SITE_URL}/#organization`,
-  name: 'КПК «ФИН ФОРМУЛА»',
-  alternateName: 'Кредитный потребительский кооператив «ФИН ФОРМУЛА»',
-  legalName: 'Кредитный потребительский кооператив «ФИН ФОРМУЛА»',
+  name: 'ФИН ФОРМУЛА',
+  alternateName: 'Потребительский кооператив поддержки бизнеса "ФИН ФОРМУЛА"',
+  legalName: 'Потребительский кооператив поддержки бизнеса "ФИН ФОРМУЛА"',
   description:
-    'Кредитный потребительский кооператив. Сбережения под ставку до 18,50% годовых и займы для физических лиц, самозанятых и бизнеса в Ростовской области и Краснодарском крае. Деятельность регулируется Банком России.',
+    'Потребительский кооператив поддержки бизнеса по ст. 123.2 ГК РФ. Экосистема взаимной поддержки пайщиков в Ростовской области и Краснодарском крае.',
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.svg`,
   image: DEFAULT_IMAGE,
@@ -42,41 +42,7 @@ export const organizationJsonLd = {
     { '@type': 'AdministrativeArea', name: 'Ростовская область' },
     { '@type': 'AdministrativeArea', name: 'Краснодарский край' },
   ],
-  serviceType: [
-    'Сбережения для физических лиц',
-    'Сбережения для бизнеса',
-    'Займы для физических лиц',
-    'Займы для самозанятых',
-    'Займы для бизнеса',
-    'Ипотека',
-    'Авто займы',
-    'Рефинансирование',
-    'Займы под залог недвижимости',
-  ],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Финансовые продукты КПК «ФИН ФОРМУЛА»',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        name: 'Сбережения «Динамичный доход»',
-        description: 'Размещение сбережений от 50 000 ₽ до 30 000 000 ₽ на срок от 3 до 18 месяцев. Ставка до 18,50% годовых.',
-        url: `${SITE_URL}/individual/savings`,
-      },
-      {
-        '@type': 'Offer',
-        name: 'Займы для физических лиц и самозанятых',
-        description: 'Без обеспечения, под залог недвижимости, ипотека, авто займ, рефинансирование.',
-        url: `${SITE_URL}/individual/loans`,
-      },
-      {
-        '@type': 'Offer',
-        name: 'Займы для бизнеса',
-        description: 'Оборотные, инвестиционные, кассовый экспресс, рефинансирование для ЮЛ и ИП.',
-        url: `${SITE_URL}/loans`,
-      },
-    ],
-  },
+
   sameAs: ['https://mykpk.ru'],
 };
 
@@ -85,7 +51,7 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   '@id': `${SITE_URL}/#website`,
   url: SITE_URL,
-  name: 'КПК «ФИН ФОРМУЛА»',
+  name: 'ФИН ФОРМУЛА',
   inLanguage: 'ru-RU',
   publisher: { '@id': `${SITE_URL}/#organization` },
 };
@@ -123,7 +89,7 @@ export default function SEO({
   breadcrumbs,
 }: SEOProps) {
   const url = `${SITE_URL}${path}`;
-  const fullTitle = title.includes('ФИН ФОРМУЛА') ? title : `${title} — КПК «ФИН ФОРМУЛА»`;
+  const fullTitle = title.includes('ФИН ФОРМУЛА') ? title : `${title} — ФИН ФОРМУЛА`;
 
   useEffect(() => {
     document.documentElement.setAttribute('lang', 'ru');
@@ -133,14 +99,14 @@ export default function SEO({
     setLink('canonical', url);
 
     setMeta('meta[property="og:type"]', { property: 'og:type', content: type });
-    setMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: 'КПК «ФИН ФОРМУЛА»' });
+    setMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: 'ФИН ФОРМУЛА' });
     setMeta('meta[property="og:title"]', { property: 'og:title', content: fullTitle });
     setMeta('meta[property="og:description"]', { property: 'og:description', content: description });
     setMeta('meta[property="og:url"]', { property: 'og:url', content: url });
     setMeta('meta[property="og:image"]', { property: 'og:image', content: image });
     setMeta('meta[property="og:image:alt"]', {
       property: 'og:image:alt',
-      content: 'КПК «ФИН ФОРМУЛА» — финансовая поддержка для физлиц и бизнеса',
+      content: 'ФИН ФОРМУЛА — кооперативная поддержка пайщиков',
     });
     setMeta('meta[property="og:locale"]', { property: 'og:locale', content: 'ru_RU' });
 

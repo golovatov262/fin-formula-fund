@@ -18,8 +18,6 @@ MANIFEST_KEY = 'documents/manifest.json'
 DEFAULT_DOCUMENTS = [
     {'slug': 'ustav', 'title': 'Устав', 'description': 'Основной учредительный документ кооператива'},
     {'slug': 'polozhenie-o-chlenstvo', 'title': 'Положение о членстве', 'description': 'Условия и порядок вступления в кооператив'},
-    {'slug': 'polozhenie-o-zaymah', 'title': 'Положение о выдаче займов', 'description': 'Правила и условия предоставления займов членам'},
-    {'slug': 'polozhenie-o-sberezheniyah', 'title': 'Положение о приёме сбережений', 'description': 'Порядок и условия приёма личных сбережений'},
 ]
 
 

@@ -2,21 +2,21 @@ import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
 const investorAdvantages = [
-  { icon: 'Percent', title: 'Доходность: до КС + 3,5%', text: 'Прозрачное ценообразование — ставка привязана к ключевой ЦБ, а не устанавливается произвольно' },
-  { icon: 'ShieldCheck', title: 'Защищённость капитала', text: 'Средства работают внутри кооператива среди проверенных участников, а не уходят на внешний рынок' },
-  { icon: 'CalendarDays', title: 'Гибкие сроки размещения', text: 'От 3 месяцев до 3 лет — выбирайте горизонт под свои задачи' },
+  { icon: 'Percent', title: 'Доходность фонда', text: 'Переменная, по итогам периода. Прозрачные правила расчёта дохода пайщика — не произвольные' },
+  { icon: 'ShieldCheck', title: 'Защищённость капитала', text: 'Средства работают внутри кооператива среди проверенных пайщиков, а не уходят на внешний рынок' },
+  { icon: 'CalendarDays', title: 'Гибкие сроки участия в паевом фонде', text: 'От 3 месяцев до 3 лет — выбирайте горизонт под свои задачи' },
 ];
 
 const borrowerAdvantages = [
   { icon: 'Zap', title: 'Решение за 24 часа', text: 'Без затяжных банковских процедур — ответ по заявке на следующий рабочий день' },
-  { icon: 'Ban', title: 'Без залога', text: 'Для членов кооператива финансирование доступно без обеспечения — главное конкурентное преимущество перед банками' },
+  { icon: 'Ban', title: 'Без залога', text: 'Для пайщиков кооператива финансовая поддержка доступна без обеспечения — главное отличие от банков' },
   { icon: 'Shield', title: 'Без банковских ковенантов', text: 'Никаких жёстких ограничений на деятельность компании, обязательных оборотов по счёту и навязанных продуктов' },
 ];
 
 const governanceAdvantages = [
-  { icon: 'Vote', title: 'Один член — один голос', text: 'Независимо от размера взноса каждый участник имеет равный голос на собрании' },
-  { icon: 'Settings', title: 'Влияние на кредитную политику', text: 'Члены кооператива участвуют в утверждении ставок, лимитов и правил финансирования фонда' },
-  { icon: 'Users', title: 'Закрытый клуб партнёров', text: 'Только юридические лица — деловая среда без розничных заёмщиков и случайных участников' },
+  { icon: 'Vote', title: 'Один пайщик — один голос', text: 'Независимо от размера паевого взноса каждый пайщик имеет равный голос на собрании' },
+  { icon: 'Settings', title: 'Влияние на политику фонда', text: 'Пайщики участвуют в утверждении правил финансовой поддержки и доходности фонда' },
+  { icon: 'Users', title: 'Закрытый клуб партнёров', text: 'Деловая среда среди пайщиков — без случайных участников' },
 ];
 
 export default function AdvantagesAndMembership() {
@@ -37,7 +37,7 @@ export default function AdvantagesAndMembership() {
                 <div className="w-9 h-9 gradient-purple-blue rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name="TrendingUp" size={18} className="text-white" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold">Для инвесторов</h3>
+                <h3 className="text-xl md:text-2xl font-bold">Для пайщиков</h3>
               </div>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 {investorAdvantages.map((adv, idx) => (
@@ -59,7 +59,7 @@ export default function AdvantagesAndMembership() {
                 <div className="w-9 h-9 gradient-orange-pink rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name="Banknote" size={18} className="text-white" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold">Для заёмщиков</h3>
+                <h3 className="text-xl md:text-2xl font-bold">Для получателей финансовой поддержки</h3>
               </div>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 {borrowerAdvantages.map((adv, idx) => (
@@ -134,7 +134,7 @@ export default function AdvantagesAndMembership() {
                   <div>
                     <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Права участников</h3>
                     <p className="text-sm md:text-base text-muted-foreground">
-                      Каждый член кооператива имеет право на участие в управлении фондом, получение финансирования на развитие бизнеса и размещение свободных средств под выгодные проценты.
+                      Каждый пайщик имеет право на участие в управлении фондом, получение финансовой поддержки на развитие бизнеса и участие в паевом фонде на условиях кооператива.
                     </p>
                   </div>
                 </div>

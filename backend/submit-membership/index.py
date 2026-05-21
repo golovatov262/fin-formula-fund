@@ -9,9 +9,9 @@ import urllib.error
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     '''
-    Отправка заявки на членство в КПК через Email и Telegram.
+    Отправка заявки на членство в кооперативе ФИН ФОРМУЛА через Email и Telegram.
     Принимает: POST запрос с данными формы (inn, phone, fullName, source).
-    Опционально: loanProgram, loanAmount, loanMonths — параметры желаемого займа из калькулятора.
+    Опционально: loanProgram, loanAmount, loanMonths — параметры желаемой финансовой поддержки из калькулятора.
     Возвращает: HTTP ответ с результатом отправки.
     '''
     method: str = event.get('httpMethod', 'GET')
@@ -78,7 +78,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     if loan_program:
         loan_block_html = f'''
         <div style="background-color: #fff7ed; border-left: 4px solid #f97316; padding: 16px 20px; border-radius: 6px; margin-top: 16px;">
-            <h3 style="margin: 0 0 12px; color: #c2410c; font-size: 15px;">💰 Параметры желаемого займа</h3>
+            <h3 style="margin: 0 0 12px; color: #c2410c; font-size: 15px;">💰 Параметры желаемой финансовой поддержки</h3>
             <p style="margin: 6px 0;"><strong>Программа:</strong> {loan_program}</p>
             {"<p style='margin: 6px 0;'><strong>Сумма:</strong> " + loan_amount + "</p>" if loan_amount else ""}
             {"<p style='margin: 6px 0;'><strong>Срок:</strong> " + loan_months + "</p>" if loan_months else ""}
@@ -88,16 +88,16 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     if savings_program:
         savings_block_html = f'''
         <div style="background-color: #f5f3ff; border-left: 4px solid #7c3aed; padding: 16px 20px; border-radius: 6px; margin-top: 16px;">
-            <h3 style="margin: 0 0 12px; color: #5b21b6; font-size: 15px;">📈 Параметры размещения средств</h3>
+            <h3 style="margin: 0 0 12px; color: #5b21b6; font-size: 15px;">📈 Параметры паевого взноса</h3>
             <table style="width: 100%; border-collapse: collapse;">
                 <tr>
                     <td style="padding: 5px 0; color: #6b7280; width: 50%">Программа</td>
                     <td style="padding: 5px 0; font-weight: bold;">{savings_program}</td>
                 </tr>
-                {"<tr><td style='padding: 5px 0; color: #6b7280;'>Сумма размещения</td><td style='padding: 5px 0; font-weight: bold;'>" + savings_amount + "</td></tr>" if savings_amount else ""}
+                {"<tr><td style='padding: 5px 0; color: #6b7280;'>Сумма паевого взноса</td><td style='padding: 5px 0; font-weight: bold;'>" + savings_amount + "</td></tr>" if savings_amount else ""}
                 {"<tr><td style='padding: 5px 0; color: #6b7280;'>Срок</td><td style='padding: 5px 0; font-weight: bold;'>" + savings_term + "</td></tr>" if savings_term else ""}
                 {"<tr><td style='padding: 5px 0; color: #6b7280;'>Вид выплаты</td><td style='padding: 5px 0; font-weight: bold;'>" + savings_payment_type + "</td></tr>" if savings_payment_type else ""}
-                {"<tr><td style='padding: 5px 0; color: #6b7280;'>Ставка</td><td style='padding: 5px 0; font-weight: bold; color: #7c3aed;'>" + savings_rate + "</td></tr>" if savings_rate else ""}
+                {"<tr><td style='padding: 5px 0; color: #6b7280;'>Доходность</td><td style='padding: 5px 0; font-weight: bold; color: #7c3aed;'>" + savings_rate + "</td></tr>" if savings_rate else ""}
             </table>
             <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ddd6fe; display: flex; gap: 16px;">
                 {"<div style='flex: 1; background: #ede9fe; border-radius: 6px; padding: 10px; text-align: center;'><div style='font-size: 11px; color: #6b7280; margin-bottom: 4px;'>Доход за период</div><div style='font-size: 17px; font-weight: bold; color: #7c3aed;'>" + savings_income + "</div></div>" if savings_income else ""}
@@ -109,14 +109,14 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         msg = MIMEMultipart('alternative')
         msg['From'] = smtp_user
         msg['To'] = smtp_user
-        msg['Subject'] = f'Новая заявка на членство в КПК от {full_name}'
+        msg['Subject'] = f'Новая заявка на членство в кооперативе ФИН ФОРМУЛА от {full_name}'
 
         html_body = f'''
         <html>
         <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
             <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
                 <h2 style="color: #6366f1; border-bottom: 2px solid #6366f1; padding-bottom: 10px;">
-                    📋 Новая заявка на членство в КПК
+                    📋 Новая заявка на членство в кооперативе ФИН ФОРМУЛА
                 </h2>
 
                 <div style="background-color: #ede9fe; border-left: 4px solid #6366f1; padding: 12px 16px; border-radius: 4px; margin-bottom: 20px;">
@@ -165,7 +165,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         company_line = f'\n🏢 <b>Компания:</b> {company_name}' if company_name else ''
         loan_block_tg = ''
         if loan_program:
-            loan_block_tg = f'\n\n💰 <b>Желаемый займ:</b>'
+            loan_block_tg = f'\n\n💰 <b>Желаемая финансовая поддержка:</b>'
             loan_block_tg += f'\n📌 Программа: {loan_program}'
             if loan_amount:
                 loan_block_tg += f'\n💵 Сумма: {loan_amount}'
@@ -174,14 +174,14 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
 
         savings_block_tg = ''
         if savings_program:
-            savings_block_tg = f'\n\n📈 <b>Размещение средств:</b>'
+            savings_block_tg = f'\n\n📈 <b>Паевой взнос:</b>'
             savings_block_tg += f'\n📌 Программа: {savings_program}'
             if savings_amount:
                 savings_block_tg += f'\n💵 Сумма: {savings_amount}'
             if savings_term:
                 savings_block_tg += f'\n📅 Срок: {savings_term}'
             if savings_rate:
-                savings_block_tg += f'\n📊 Ставка: {savings_rate}'
+                savings_block_tg += f'\n📊 Доходность: {savings_rate}'
             if savings_income:
                 savings_block_tg += f'\n✅ Доход: {savings_income}'
             if savings_total:

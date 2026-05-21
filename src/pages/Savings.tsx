@@ -50,18 +50,17 @@ export default function Savings() {
       bgLight: 'bg-primary/5',
       btnColor: 'gradient-purple-blue',
       title: 'ДИНАМИЧНЫЙ ДОХОД',
-      subtitle: 'Фиксированные сроки от 3 до 18 месяцев',
+      subtitle: 'Паевой счёт на срок от 3 до 18 месяцев',
       rateNode: (
         <div className="flex items-baseline gap-2 mb-5">
-          <span className="text-5xl font-black text-primary leading-none">до 18,5%</span>
-          <span className="text-lg font-semibold text-muted-foreground">годовых</span>
+          <span className="text-2xl md:text-3xl font-bold text-primary leading-snug">Доходность фонда</span>
         </div>
       ),
-      rateHint: keyRate !== null ? `КС ЦБ (${keyRate}%) + до 3,5% + 0,5% бонус · актуально на ${rateDate}` : 'Загружаем актуальную ставку ЦБ...',
+      rateHint: 'Переменная, по итогам периода. Не является фиксированной.',
       features: [
         { icon: 'CalendarDays', text: 'Срок: 3, 6, 12 или 18 месяцев' },
-        { icon: 'Percent', text: 'Ставка: КС ЦБ + бонус в зависимости от срока' },
-        { icon: 'BadgeCheck', text: '+0,5% за выплату процентов в конце срока' },
+        { icon: 'Percent', text: 'Расчётная доходность — по правилам кооператива' },
+        { icon: 'BadgeCheck', text: 'Бонус за выплату дохода в конце срока' },
         { icon: 'ShieldCheck', text: 'Пай возвращается при выходе в полном объёме' },
       ]
     },
@@ -71,21 +70,20 @@ export default function Savings() {
       bgLight: 'bg-emerald-50 dark:bg-emerald-950/20',
       btnColor: 'bg-gradient-to-r from-emerald-500 to-teal-500',
       title: 'ОБОРОТНЫЙ ДОХОД',
-      subtitle: 'Краткосрочное размещение 7–30 дней',
+      subtitle: 'Краткосрочный паевой взнос 7–30 дней',
       rateNode: (
         <div className="flex items-baseline gap-2 mb-5">
-          <span className="text-5xl font-black text-emerald-500 leading-none">14%</span>
-          <span className="text-lg font-semibold text-muted-foreground">годовых</span>
+          <span className="text-2xl md:text-3xl font-bold text-emerald-600 leading-snug">Доход пайщика</span>
         </div>
       ),
-      rateHint: 'Фиксированная ставка · начисление ежедневно на фактический остаток',
+      rateHint: 'Расчёт дохода ежедневно на фактический остаток. Доходность ориентировочная, не фиксированная.',
       features: [
         { icon: 'RefreshCw', text: 'Срок: от 7 до 30 дней с автопролонгацией' },
-        { icon: 'BadgeRussianRuble', text: 'Мин. сумма от 500 000 ₽' },
-        { icon: 'Calculator', text: 'Начисление ежедневно на фактический остаток' },
-        { icon: 'ArrowDownToLine', text: 'Вывод в любой рабочий день без потери %' },
+        { icon: 'BadgeRussianRuble', text: 'Мин. паевой взнос от 500 000 ₽' },
+        { icon: 'Calculator', text: 'Расчёт дохода ежедневно на фактический остаток' },
+        { icon: 'ArrowDownToLine', text: 'Вывод в любой рабочий день без потери доходности' },
         { icon: 'PlusCircle', text: 'Пополнение в любое время' },
-        { icon: 'ShieldCheck', text: 'Защита от блокировок' },
+        { icon: 'ShieldCheck', text: 'Паевой счёт не является банковским счётом' },
       ]
     }
   ];
@@ -93,12 +91,12 @@ export default function Savings() {
   return (
     <Layout>
       <SEO
-        title="Сбережения для бизнеса до 18,5% годовых — КПК «ФИН ФОРМУЛА»"
-        description="Размещение средств юридических лиц и ИП в кредитном потребительском кооперативе под ставку до 18,5% годовых. Продукты «Динамичный доход» и «Оборотный доход» для бизнеса."
+        title="Паевой счёт для бизнеса — ФИН ФОРМУЛА"
+        description="Паевые взносы юридических лиц и ИП в потребительском кооперативе ФИН ФОРМУЛА. Программы «Динамичный доход» и «Оборотный доход» — доход пайщика от участия в паевом фонде."
         path="/savings"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Сбережения для бизнеса', path: '/savings' },
+          { name: 'Паевой счёт для бизнеса', path: '/savings' },
         ]}
       />
       {/* Hero */}
@@ -106,13 +104,13 @@ export default function Savings() {
         <div className="container mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-5">
             <Icon name="TrendingUp" size={15} />
-            Сбережения
+            Паевой счёт
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Размещайте средства <span className="text-gradient">выгоднее банка</span>
+            Вносите паевые взносы <span className="text-gradient">как альтернативу банку</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Два продукта для разных задач: долгосрочные накопления по высокой ставке или краткосрочный оборотный доход с ежедневным начислением и свободным выводом
+            Две программы для разных задач: долгосрочное участие в паевом фонде или краткосрочный оборотный доход с периодическим расчётом и свободным выводом.
           </p>
         </div>
       </section>
@@ -153,82 +151,18 @@ export default function Savings() {
             ))}
           </div>
 
-          {/* Гарантии и защита */}
+          {/* Правовая основа */}
           <div className="mb-12">
-            <div className="rounded-2xl border border-primary/20 bg-primary/3 overflow-hidden">
-              <div className="gradient-purple-blue px-6 py-4">
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <Icon name="ShieldCheck" size={22} className="text-white" />
-                  Надёжность и защита ваших средств
-                </h2>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8 flex items-start gap-4">
+              <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Icon name="Scale" size={20} className="text-white" />
               </div>
-              <div className="p-6 md:p-8 grid md:grid-cols-2 gap-6">
-                {/* Реестры */}
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 border border-emerald-100">
-                    <div className="w-9 h-9 bg-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon name="BadgeCheck" size={18} className="text-white" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-emerald-800 mb-0.5">Реестр ЦБ РФ</div>
-                      <p className="text-sm text-emerald-700">
-                        КПК включён в реестр Банка России.{' '}
-                        <a
-                          href="https://cbr.ru/finorg/foinfo/?ogrn=1163668081895"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline underline-offset-2 font-semibold hover:text-emerald-900 transition-colors"
-                        >
-                          Проверить в реестре ЦБ
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 p-4 rounded-xl bg-blue-50 border border-blue-100">
-                    <div className="w-9 h-9 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon name="Building2" size={18} className="text-white" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-blue-800 mb-0.5">Реестр СРО</div>
-                      <p className="text-sm text-blue-700">
-                        Включены в реестр саморегулируемой организации. Компенсационный и резервные фонды обеспечивают защиту в случае банкротства.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 p-4 rounded-xl bg-violet-50 border border-violet-100">
-                    <div className="w-9 h-9 bg-violet-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon name="Layers" size={18} className="text-white" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-violet-800 mb-0.5">Единый подход к фонду</div>
-                      <p className="text-sm text-violet-700">
-                        Минимальные риски за счёт единого подхода к формированию и расходованию средств только внутри фонда. Сохранность средств членов фонда от блокировок ФНС и ФССП.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Правовая защита */}
-                <div className="flex items-start gap-3 p-5 rounded-xl bg-slate-50 border border-slate-200 h-fit">
-                  <div className="w-9 h-9 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon name="Scale" size={18} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-slate-800 mb-2 uppercase text-sm tracking-wide">Правовая основа защиты</div>
-                    <p className="text-sm text-slate-700 leading-relaxed">
-                      Счета пайщиков в КПК не являются банковскими счетами в смысле{' '}
-                      <span className="font-semibold">ст. 845 ГК РФ</span>.
-                      Требования ИФНС по ст. 76 НК РФ и требования ФССП распространяются исключительно на банковские счета.
-                    </p>
-                    <div className="mt-3 p-3 bg-slate-100 rounded-lg">
-                      <p className="text-sm text-slate-700 font-medium">
-                        Средства в КПК защищены от блокировок вне зависимости от налоговых споров и исполнительных производств.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <div>
+                <div className="font-bold text-slate-800 mb-1">Правовая основа</div>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  ФИН ФОРМУЛА — потребительский кооператив по ст. 123.2 ГК РФ. Паевой счёт пайщика не является банковским счётом по ст. 845 ГК РФ — это паевой взнос в фонд кооператива.
+                  Деятельность направлена на взаимную поддержку членов кооператива.
+                </p>
               </div>
             </div>
           </div>
@@ -241,12 +175,12 @@ export default function Savings() {
 
           {/* Как это работает */}
           <div className="bg-muted/30 rounded-2xl p-6 md:p-10 mb-10">
-            <h2 className="text-2xl font-bold mb-6 text-center">Как разместить средства</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">Как открыть паевой счёт</h2>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
-                { step: '1', icon: 'UserPlus', title: 'Стать членом', text: 'Вступить в кооператив, внеся паевой взнос от 30 000 ₽' },
-                { step: '2', icon: 'FileSignature', title: 'Заключить договор', text: 'Подписать договор о размещении средств на выбранных условиях' },
-                { step: '3', icon: 'TrendingUp', title: 'Получать доход', text: 'Ежемесячно или в конце срока получать начисленные проценты' },
+                { step: '1', icon: 'UserPlus', title: 'Стать пайщиком', text: 'Вступить в кооператив, внеся паевой взнос от 30 000 ₽' },
+                { step: '2', icon: 'FileSignature', title: 'Заключить договор', text: 'Подписать договор о паевом взносе на выбранных условиях' },
+                { step: '3', icon: 'TrendingUp', title: 'Получать доход', text: 'Ежемесячно или в конце срока получать рассчитанный доход пайщика' },
               ].map((s) => (
                 <div key={s.step} className="flex flex-col items-center text-center">
                   <div className="w-14 h-14 gradient-purple-blue rounded-2xl flex items-center justify-center mb-3">
@@ -261,7 +195,7 @@ export default function Savings() {
           </div>
 
           <div className="text-center">
-            <MembershipForm source="Страница «Сбережения» — кнопка «Оставить заявку» (нижний блок)">
+            <MembershipForm source="Страница «Паевой счёт» — кнопка «Оставить заявку» (нижний блок)">
               <Button size="lg" className="gradient-purple-blue text-white px-10">
                 <Icon name="UserPlus" size={18} />
                 Оставить заявку

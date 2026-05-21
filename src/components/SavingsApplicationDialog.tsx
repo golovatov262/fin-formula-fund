@@ -122,7 +122,7 @@ export default function SavingsApplicationDialog({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          source: `Калькулятор сбережений — программа «${program}»`,
+          source: `Калькулятор паевого счёта — программа «${program}»`,
           savingsProgram: program,
           savingsAmount: amount,
           savingsTerm: term,
@@ -160,13 +160,13 @@ export default function SavingsApplicationDialog({
               <Icon name="TrendingUp" size={22} className="text-white" />
             </div>
             <div>
-              <DialogTitle className="text-xl">Заявка на размещение средств</DialogTitle>
+              <DialogTitle className="text-xl">Заявка на паевой взнос</DialogTitle>
               <DialogDescription>Заполните контактные данные — менеджер свяжется с вами</DialogDescription>
             </div>
           </div>
         </DialogHeader>
 
-        {/* Параметры размещения */}
+        {/* Параметры паевого взноса */}
         <div className="bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800 rounded-xl p-4 space-y-2">
           <div className="text-xs font-semibold text-purple-700 dark:text-purple-300 uppercase tracking-wide mb-1">Параметры расчёта</div>
           <div className="grid grid-cols-3 gap-2 text-sm">
@@ -185,7 +185,7 @@ export default function SavingsApplicationDialog({
           </div>
           <div className="pt-1 border-t border-purple-200 dark:border-purple-800 grid grid-cols-3 gap-2 text-sm">
             <div>
-              <div className="text-muted-foreground text-xs">Ставка</div>
+              <div className="text-muted-foreground text-xs">Доходность</div>
               <div className="font-bold text-purple-700">{rate}</div>
             </div>
             <div>

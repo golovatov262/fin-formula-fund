@@ -7,12 +7,12 @@ import LoanCalculator from '@/components/LoanCalculator';
 const investorService = {
   icon: 'TrendingUp',
   gradient: 'gradient-purple-blue',
-  title: 'Для инвесторов — разместить средства',
-  description: 'Получайте стабильный доход от размещения свободных средств компании по прозрачной формуле',
+  title: 'Для пайщиков — внести паевой взнос',
+  description: 'Доход пайщика от участия в паевом фонде кооператива по прозрачным правилам',
   features: [
-    { icon: 'Percent', text: 'Ставка: Ключевая ЦБ + до 3,5% — выше банковских депозитов' },
-    { icon: 'CalendarDays', text: 'Гибкие сроки: от 3 месяцев до 3 лет' },
-    { icon: 'ShieldCheck', text: 'Капитал работает внутри кооператива, среди проверенных участников' },
+    { icon: 'Percent', text: 'Доходность фонда — переменная, по итогам периода' },
+    { icon: 'CalendarDays', text: 'Гибкие сроки участия: от 3 месяцев до 3 лет' },
+    { icon: 'ShieldCheck', text: 'Капитал работает внутри кооператива, среди проверенных пайщиков' },
     { icon: 'FileText', text: 'Полная прозрачность: договор, отчётность, устав' },
   ]
 };
@@ -20,24 +20,24 @@ const investorService = {
 const borrowerService = {
   icon: 'Wallet',
   gradient: 'gradient-orange-pink',
-  title: 'Для заёмщиков — получить финансирование',
-  description: 'Финансирование бизнеса без банковской бюрократии, залогов и жёстких ковенантов',
+  title: 'Для получателей финансовой поддержки',
+  description: 'Финансовая поддержка бизнеса без банковской бюрократии и жёстких ковенантов',
   features: [
     { icon: 'Zap', text: 'Решение за 24 часа после подачи заявки' },
-    { icon: 'Ban', text: 'Без залога — для членов кооператива' },
+    { icon: 'Ban', text: 'Без залога — для пайщиков кооператива' },
     { icon: 'Shield', text: 'Без ковенантов: никаких ограничений на деятельность компании' },
     { icon: 'Users', text: 'Работаем с сегментами, которым отказывают банки' },
   ]
 };
 
 const turnovers = [
-  { icon: 'Percent', text: 'Ставка 14,0% годовых — фиксированная' },
+  { icon: 'Percent', text: 'Расчётная доходность — переменная, по итогам периода' },
   { icon: 'CalendarDays', text: 'Срок от 7 до 30 дней, автопролонгация' },
-  { icon: 'BadgeRussianRuble', text: 'Минимальная сумма от 500 000 ₽' },
-  { icon: 'Calculator', text: 'Начисление ежедневно на фактический остаток' },
-  { icon: 'ArrowDownToLine', text: 'Вывод в любой рабочий день без потери %' },
+  { icon: 'BadgeRussianRuble', text: 'Минимальный паевой взнос от 500 000 ₽' },
+  { icon: 'Calculator', text: 'Расчёт дохода ежедневно на фактический остаток' },
+  { icon: 'ArrowDownToLine', text: 'Вывод в любой рабочий день без потери доходности' },
   { icon: 'PlusCircle', text: 'Пополнение в любое время' },
-  { icon: 'ShieldCheck', text: 'Защита от блокировок' },
+  { icon: 'ShieldCheck', text: 'Паевой счёт не является банковским счётом' },
 ];
 
 export default function AboutAndServices() {
@@ -48,7 +48,7 @@ export default function AboutAndServices() {
           <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Альтернатива банку — внутри вашего бизнес-сообщества</h2>
             <p className="text-base md:text-lg text-muted-foreground px-4">
-              КПК «ФИН ФОРМУЛА» — закрытый кооператив юридических лиц: одни участники размещают свободные средства под доходность выше рынка, другие получают финансирование без залогов и бюрократии
+              ФИН ФОРМУЛА — закрытый потребительский кооператив: пайщики вносят паевые взносы и получают взаимную поддержку. Правовая основа — ст. 123.2 ГК РФ.
             </p>
           </div>
 
@@ -76,7 +76,7 @@ export default function AboutAndServices() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Инвестор получает доходность выше банка без риска внешнего рынка. Заёмщик — деньги на развитие без залога и за 24 часа. Оба управляют фондом на равных правах. Работаем с 2016 года, активы — более 100 млн рублей.
+                  Пайщик получает доход от участия в паевом фонде. Получатель финансовой поддержки — средства на развитие без залога и за 24 часа. Все управляют фондом на равных правах. Работаем с 2016 года, активы — более 100 млн рублей.
                 </p>
               </CardContent>
             </Card>
@@ -138,12 +138,12 @@ export default function AboutAndServices() {
                       <span className="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full">Новая программа</span>
                     </div>
                     <CardDescription className="text-sm md:text-base">
-                      Краткосрочное размещение свободных средств с ежедневным начислением и свободным выводом
+                      Краткосрочный паевой взнос с периодическим расчётом дохода и свободным выводом
                     </CardDescription>
                   </div>
                   <div className="md:ml-auto flex flex-col items-start md:items-end flex-shrink-0">
-                    <span className="text-3xl md:text-4xl font-bold text-emerald-600">14%</span>
-                    <span className="text-sm text-muted-foreground">годовых</span>
+                    <span className="text-base md:text-lg font-semibold text-emerald-600">Доход пайщика</span>
+                    <span className="text-sm text-muted-foreground">по итогам периода</span>
                   </div>
                 </div>
               </CardHeader>

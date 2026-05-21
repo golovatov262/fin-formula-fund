@@ -89,7 +89,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
           </div>
           <div>
             <CardTitle className="text-lg md:text-2xl">Калькулятор доходности</CardTitle>
-            <CardDescription className="text-xs md:text-sm">Рассчитайте доход от размещения средств</CardDescription>
+            <CardDescription className="text-xs md:text-sm">Рассчитайте доход от паевого взноса</CardDescription>
           </div>
         </div>
 
@@ -123,7 +123,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
         {program === 'savings' ? (
           <div className="bg-primary/10 rounded-lg p-2 md:p-3 mt-2">
             <div className="flex items-center justify-between flex-wrap gap-1">
-              <span className="text-xs md:text-sm text-muted-foreground">Ставка размещения:</span>
+              <span className="text-xs md:text-sm text-muted-foreground">Расчётная доходность:</span>
               {currentRate !== null ? (
                 <span className="text-base md:text-lg font-bold text-primary">{currentRate.toFixed(1)}% годовых</span>
               ) : (
@@ -137,17 +137,17 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
                   {paymentType === 'end' ? ` + ${END_OF_TERM_BONUS}% (бонус за выплату в конце)` : ''}
                   {rateDate ? ` · актуально на ${rateDate}` : ''}
                 </>
-              ) : 'Получаем актуальную ставку от ЦБ РФ...'}
+              ) : 'Получаем расчётную доходность от ЦБ РФ...'}
             </div>
           </div>
         ) : (
           <div className="bg-emerald-50 dark:bg-emerald-950/20 rounded-lg p-2 md:p-3 mt-2">
             <div className="flex items-center justify-between flex-wrap gap-1">
-              <span className="text-xs md:text-sm text-muted-foreground">Ставка размещения:</span>
+              <span className="text-xs md:text-sm text-muted-foreground">Расчётная доходность:</span>
               <span className="text-base md:text-lg font-bold text-emerald-600">{TURNOVER_RATE}% годовых</span>
             </div>
             <div className="text-xs text-muted-foreground mt-0.5">
-              Фиксированная ставка · начисление ежедневно · вывод в любой рабочий день
+              Расчётная доходность ориентировочная · периодический расчёт дохода · вывод в любой рабочий день
             </div>
           </div>
         )}
@@ -158,7 +158,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
         {/* Сумма */}
         <div className="space-y-2 md:space-y-3">
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
-            <Label htmlFor="amount" className="text-sm md:text-base">Сумма размещения</Label>
+            <Label htmlFor="amount" className="text-sm md:text-base">Сумма паевого взноса</Label>
             <Input
               id="amount"
               type="text"
@@ -188,7 +188,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
           <>
             {/* Срок — кнопки */}
             <div className="space-y-2 md:space-y-3">
-              <Label className="text-sm md:text-base">Срок размещения</Label>
+              <Label className="text-sm md:text-base">Срок участия</Label>
               <div className="grid grid-cols-4 gap-2">
                 {TERMS.map((t, i) => (
                   <button
@@ -258,7 +258,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
               </div>
               <div className="grid grid-cols-3 gap-2">
                 <div className="text-center p-2 md:p-3 bg-muted/50 rounded-lg">
-                  <div className="text-xs text-muted-foreground mb-0.5">Ставка</div>
+                  <div className="text-xs text-muted-foreground mb-0.5">Доходность</div>
                   <div className="font-bold text-sm text-primary">{currentRate?.toFixed(1)}%</div>
                 </div>
                 <div className="text-center p-2 md:p-3 bg-muted/50 rounded-lg">
@@ -277,7 +277,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
             {/* Срок — слайдер для Оборотного дохода */}
             <div className="space-y-2 md:space-y-3">
               <div className="flex justify-between items-center">
-                <Label className="text-sm md:text-base">Срок размещения</Label>
+                <Label className="text-sm md:text-base">Срок участия</Label>
                 <div className="flex items-center gap-1">
                   <span className="font-semibold text-xl text-emerald-600">{days}</span>
                   <span className="text-sm text-muted-foreground">дн.</span>
@@ -315,7 +315,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
               </div>
               <div className="grid grid-cols-3 gap-2">
                 <div className="text-center p-2 md:p-3 bg-emerald-50 dark:bg-emerald-950/20 rounded-lg">
-                  <div className="text-xs text-muted-foreground mb-0.5">Ставка</div>
+                  <div className="text-xs text-muted-foreground mb-0.5">Доходность</div>
                   <div className="font-bold text-sm text-emerald-600">{TURNOVER_RATE}%</div>
                 </div>
                 <div className="text-center p-2 md:p-3 bg-emerald-50 dark:bg-emerald-950/20 rounded-lg">
@@ -323,8 +323,8 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
                   <div className="font-bold text-sm">{days} дн.</div>
                 </div>
                 <div className="text-center p-2 md:p-3 bg-emerald-50 dark:bg-emerald-950/20 rounded-lg">
-                  <div className="text-xs text-muted-foreground mb-0.5">Начисление</div>
-                  <div className="font-bold text-xs">Ежедневно</div>
+                  <div className="text-xs text-muted-foreground mb-0.5">Расчёт дохода</div>
+                  <div className="font-bold text-xs">Периодически</div>
                 </div>
               </div>
             </div>
@@ -334,7 +334,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
         <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-3 md:p-4 flex gap-2 md:gap-3">
           <Icon name="Info" size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
           <div className="text-xs md:text-sm text-amber-900 dark:text-amber-100">
-            <strong>Важно:</strong> Расчёт является предварительным. Точные условия размещения обсуждаются индивидуально с менеджером фонда.
+            <strong>Важно:</strong> Расчёт является предварительным. Точные условия паевого взноса обсуждаются индивидуально с менеджером.
           </div>
         </div>
 
@@ -344,7 +344,7 @@ export default function Calculator({ initialProgram = 'savings' }: CalculatorPro
           onClick={() => setDialogOpen(true)}
         >
           <Icon name="TrendingUp" size={20} />
-          Разместить средства
+          Открыть паевой счёт
         </Button>
       </CardContent>
     </Card>

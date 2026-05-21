@@ -12,8 +12,8 @@ export default function About() {
   return (
     <Layout>
       <SEO
-        title="О фонде КПК «ФИН ФОРМУЛА» — преимущества, документы, FAQ"
-        description="О кредитном потребительском кооперативе «ФИН ФОРМУЛА»: документы, сравнение с банком, ответы на частые вопросы и контакты. Работаем в Ростовской области и Краснодарском крае под контролем Банка России."
+        title="О кооперативе ФИН ФОРМУЛА — преимущества, документы, FAQ"
+        description="О потребительском кооперативе ФИН ФОРМУЛА: документы, сравнение с банком, ответы на частые вопросы и контакты. Работаем в Ростовской области и Краснодарском крае. Правовая основа — ст. 123.2 ГК РФ."
         path="/about"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
@@ -25,25 +25,25 @@ export default function About() {
         <div className="container mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-5">
             <Icon name="Building2" size={15} />
-            О фонде
+            О кооперативе
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            КПК «ФИН ФОРМУЛА» — <span className="text-gradient">кооператив юридических лиц</span>
+            ФИН ФОРМУЛА — <span className="text-gradient">потребительский кооператив поддержки бизнеса</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Работаем с 2016 года. Объединяем компании, которые размещают свободные средства и получают финансирование — без банковской бюрократии и на равных правах
+            Работаем с 2016 года. Объединяем компании для взаимной поддержки — финансовой, товарной, услуговой, информационной. Правовая основа — ст. 123.2 ГК РФ.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link to="/savings">
               <Button className="gradient-purple-blue text-white">
                 <Icon name="TrendingUp" size={16} />
-                Разместить средства
+                Открыть паевой счёт
               </Button>
             </Link>
             <Link to="/loans">
               <Button variant="outline">
                 <Icon name="Wallet" size={16} />
-                Получить финансирование
+                Получить финансовую поддержку
               </Button>
             </Link>
           </div>

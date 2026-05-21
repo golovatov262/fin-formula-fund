@@ -47,7 +47,7 @@ const loanPrograms = [
     collateral: 'гибко',
     decision: '48 часов',
     activity: 'от 6 месяцев',
-    description: 'Первая среднесрочная программа КПК — до 3 лет для надёжных пайщиков. Ставка 21% против 30% в банке, без жёстких требований к залогу и обороту.',
+    description: 'Среднесрочная программа кооператива — до 3 лет для надёжных пайщиков. Условия мягче банковских: без жёстких требований к залогу и обороту.',
     cases: ['Покупка оборудования или спецтехники', 'Приобретение транспортных средств', 'Ремонт и расширение производства'],
     icon: 'TrendingUp',
     color: 'blue',
@@ -62,7 +62,7 @@ const loanPrograms = [
     collateral: 'гибко',
     decision: '48 часов',
     activity: 'от 6 месяцев',
-    description: 'Для бизнеса, который обслуживает кредиты под 22–34%. Снижает ежемесячный платёж на 20–30%, высвобождает оборотные средства. Рефинансируем кредиты любых банков, МФО и частных инвесторов.',
+    description: 'Для бизнеса, который обслуживает дорогие кредиты. Снижает ежемесячный платёж, высвобождает оборотные средства. Рефинансируем кредиты любых банков, МФО и частных кредиторов.',
     cases: ['Снижение ежемесячного платежа на 20–30%', 'Рефинансирование кредитов любых банков и МФО', 'Высвобождение оборотных средств'],
     icon: 'ArrowLeftRight',
     color: 'emerald',
@@ -78,7 +78,7 @@ const colorMap: Record<string, { badge: string; icon: string; border: string; ta
 
 const advantages = [
   { icon: 'Zap', title: 'Решение за 24 часа', text: 'Ответ по заявке на следующий рабочий день после подачи документов' },
-  { icon: 'Ban', title: 'Без залога', text: 'Для членов кооператива финансирование доступно без обеспечения' },
+  { icon: 'Ban', title: 'Без залога', text: 'Для пайщиков кооператива финансовая поддержка доступна без обеспечения' },
   { icon: 'Shield', title: 'Без ковенантов', text: 'Никаких ограничений на деятельность компании и обязательных оборотов' },
   { icon: 'Users', title: 'Для любого бизнеса', text: 'Работаем с компаниями от 3 месяцев, которым отказывают банки' },
   { icon: 'Target', title: 'Свобода использования', text: 'Никаких ограничений на цели — направляйте средства туда, где нужно' },
@@ -90,12 +90,12 @@ export default function Loans() {
   return (
     <Layout>
       <SEO
-        title="Займы для бизнеса — оборотные, инвестиционные, рефинансирование"
-        description="Займы для ЮЛ и ИП от КПК «ФИН ФОРМУЛА»: оборотный, кассовый экспресс, инвестиционный, рефинансирование. Без залогов и ковенантов, решение за 48 часов. Ростовская область и Краснодарский край."
+        title="Финансовая поддержка для бизнеса — ФИН ФОРМУЛА"
+        description="Финансовая поддержка ЮЛ и ИП от потребительского кооператива ФИН ФОРМУЛА: оборотная, кассовый экспресс, инвестиционная, рефинансирование. Без залогов и ковенантов. Ростовская область и Краснодарский край."
         path="/loans"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Займы для бизнеса', path: '/loans' },
+          { name: 'Финансовая поддержка для бизнеса', path: '/loans' },
         ]}
       />
       {/* Hero */}
@@ -103,18 +103,18 @@ export default function Loans() {
         <div className="container mx-auto max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-4 py-1.5 rounded-full text-sm font-medium mb-5">
             <Icon name="Wallet" size={15} />
-            Займы
+            Финансовая поддержка
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Финансирование бизнеса <span className="text-gradient">без банковской бюрократии</span>
+            Финансовая поддержка бизнеса <span className="text-gradient">без банковской бюрократии</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Деньги на развитие бизнеса без залогов, ковенантов и долгих проверок. Решение за 24 часа — для членов кооператива
+            Средства на развитие бизнеса без залогов, ковенантов и долгих проверок. Решение за 24 часа — для пайщиков кооператива.
           </p>
-          <MembershipForm source="Страница «Займы» — кнопка «Получить финансирование» (Hero)">
+          <MembershipForm source="Страница «Финансовая поддержка» — кнопка «Получить поддержку» (Hero)">
             <Button size="lg" className="gradient-orange-pink text-white px-10">
               <Icon name="Zap" size={18} />
-              Получить финансирование
+              Получить финансовую поддержку
             </Button>
           </MembershipForm>
         </div>
@@ -123,7 +123,7 @@ export default function Loans() {
       {/* Программы займов */}
       <section className="py-10 md:py-16 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Программы займов</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Программы финансовой поддержки</h2>
           <p className="text-center text-muted-foreground mb-10">Выберите подходящую программу — или мы подберём её вместе</p>
           <div className="grid md:grid-cols-2 gap-6">
             {loanPrograms.map((p) => {
@@ -145,7 +145,7 @@ export default function Loans() {
                     {/* Ключевые параметры */}
                     <div className="grid grid-cols-3 gap-2 mb-4">
                       {[
-                        { label: 'Ставка', value: p.rate },
+                        { label: 'Стоимость', value: p.rate },
                         { label: 'Сумма', value: p.amount },
                         { label: 'Срок', value: p.term },
                         { label: 'Залог', value: p.collateral },
@@ -174,8 +174,8 @@ export default function Loans() {
 
                     {/* CTA */}
                     <MembershipForm
-                      source={`Страница «Займы» — программа «${p.name}»`}
-                      title={`Заявка на займ «${p.name}»`}
+                      source={`Страница «Финансовая поддержка» — программа «${p.name}»`}
+                      title={`Заявка на программу «${p.name}»`}
                       description={p.tagline}
                     >
                       <Button className={`w-full ${p.color === 'blue' || p.color === 'emerald' ? 'gradient-purple-blue' : 'gradient-orange-pink'} text-white`}>
@@ -195,16 +195,16 @@ export default function Loans() {
         <div className="container mx-auto max-w-6xl">
           {/* Калькулятор */}
           <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Рассчитайте стоимость займа</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Рассчитайте стоимость финансирования</h2>
             <LoanCalculator />
           </div>
 
           {/* Как получить */}
           <div className="bg-muted/30 rounded-2xl p-6 md:p-10 mb-10">
-            <h2 className="text-2xl font-bold mb-6 text-center">Как получить финансирование</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">Как получить финансовую поддержку</h2>
             <div className="grid sm:grid-cols-4 gap-5">
               {[
-                { step: '1', icon: 'UserPlus', title: 'Вступить в КПК', text: 'Внести паевой взнос от 30 000 ₽' },
+                { step: '1', icon: 'UserPlus', title: 'Стать пайщиком', text: 'Вступить в кооператив, внеся паевой взнос от 30 000 ₽' },
                 { step: '2', icon: 'Send', title: 'Подать заявку', text: 'Заполнить форму и предоставить базовые документы' },
                 { step: '3', icon: 'CheckCircle', title: 'Получить решение', text: 'В течение 1 рабочего дня' },
                 { step: '4', icon: 'Banknote', title: 'Получить деньги', text: 'На расчётный счёт компании' },
@@ -222,7 +222,7 @@ export default function Loans() {
           </div>
 
           <div className="text-center mb-0">
-            <MembershipForm source="Страница «Займы» — кнопка «Оставить заявку» (нижний блок)">
+            <MembershipForm source="Страница «Финансовая поддержка» — кнопка «Оставить заявку» (нижний блок)">
               <Button size="lg" className="gradient-orange-pink text-white px-10">
                 <Icon name="Zap" size={18} />
                 Оставить заявку

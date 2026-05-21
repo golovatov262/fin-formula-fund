@@ -12,8 +12,8 @@ export default function Index() {
   return (
     <Layout>
       <SEO
-        title="КПК «ФИН ФОРМУЛА» — сбережения до 18,5% и займы для бизнеса и физлиц"
-        description="Кредитный потребительский кооператив в Ростовской области и Краснодарском крае. Сбережения под 18,50% годовых, займы для бизнеса, физлиц и самозанятых. Регулируется Банком России."
+        title="ФИН ФОРМУЛА — экосистема взаимной поддержки пайщиков"
+        description="Потребительский кооператив поддержки бизнеса по ст. 123.2 ГК РФ. Взаимная поддержка пайщиков в Ростовской области и Краснодарском крае: финансовая, товарная, услуговая, информационная."
         path="/"
       />
       <HeroSection />
@@ -26,7 +26,7 @@ export default function Index() {
               Альтернатива банку — внутри вашего бизнес-сообщества
             </h2>
             <p className="text-base md:text-lg text-muted-foreground px-4">
-              КПК «ФИН ФОРМУЛА» — закрытый кооператив юридических лиц: одни участники размещают свободные средства под доходность выше рынка, другие получают финансирование без залогов и бюрократии
+              ФИН ФОРМУЛА — закрытый потребительский кооператив: пайщики вносят паевые взносы и получают взаимную поддержку. Правовая основа — ст. 123.2 ГК РФ.
             </p>
           </div>
 
@@ -54,7 +54,7 @@ export default function Index() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Инвестор получает доходность выше банка без риска внешнего рынка. Заёмщик — деньги на развитие без залога и за 24 часа. Оба управляют фондом на равных правах. Работаем с 2016 года, активы — более 100 млн рублей.
+                  Пайщик получает доход от участия в паевом фонде. Получатель финансовой поддержки — средства на развитие без залога и за 24 часа. Все управляют фондом на равных правах. Работаем с 2016 года, активы — более 100 млн рублей.
                 </p>
               </CardContent>
             </Card>
@@ -74,21 +74,21 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Сбережения */}
+            {/* Паевой счёт */}
             <Card className="overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2 group">
               <div className="h-2 gradient-purple-blue" />
               <CardContent className="pt-6 pb-6">
                 <div className="w-14 h-14 gradient-purple-blue rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Icon name="TrendingUp" size={26} className="text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Разместить средства</h3>
+                <h3 className="text-xl font-bold mb-2">Открыть паевой счёт</h3>
                 <p className="text-muted-foreground text-sm mb-5">
-                  Получайте стабильный доход выше банковских депозитов. Ставка привязана к ключевой ЦБ — прозрачно и честно.
+                  Доход пайщика от участия в паевом фонде кооператива. Расчёт дохода прозрачный, по правилам кооператива.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {[
-                    'Динамичный доход: КС ЦБ + до 3,5%',
-                    'Оборотный доход: 14% годовых',
+                    'Доходность фонда — переменная, по итогам периода',
+                    'Программа «Оборотный доход» с периодическим расчётом',
                     'Выплата ежемесячно или в конце срока',
                   ].map((t, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm">
@@ -99,27 +99,27 @@ export default function Index() {
                 </ul>
                 <Link to="/savings">
                   <Button className="w-full gradient-purple-blue text-white">
-                    Подробнее о сбережениях
+                    Подробнее о паевом счёте
                     <Icon name="ArrowRight" size={16} />
                   </Button>
                 </Link>
               </CardContent>
             </Card>
 
-            {/* Займы */}
+            {/* Финансовая поддержка */}
             <Card className="overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2 group">
               <div className="h-2 gradient-orange-pink" />
               <CardContent className="pt-6 pb-6">
                 <div className="w-14 h-14 gradient-orange-pink rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <Icon name="Wallet" size={26} className="text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Получить финансирование</h3>
+                <h3 className="text-xl font-bold mb-2">Получить финансовую поддержку</h3>
                 <p className="text-muted-foreground text-sm mb-5">
-                  Деньги на бизнес без банковской бюрократии, залогов и ковенантов. Решение за 24 часа.
+                  Финансирование бизнеса без банковской бюрократии и ковенантов. Решение за 24 часа.
                 </p>
                 <ul className="space-y-2 mb-6">
                   {[
-                    'Без залога для членов кооператива',
+                    'Без залога для пайщиков кооператива',
                     'Решение за 24 часа',
                     'Гибкий индивидуальный график',
                   ].map((t, i) => (
@@ -131,7 +131,7 @@ export default function Index() {
                 </ul>
                 <Link to="/loans">
                   <Button className="w-full gradient-orange-pink text-white">
-                    Подробнее о займах
+                    Подробнее о поддержке
                     <Icon name="ArrowRight" size={16} />
                   </Button>
                 </Link>
@@ -144,20 +144,20 @@ export default function Index() {
       {/* CTA вступить */}
       <section className="py-12 md:py-16 px-4 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-950/20 dark:to-blue-950/20">
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">Готовы стать участником?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Готовы стать пайщиком?</h2>
           <p className="text-muted-foreground mb-7">
             Паевой взнос от 30 000 ₽ возвращается при выходе. Работаем с 2016 года — более 100 млн рублей активов.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <MembershipForm source="Главная страница — кнопка «Стать членом кооператива»">
+            <MembershipForm source="Главная страница — кнопка «Стать пайщиком»">
               <Button size="lg" className="gradient-purple-blue text-white px-8">
                 <Icon name="UserPlus" size={18} />
-                Стать членом кооператива
+                Стать пайщиком
               </Button>
             </MembershipForm>
             <Link to="/about">
               <Button size="lg" variant="outline">
-                Узнать больше о фонде
+                Узнать больше о кооперативе
               </Button>
             </Link>
           </div>

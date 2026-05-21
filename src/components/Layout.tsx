@@ -8,21 +8,21 @@ import MembershipForm from './MembershipForm';
 const aboutSubmenu = [
   { label: 'Преимущества', href: '/about', icon: 'Star' },
   { label: 'Документы', href: '/about#documents', icon: 'FileText' },
-  { label: 'КПК vs Банк', href: '/about#comparison', icon: 'BarChart2' },
+  { label: 'Чем мы отличаемся', href: '/about#comparison', icon: 'BarChart2' },
   { label: 'FAQ', href: '/about#faq', icon: 'HelpCircle' },
   { label: 'Контакты', href: '/about#contact', icon: 'Phone' },
 ];
 
 const individualSubmenu = [
-  { label: 'Сбережения', href: '/individual/savings', icon: 'TrendingUp' },
-  { label: 'Займы', href: '/individual/loans', icon: 'Wallet' },
+  { label: 'Размещение средств', href: '/individual/savings', icon: 'TrendingUp' },
+  { label: 'Финансовая поддержка', href: '/individual/loans', icon: 'Wallet' },
   { label: 'Условия членства', href: '/individual/membership', icon: 'Users' },
 ];
 
 const navItems = [
   { label: 'О фонде', href: '/about', icon: 'Building2', submenu: aboutSubmenu },
-  { label: 'Сбережения', href: '/savings', icon: 'TrendingUp', submenu: null },
-  { label: 'Займы', href: '/loans', icon: 'Wallet', submenu: null },
+  { label: 'Размещение средств', href: '/savings', icon: 'TrendingUp', submenu: null },
+  { label: 'Финансовая поддержка', href: '/loans', icon: 'Wallet', submenu: null },
   { label: 'Членство', href: '/membership', icon: 'Users', submenu: null },
   { label: 'Для физических лиц', href: '/individual', icon: 'UserCircle', submenu: individualSubmenu, highlight: true },
 ];
@@ -100,8 +100,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <span className="text-white font-bold text-lg">ФФ</span>
             </div>
             <div className="hidden sm:block">
-              <div className="text-sm font-bold leading-tight">КПК «ФИН ФОРМУЛА»</div>
-              <div className="text-xs text-muted-foreground">Фонд финансирования бизнеса</div>
+              <div className="text-sm font-bold leading-tight">ФИН ФОРМУЛА</div>
+              <div className="text-xs text-muted-foreground">Кооператив поддержки бизнеса</div>
             </div>
           </Link>
 
@@ -189,7 +189,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       <span className="text-white font-bold">ФФ</span>
                     </div>
                     <div className="text-left">
-                      <div className="font-bold text-sm">КПК «ФИН ФОРМУЛА»</div>
+                      <div className="font-bold text-sm">ФИН ФОРМУЛА</div>
                       <div className="text-xs text-muted-foreground font-normal">Меню навигации</div>
                     </div>
                   </SheetTitle>
@@ -299,8 +299,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <span className="text-white font-bold">ФФ</span>
               </div>
               <div>
-                <div className="font-bold text-sm">КПК «ФИН ФОРМУЛА»</div>
-                <div className="text-xs text-muted-foreground">Фонд финансирования бизнеса</div>
+                <div className="font-bold text-sm">ФИН ФОРМУЛА</div>
+                <div className="text-xs text-muted-foreground">Кооператив поддержки бизнеса</div>
               </div>
             </div>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
@@ -334,7 +334,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           <div className="mt-6 pt-4 border-t text-xs text-muted-foreground text-center">
-            © {new Date().getFullYear()} КПК «ФИН ФОРМУЛА». Деятельность регулируется ФЗ №190-ФЗ «О кредитной кооперации».
+            © {new Date().getFullYear()} ФИН ФОРМУЛА. Потребительский кооператив по ст. 123.2 ГК РФ.
           </div>
         </div>
       </footer>

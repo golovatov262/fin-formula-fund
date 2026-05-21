@@ -23,22 +23,22 @@ const rows = [
 ];
 
 const advantages = [
-  { icon: 'TrendingUp', title: 'До 18,50% годовых', text: 'Ставка выше банковских вкладов на сопоставимых сроках' },
-  { icon: 'Shield', title: 'Контроль ЦБ РФ', text: 'Деятельность кооператива регулируется Банком России' },
-  { icon: 'Wallet', title: 'Гибкие выплаты', text: 'Получайте проценты авансом, ежемесячно или в конце срока' },
-  { icon: 'Coins', title: 'От 50 000 ₽', text: 'Минимальный порог входа доступен большинству пайщиков' },
+  { icon: 'TrendingUp', title: 'Доход пайщика', text: 'Расчётная доходность по правилам кооператива. По итогам периода, не фиксированная.' },
+  { icon: 'Shield', title: 'Правовая основа — ст. 123.2 ГК РФ', text: 'Потребительский кооператив. Паевой счёт не является банковским счётом.' },
+  { icon: 'Wallet', title: 'Гибкие выплаты', text: 'Получайте доход авансом, ежемесячно или в конце срока' },
+  { icon: 'Coins', title: 'От 50 000 ₽', text: 'Минимальный паевой взнос доступен большинству пайщиков' },
 ];
 
 export default function IndividualSavings() {
   return (
     <Layout>
       <SEO
-        title="Сбережения для физлиц до 18,5% годовых — КПК «ФИН ФОРМУЛА»"
-        description="Программа «Динамичный доход» для физических лиц и самозанятых: сумма от 50 000 ₽ до 30 000 000 ₽, срок 3–18 месяцев, ставка до 18,50% годовых. Выплата ежемесячно, авансом или в конце срока."
+        title="Паевой счёт для физлиц — ФИН ФОРМУЛА"
+        description="Программа «Динамичный доход» для физических лиц и самозанятых — паевой взнос от 50 000 ₽ до 30 000 000 ₽, срок 3–18 месяцев. Выплата дохода пайщика ежемесячно, авансом или в конце срока."
         path="/individual/savings"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
-          { name: 'Сбережения для физических лиц', path: '/individual/savings' },
+          { name: 'Паевой счёт для физических лиц', path: '/individual/savings' },
         ]}
       />
       {/* Hero */}
@@ -49,13 +49,13 @@ export default function IndividualSavings() {
             Для физических лиц
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Сбережения <span className="text-gradient">до 18,50% годовых</span>
+            Паевой счёт <span className="text-gradient">для пайщиков</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Программа «Динамичный доход» — для членов кооператива. Размещайте средства от 50 000 ₽ на срок от 3 до 18 месяцев с гибкими выплатами процентов.
+            Программа «Динамичный доход» — для пайщиков кооператива. Паевой взнос от 50 000 ₽ на срок от 3 до 18 месяцев с гибкими выплатами дохода пайщика.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <IndividualApplicationForm source="Страница «Сбережения для физлиц» — Hero">
+            <IndividualApplicationForm source="Страница «Паевой счёт для физлиц» — Hero">
               <Button size="lg" className="gradient-purple-blue text-white px-10">
                 <Icon name="Send" size={18} />
                 Оставить заявку
@@ -93,8 +93,8 @@ export default function IndividualSavings() {
       {/* Описание программы */}
       <section className="py-10 md:py-14 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Программа сбережений</h2>
-          <p className="text-center text-muted-foreground mb-8">Чем дольше срок — тем выше ставка</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Программа «Динамичный доход»</h2>
+          <p className="text-center text-muted-foreground mb-8">Чем дольше срок — тем выше расчётная доходность</p>
 
           <Card className="border-2 mb-6">
             <CardContent className="pt-6 pb-6">
@@ -142,7 +142,7 @@ export default function IndividualSavings() {
             </div>
           </Card>
           <p className="text-xs text-muted-foreground mt-3 text-center">
-            Сбережения принимаются только от членов кооператива. Действует страхование сбережений пайщиков.
+            Паевые взносы принимаются только от пайщиков кооператива. Указанные значения доходности — ориентировочные, по итогам периода. Доходность не является фиксированной.
           </p>
         </div>
       </section>
@@ -158,7 +158,7 @@ export default function IndividualSavings() {
                   <div className="w-12 h-12 mx-auto gradient-purple-blue rounded-xl flex items-center justify-center mb-3">
                     <Icon name="Clock" size={22} className="text-white" />
                   </div>
-                  <div className="text-sm text-muted-foreground mb-1">Срок размещения</div>
+                  <div className="text-sm text-muted-foreground mb-1">Срок участия</div>
                   <div className="text-2xl font-bold mb-4">{r.term}</div>
                   <div className="space-y-2 mb-4">
                     <div className="bg-muted/40 rounded-lg p-2">
@@ -171,8 +171,8 @@ export default function IndividualSavings() {
                     </div>
                   </div>
                   <IndividualApplicationForm
-                    source={`Страница «Сбережения для физлиц» — срок ${r.term}`}
-                    defaultMessage={`Интересует размещение на срок ${r.term}`}
+                    source={`Страница «Паевой счёт для физлиц» — срок ${r.term}`}
+                    defaultMessage={`Интересует паевой взнос на срок ${r.term}`}
                   >
                     <Button className="w-full" variant="outline" size="sm">
                       <Icon name="ArrowRight" size={14} />
@@ -198,9 +198,9 @@ export default function IndividualSavings() {
       {/* CTA */}
       <section className="py-12 md:py-16 px-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">Готовы разместить сбережения?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">Готовы открыть паевой счёт?</h2>
           <p className="text-white/90 mb-6">Оставьте заявку — мы расскажем условия и поможем оформить договор</p>
-          <IndividualApplicationForm source="Страница «Сбережения для физлиц» — нижний CTA">
+          <IndividualApplicationForm source="Страница «Паевой счёт для физлиц» — нижний CTA">
             <Button size="lg" variant="secondary" className="px-10">
               <Icon name="Send" size={18} />
               Получить консультацию

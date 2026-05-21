@@ -42,7 +42,7 @@ const rows = [
   {
     icon: 'Handshake',
     criterion: 'Отношение к клиенту',
-    kpk: 'Партнёрство. Вы — член кооператива и участник управления.',
+    kpk: 'Партнёрство. Вы — пайщик кооператива и участник управления.',
     bank: 'Клиент-номер. Вы один из миллионов, работа по жёстким скриптам.',
   },
 ];
@@ -57,8 +57,7 @@ export default function ComparisonSection() {
             <span className="text-gradient">развивать бизнес?</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Сравните условия и убедитесь сами — иногда чуть более высокая ставка
-            покупает самое дорогое: время и отсутствие бюрократии.
+            Сравните условия и убедитесь сами — кооперативная модель покупает самое дорогое: время и отсутствие бюрократии.
           </p>
         </div>
 
@@ -73,7 +72,7 @@ export default function ComparisonSection() {
                 <th className="bg-primary/10 px-6 py-5 text-center w-[35%]">
                   <div className="flex flex-col items-center gap-1">
                     <span className="text-xs font-semibold text-primary uppercase tracking-wider">Ваш выбор</span>
-                    <span className="text-base font-bold text-primary">КПК «ФИН ФОРМУЛА»</span>
+                    <span className="text-base font-bold text-primary">ФИН ФОРМУЛА</span>
                   </div>
                 </th>
                 <th className="bg-slate-100 px-6 py-5 text-center w-[35%]">
@@ -127,7 +126,7 @@ export default function ComparisonSection() {
                 <div className="flex items-start gap-2 bg-primary/5 rounded-lg p-3">
                   <Icon name="CircleCheck" size={16} className="text-primary shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs font-semibold text-primary mb-1">КПК «ФИН ФОРМУЛА»</p>
+                    <p className="text-xs font-semibold text-primary mb-1">ФИН ФОРМУЛА</p>
                     <p className="text-sm">{row.kpk}</p>
                   </div>
                 </div>

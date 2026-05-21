@@ -29,7 +29,7 @@ interface CompanyData {
   type: string;
 }
 
-export default function MembershipForm({ children, source = 'Не указано', title = 'Заявка на членство', description = 'Заполните форму для вступления в КПК' }: MembershipFormProps) {
+export default function MembershipForm({ children, source = 'Не указано', title = 'Заявка на членство', description = 'Заполните форму для вступления в кооператив ФИН ФОРМУЛА' }: MembershipFormProps) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);

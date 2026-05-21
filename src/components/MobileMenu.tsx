@@ -38,7 +38,7 @@ export default function MobileMenu() {
               <span className="text-white font-bold text-xl">ФФ</span>
             </div>
             <div className="text-left">
-              <div className="font-bold">КПК "ФИН ФОРМУЛА"</div>
+              <div className="font-bold">ФИН ФОРМУЛА</div>
               <div className="text-xs text-muted-foreground font-normal">Меню навигации</div>
             </div>
           </SheetTitle>

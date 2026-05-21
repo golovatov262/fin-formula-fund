@@ -14,8 +14,6 @@ interface Doc {
 const FALLBACK_DOCS: Doc[] = [
   { slug: 'ustav', title: 'Устав', description: 'Основной учредительный документ кооператива', url: null, uploaded: false },
   { slug: 'polozhenie-o-chlenstvo', title: 'Положение о членстве', description: 'Условия и порядок вступления в кооператив', url: null, uploaded: false },
-  { slug: 'polozhenie-o-zaymah', title: 'Положение о выдаче займов', description: 'Правила и условия предоставления займов членам', url: null, uploaded: false },
-  { slug: 'polozhenie-o-sberezheniyah', title: 'Положение о приёме сбережений', description: 'Порядок и условия приёма личных сбережений', url: null, uploaded: false },
 ];
 
 export default function DocumentsSection() {

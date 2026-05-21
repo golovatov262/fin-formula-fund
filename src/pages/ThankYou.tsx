@@ -24,7 +24,7 @@ export default function ThankYou() {
           </h1>
           
           <p className="text-xl text-muted-foreground mb-8 max-w-lg mx-auto">
-            Ваша заявка на членство в КПК "ФИН ФОРМУЛА" успешно отправлена
+            Ваша заявка на членство в кооперативе ФИН ФОРМУЛА успешно отправлена
           </p>
 
           <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6 mb-8 max-w-xl mx-auto">

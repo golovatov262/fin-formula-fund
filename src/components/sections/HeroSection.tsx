@@ -22,28 +22,28 @@ export default function HeroSection() {
       <div className="container mx-auto relative">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
-            Экосистема взаимного финансирования: от доходных инвестиций до{' '}
-            <span className="text-gradient">беззалоговых займов</span>
+            Экосистема взаимной поддержки пайщиков:{' '}
+            <span className="text-gradient">финансовая, товарная, услуговая, информационная</span>
           </h2>
           <p className="mb-6 md:mb-8 max-w-2xl mx-auto px-2">
             <span className="block text-lg sm:text-xl md:text-2xl font-bold text-gradient mb-2">
-              Партнерское объединение юридических лиц
+              Партнёрское объединение бизнеса в форме потребительского кооператива
             </span>
-            <span className="block text-base sm:text-lg md:text-xl text-muted-foreground">Размещайте свободные средства под ключевую ставку + до 3,5% или получайте финансирование для бизнеса за 24 часа без банковской бюрократии</span>
+            <span className="block text-base sm:text-lg md:text-xl text-muted-foreground">Объединяем бизнес для взаимной поддержки — финансами, ресурсами, опытом. Правовая основа — ст. 123.2 ГК РФ.</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
             <Link to="/savings" className="w-full sm:w-auto">
               <Button size="lg" className="gradient-purple-blue text-white w-full">
                 <Icon name="TrendingUp" size={20} />
-                <span className="hidden sm:inline">Разместить средства</span>
-                <span className="sm:hidden">Разместить</span>
+                <span className="hidden sm:inline">Открыть паевой счёт</span>
+                <span className="sm:hidden">Паевой счёт</span>
               </Button>
             </Link>
             <Link to="/loans" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="border-2 w-full">
                 <Icon name="Wallet" size={20} />
-                <span className="hidden sm:inline">Получить финансирование</span>
-                <span className="sm:hidden">Финансирование</span>
+                <span className="hidden sm:inline">Получить финансовую поддержку</span>
+                <span className="sm:hidden">Поддержка</span>
               </Button>
             </Link>
           </div>

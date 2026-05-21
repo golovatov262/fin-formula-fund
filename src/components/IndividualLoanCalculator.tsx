@@ -45,7 +45,7 @@ const programs: Program[] = [
     commissionType: 'monthly',
     commissionPercent: 0.6,
     commissionMin: 10000,
-    commissionLabel: '0,6% в мес. от суммы займа, min 10 000 ₽',
+    commissionLabel: '0,6% в мес. от суммы поддержки, min 10 000 ₽',
   },
   {
     id: 'realestate',
@@ -64,7 +64,7 @@ const programs: Program[] = [
     commissionPercent: 0.3,
     commissionMin: 10000,
     commissionMax: 200000,
-    commissionLabel: '0,3% в мес. от суммы займа, min 10 000 ₽, max 200 000 ₽',
+    commissionLabel: '0,3% в мес. от суммы поддержки, min 10 000 ₽, max 200 000 ₽',
   },
   {
     id: 'mortgage',
@@ -81,11 +81,11 @@ const programs: Program[] = [
     color: 'emerald',
     commissionType: 'oneTime',
     commissionPercent: 8.5,
-    commissionLabel: '8,5% от суммы займа единовременно',
+    commissionLabel: '8,5% от суммы поддержки единовременно',
   },
   {
     id: 'auto',
-    name: 'Авто займ',
+    name: 'Авто',
     icon: 'Car',
     rate: 27,
     rateMax: 39,
@@ -100,7 +100,7 @@ const programs: Program[] = [
     commissionPercent: 0.3,
     commissionMin: 10000,
     commissionMax: 200000,
-    commissionLabel: '0,3% в мес. от суммы займа, min 10 000 ₽, max 200 000 ₽',
+    commissionLabel: '0,3% в мес. от суммы поддержки, min 10 000 ₽, max 200 000 ₽',
   },
   {
     id: 'refi',
@@ -117,7 +117,7 @@ const programs: Program[] = [
     color: 'purple',
     commissionType: 'oneTime',
     commissionPercent: 8.5,
-    commissionLabel: '8,5% от суммы займа единовременно',
+    commissionLabel: '8,5% от суммы поддержки единовременно',
   },
 ];
 
@@ -181,7 +181,7 @@ export default function IndividualLoanCalculator() {
             <Icon name="Calculator" size={20} className="text-white" />
           </div>
           <div>
-            <div className="font-bold text-lg">Калькулятор займа</div>
+            <div className="font-bold text-lg">Калькулятор финансовой поддержки</div>
             <div className="text-xs text-muted-foreground">Выберите программу и рассчитайте платёж</div>
           </div>
         </div>
@@ -210,14 +210,14 @@ export default function IndividualLoanCalculator() {
 
         {/* Ставка выбранной программы */}
         <div className="flex items-center justify-between rounded-lg px-4 py-2.5 bg-muted/40">
-          <span className="text-sm text-muted-foreground">Ставка по программе</span>
+          <span className="text-sm text-muted-foreground">Стоимость финансирования</span>
           <span className={`text-lg font-bold ${colors.text}`}>от {prog.rate}% до {prog.rateMax}% годовых</span>
         </div>
 
         {/* Слайдер суммы */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <Label className="text-sm">Сумма займа</Label>
+            <Label className="text-sm">Сумма поддержки</Label>
             <span className="font-bold text-base">{fmtNum(amount)} ₽</span>
           </div>
           <Slider
@@ -237,7 +237,7 @@ export default function IndividualLoanCalculator() {
         {/* Слайдер срока */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <Label className="text-sm">Срок займа</Label>
+            <Label className="text-sm">Срок возврата</Label>
             <span className="font-bold text-base">{months} мес.</span>
           </div>
           <Slider
@@ -259,9 +259,9 @@ export default function IndividualLoanCalculator() {
           <div className="flex items-start gap-2">
             <Icon name="Info" size={14} className="text-amber-600 mt-0.5 flex-shrink-0" />
             <div>
-              <div className="font-semibold text-amber-900">Комиссия за предоставление займа</div>
+              <div className="font-semibold text-amber-900">Комиссия за предоставление поддержки</div>
               <div className="text-amber-800">{prog.commissionLabel}</div>
-              <div className="text-amber-800 mt-1">Включена в тело займа</div>
+              <div className="text-amber-800 mt-1">Включена в сумму обязательства</div>
             </div>
           </div>
         </div>
@@ -286,7 +286,7 @@ export default function IndividualLoanCalculator() {
             <span className="font-semibold">{fmt(commission)}</span>
           </div>
           <div className="flex justify-between items-center text-sm">
-            <span className="text-muted-foreground">Сумма займа с комиссией</span>
+            <span className="text-muted-foreground">Сумма обязательства (с комиссией)</span>
             <span className="font-semibold">{fmt(loanBody)}</span>
           </div>
           <div className="flex justify-between items-center pt-3 border-t">
@@ -301,12 +301,12 @@ export default function IndividualLoanCalculator() {
 
         {/* Кнопка подачи заявки */}
         <IndividualApplicationForm
-          source={`Калькулятор займа — программа «${prog.name}»`}
-          defaultMessage={`Программа: ${prog.name}\nСумма к получению на руки: ${fmt(cashOut)}\nКомиссия: ${fmt(commission)}\nТело займа: ${fmt(loanBody)}\nСрок: ${months} мес.\nЕжемесячный платёж: ${fmt(monthlyPayment)}\nИтого к возврату: ${fmt(totalPayment)}`}
+          source={`Калькулятор финансовой поддержки — программа «${prog.name}»`}
+          defaultMessage={`Программа: ${prog.name}\nСумма к получению на руки: ${fmt(cashOut)}\nКомиссия: ${fmt(commission)}\nСумма обязательства: ${fmt(loanBody)}\nСрок: ${months} мес.\nЕжемесячный платёж: ${fmt(monthlyPayment)}\nИтого к возврату: ${fmt(totalPayment)}`}
         >
           <Button className="w-full gradient-orange-pink text-white text-base py-6">
             <Icon name="Send" size={18} />
-            Подать заявку на займ
+            Получить финансовую поддержку
           </Button>
         </IndividualApplicationForm>
 

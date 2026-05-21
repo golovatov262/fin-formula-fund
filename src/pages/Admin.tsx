@@ -169,7 +169,7 @@ export default function Admin() {
               <span className="text-white font-bold text-xl">ФФ</span>
             </div>
             <div>
-              <h1 className="text-lg font-bold">КПК "ФИН ФОРМУЛА"</h1>
+              <h1 className="text-lg font-bold">ФИН ФОРМУЛА</h1>
               <p className="text-xs text-muted-foreground">Административная панель</p>
             </div>
           </div>

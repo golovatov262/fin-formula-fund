@@ -19,8 +19,8 @@ const documents = [
 ];
 
 const rights = [
-  { icon: 'TrendingUp', title: 'Размещать сбережения', text: 'Под ставку до 18,50% годовых' },
-  { icon: 'Wallet', title: 'Получать займы', text: 'По специальным программам для пайщиков' },
+  { icon: 'TrendingUp', title: 'Вносить паевые взносы', text: 'Доходность по итогам периода — переменная, не фиксированная' },
+  { icon: 'Wallet', title: 'Получать кооперативную поддержку', text: 'По специальным программам для пайщиков' },
   { icon: 'Vote', title: 'Участвовать в управлении', text: 'Голосовать на общем собрании пайщиков' },
   { icon: 'Eye', title: 'Получать информацию', text: 'О деятельности и финансовом состоянии кооператива' },
 ];
@@ -28,15 +28,15 @@ const rights = [
 const obligations = [
   { icon: 'CreditCard', title: 'Внести паевой взнос', text: '2 500 ₽ при вступлении — единоразово' },
   { icon: 'BookOpen', title: 'Соблюдать Устав', text: 'И решения общих собраний пайщиков' },
-  { icon: 'Handshake', title: 'Исполнять обязательства', text: 'По договорам займа и иным договорённостям' },
+  { icon: 'Handshake', title: 'Исполнять обязательства', text: 'По договорам финансовой поддержки и иным договорённостям' },
 ];
 
 export default function IndividualMembership() {
   return (
     <Layout>
       <SEO
-        title="Условия членства для физлиц — КПК «ФИН ФОРМУЛА»"
-        description="Как стать пайщиком кооператива «ФИН ФОРМУЛА»: требования, документы (паспорт и заявление), паевой взнос 2 500 ₽, права и обязанности. Для жителей Ростовской области и Краснодарского края."
+        title="Условия членства для физлиц — ФИН ФОРМУЛА"
+        description="Как стать пайщиком кооператива ФИН ФОРМУЛА: требования, документы (паспорт и заявление), паевой взнос 2 500 ₽, права и обязанности. Для жителей Ростовской области и Краснодарского края."
         path="/individual/membership"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
@@ -54,7 +54,7 @@ export default function IndividualMembership() {
             Условия членства <span className="text-gradient">в кооперативе</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Стать пайщиком — просто. Один паевой взнос даёт доступ ко всем программам займов и сбережений, участию в управлении и контролю деятельности кооператива.
+            Стать пайщиком — просто. Один паевой взнос даёт доступ ко всем программам кооперативной поддержки и паевого участия, участию в управлении и контролю деятельности кооператива.
           </p>
         </div>
       </section>
@@ -255,7 +255,7 @@ export default function IndividualMembership() {
                     <Icon name="Wallet" size={22} className="text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold">Программы займов</h3>
+                    <h3 className="font-bold">Финансовая поддержка</h3>
                     <p className="text-sm text-muted-foreground">5 программ для физлиц</p>
                   </div>
                   <Icon name="ArrowRight" size={18} className="text-muted-foreground" />
@@ -269,8 +269,8 @@ export default function IndividualMembership() {
                     <Icon name="TrendingUp" size={22} className="text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold">Программа сбережений</h3>
-                    <p className="text-sm text-muted-foreground">До 18,50% годовых</p>
+                    <h3 className="font-bold">Паевой счёт</h3>
+                    <p className="text-sm text-muted-foreground">Доход пайщика по итогам периода</p>
                   </div>
                   <Icon name="ArrowRight" size={18} className="text-muted-foreground" />
                 </CardContent>

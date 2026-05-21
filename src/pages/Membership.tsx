@@ -9,22 +9,22 @@ const steps = [
   { icon: 'Send', title: 'Оставить заявку', text: 'Заполните форму на сайте — укажите ИНН и контакт. Данные о компании подгрузятся автоматически из реестра.' },
   { icon: 'Phone', title: 'Консультация', text: 'Менеджер свяжется в течение рабочего дня, ответит на вопросы и расскажет об условиях.' },
   { icon: 'FileSignature', title: 'Подписать документы', text: 'Заключить договор о вступлении и внести паевой взнос — от 30 000 ₽ частями.' },
-  { icon: 'CheckCircle', title: 'Стать участником', text: 'Получить доступ к размещению средств, финансированию и управлению фондом.' },
+  { icon: 'CheckCircle', title: 'Стать пайщиком', text: 'Получить доступ к паевому фонду, финансовой поддержке и управлению кооперативом.' },
 ];
 
 const rights = [
-  { icon: 'TrendingUp', title: 'Размещать средства', text: 'Под ставку выше банковских депозитов с прозрачной формулой' },
-  { icon: 'Wallet', title: 'Получать финансирование', text: 'Без залога и банковской бюрократии — за 24 часа' },
-  { icon: 'Vote', title: 'Участвовать в управлении', text: 'Один голос независимо от размера взноса' },
-  { icon: 'FileText', title: 'Получать отчётность', text: 'Полная прозрачность деятельности фонда' },
+  { icon: 'TrendingUp', title: 'Вносить паевые взносы', text: 'Доход пайщика от участия в паевом фонде по прозрачным правилам' },
+  { icon: 'Wallet', title: 'Получать финансовую поддержку', text: 'Без залога и банковской бюрократии — за 24 часа' },
+  { icon: 'Vote', title: 'Участвовать в управлении', text: 'Один голос независимо от размера паевого взноса' },
+  { icon: 'FileText', title: 'Получать отчётность', text: 'Полная прозрачность деятельности кооператива' },
 ];
 
 export default function Membership() {
   return (
     <Layout>
       <SEO
-        title="Членство для бизнеса — КПК «ФИН ФОРМУЛА»"
-        description="Условия вступления в кредитный потребительский кооператив для ЮЛ и ИП. Паевой взнос возвращается при выходе. Доступ к сбережениям и займам на льготных условиях."
+        title="Членство для бизнеса — ФИН ФОРМУЛА"
+        description="Условия вступления в потребительский кооператив для ЮЛ и ИП. Паевой взнос возвращается при выходе. Доступ к паевому фонду и финансовой поддержке на условиях кооператива."
         path="/membership"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
@@ -42,7 +42,7 @@ export default function Membership() {
             Вступите в закрытый <span className="text-gradient">клуб предпринимателей</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Кооператив юридических лиц — равные права для всех участников. Паевой взнос возвращается при выходе в полном объёме
+            Потребительский кооператив для бизнеса — равные права у всех пайщиков. Паевой взнос возвращается при выходе в полном объёме.
           </p>
           <MembershipForm source="Страница «Членство» — кнопка «Подать заявку на членство» (Hero)">
             <Button size="lg" className="gradient-purple-blue text-white px-10">
@@ -96,11 +96,11 @@ export default function Membership() {
               </div>
               <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-3 flex gap-2">
                 <Icon name="Info" size={16} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-blue-900">Паевой взнос — это не расходы. Это возвратный капитал, который формирует фонд взаимопомощи и возвращается в полном объёме при выходе из КПК.</p>
+                <p className="text-xs text-blue-900">Паевой взнос — это не расходы. Это возвратный капитал, который формирует фонд взаимопомощи и возвращается в полном объёме при выходе из кооператива.</p>
               </div>
               <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg p-3 flex gap-2">
                 <Icon name="CalendarClock" size={16} className="text-amber-600 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-amber-900">Членский взнос 12 000 ₽/год (1 000 ₽ в месяц) уплачивается только со <strong>второго года</strong> членства в КПК. В первый год — вступительный и паевой взносы.</p>
+                <p className="text-xs text-amber-900">Членский взнос 12 000 ₽/год (1 000 ₽ в месяц) уплачивается только со <strong>второго года</strong> членства в кооперативе. В первый год — вступительный и паевой взносы.</p>
               </div>
             </CardContent>
           </Card>
@@ -171,7 +171,7 @@ export default function Membership() {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Права участников</h3>
-                    <p className="text-sm text-muted-foreground">Каждый член кооператива имеет право на участие в управлении, получение финансирования и размещение свободных средств. Один участник — один голос, независимо от суммы взноса.</p>
+                    <p className="text-sm text-muted-foreground">Каждый пайщик имеет право на участие в управлении, получение финансовой поддержки и участие в паевом фонде. Один пайщик — один голос, независимо от суммы паевого взноса.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -188,10 +188,7 @@ export default function Membership() {
               <div className="mt-6 flex gap-3 items-start rounded-xl border border-emerald-200 bg-emerald-50 dark:bg-emerald-950/20 px-4 py-3">
                 <Icon name="ShieldCheck" size={18} className="text-emerald-600 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-emerald-800 dark:text-emerald-200 leading-snug">
-                  <span className="font-bold">Важно:</span> паевой взнос — это не безвозвратный платёж. При выходе из кооператива ваши средства возвращаются в полном объёме. Механизм закреплён уставом и регулируется{' '}
-                  <a href="https://www.consultant.ru/document/cons_doc_LAW_89568/" target="_blank" rel="noopener noreferrer" className="underline font-semibold hover:text-emerald-900 transition-colors">
-                    ФЗ №190-ФЗ «О кредитной кооперации»
-                  </a>.
+                  <span className="font-bold">Важно:</span> паевой взнос — это не безвозвратный платёж. При выходе из кооператива ваши средства возвращаются в полном объёме. Правовая основа — ст. 123.2 ГК РФ.
                 </p>
               </div>
             </CardContent>

@@ -114,7 +114,7 @@ export default function LoanApplicationDialog({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          source: `Калькулятор займов — программа «${loanProgram}»`,
+          source: `Калькулятор финансовой поддержки — программа «${loanProgram}»`,
           loanProgram,
           loanAmount,
           loanMonths,
@@ -148,15 +148,15 @@ export default function LoanApplicationDialog({
               <Icon name="FileText" size={22} className="text-white" />
             </div>
             <div>
-              <DialogTitle className="text-xl">Заявка на займ</DialogTitle>
+              <DialogTitle className="text-xl">Заявка на финансовую поддержку</DialogTitle>
               <DialogDescription>Заполните контактные данные — менеджер свяжется с вами</DialogDescription>
             </div>
           </div>
         </DialogHeader>
 
-        {/* Параметры займа */}
+        {/* Параметры поддержки */}
         <div className="bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800 rounded-xl p-4 space-y-2">
-          <div className="text-xs font-semibold text-orange-700 dark:text-orange-300 uppercase tracking-wide mb-1">Выбранные параметры займа</div>
+          <div className="text-xs font-semibold text-orange-700 dark:text-orange-300 uppercase tracking-wide mb-1">Параметры поддержки</div>
           <div className="grid grid-cols-3 gap-2 text-sm">
             <div>
               <div className="text-muted-foreground text-xs">Программа</div>

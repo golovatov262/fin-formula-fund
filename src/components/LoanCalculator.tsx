@@ -104,7 +104,7 @@ export default function LoanCalculator() {
               <Icon name="Calculator" size={20} className="text-white" />
             </div>
             <div>
-              <div className="font-bold text-lg">Калькулятор займа</div>
+              <div className="font-bold text-lg">Калькулятор финансовой поддержки</div>
               <div className="text-xs text-muted-foreground">Выберите программу и рассчитайте платёж</div>
             </div>
           </div>
@@ -133,14 +133,14 @@ export default function LoanCalculator() {
 
           {/* Ставка выбранной программы */}
           <div className="flex items-center justify-between rounded-lg px-4 py-2.5 bg-muted/40">
-            <span className="text-sm text-muted-foreground">Ставка по программе</span>
+            <span className="text-sm text-muted-foreground">Стоимость финансирования</span>
             <span className={`text-lg font-bold ${colors.text}`}>{prog.rate}% годовых</span>
           </div>
 
           {/* Слайдер суммы */}
           <div className="space-y-2">
             <div className="flex justify-between items-center">
-              <Label className="text-sm">Сумма займа</Label>
+              <Label className="text-sm">Сумма поддержки</Label>
               <span className="font-bold text-base">{fmtNum(amount)} ₽</span>
             </div>
             <Slider
@@ -160,7 +160,7 @@ export default function LoanCalculator() {
           {/* Слайдер срока */}
           <div className="space-y-2">
             <div className="flex justify-between items-center">
-              <Label className="text-sm">Срок займа</Label>
+              <Label className="text-sm">Срок возврата</Label>
               <span className="font-bold text-base">{months} мес.</span>
             </div>
             <Slider
@@ -199,7 +199,7 @@ export default function LoanCalculator() {
             onClick={() => setDialogOpen(true)}
           >
             <Icon name="Send" size={18} className="mr-2" />
-            Подать заявку на займ
+            Получить финансовую поддержку
           </Button>
 
           <p className="text-xs text-muted-foreground text-center -mt-2">

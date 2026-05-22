@@ -22,9 +22,7 @@ export default function Index() {
       <section id="about" className="py-12 md:py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
-              Альтернатива банку — внутри вашего бизнес-сообщества
-            </h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Альтернативные решения поддержки и развития — внутри вашего бизнес-сообщества</h2>
             <p className="text-base md:text-lg text-muted-foreground px-4">
               ФИН ФОРМУЛА — закрытый потребительский кооператив: пайщики вносят паевые взносы и получают взаимную поддержку. Правовая основа — ст. 123.2 ГК РФ.
             </p>

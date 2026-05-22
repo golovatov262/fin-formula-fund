@@ -23,9 +23,9 @@ const terms: TermOption[] = [
 ];
 
 const payoutOptions: { id: PayoutType; label: string; icon: string; hint: string }[] = [
-  { id: 'monthly', label: 'Ежемесячно', icon: 'Calendar', hint: 'Проценты приходят каждый месяц' },
-  { id: 'advance', label: 'Авансом', icon: 'Zap', hint: 'Все проценты сразу при открытии' },
-  { id: 'end', label: 'В конце срока', icon: 'Trophy', hint: 'Максимальная доходность' },
+  { id: 'monthly', label: 'Ежемесячно', icon: 'Calendar', hint: 'Начисление дохода каждый месяц' },
+  { id: 'advance', label: 'Авансом', icon: 'Zap', hint: 'Выплата дохода сразу при открытии' },
+  { id: 'end', label: 'В конце срока', icon: 'Trophy', hint: 'Максимальная доходность фонда' },
 ];
 
 const fmt = (n: number) =>
@@ -112,7 +112,7 @@ export default function SavingsCalculator() {
 
         {/* Способ выплаты */}
         <div className="space-y-2">
-          <Label className="text-sm">Выплата процентов</Label>
+          <Label className="text-sm">Выплата дохода</Label>
           <div className="grid grid-cols-3 gap-2">
             {payoutOptions.map((p) => {
               const isActive = p.id === payout;
@@ -137,7 +137,7 @@ export default function SavingsCalculator() {
 
         {/* Ставка */}
         <div className="flex items-center justify-between rounded-lg px-4 py-2.5 bg-purple-50 border border-purple-200">
-          <span className="text-sm text-purple-900">Расчётная доходность по выбранным параметрам</span>
+          <span className="text-sm text-purple-900">Доходность фонда по выбранным параметрам</span>
           <span className="text-lg font-bold text-purple-700">{rate}% годовых</span>
         </div>
 
@@ -187,7 +187,7 @@ export default function SavingsCalculator() {
         {/* Кнопка подачи заявки */}
         <IndividualApplicationForm
           source={`Калькулятор паевого счёта — ${term.label}, ${payoutInfo.label}`}
-          defaultMessage={`Программа: «Динамичный доход»\nСумма: ${fmtNum(amount)} ₽\nСрок: ${term.label}\nВыплата: ${payoutInfo.label}\nРасчётная доходность: ${rate}% годовых\nДоход за весь срок: ${fmt(totalIncome)}`}
+          defaultMessage={`Программа: «Динамичный доход»\nСумма: ${fmtNum(amount)} ₽\nСрок: ${term.label}\nВыплата дохода: ${payoutInfo.label}\nДоходность фонда: ${rate}% годовых\nДоход за весь срок: ${fmt(totalIncome)}`}
         >
           <Button className="w-full gradient-purple-blue text-white text-base py-6">
             <Icon name="Send" size={18} />

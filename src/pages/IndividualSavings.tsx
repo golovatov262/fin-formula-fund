@@ -12,7 +12,7 @@ const program = {
   name: '«Динамичный доход»',
   amountFrom: '50 000 ₽',
   amountTo: '30 000 000 ₽',
-  payout: 'Авансом при открытии счёта, ежемесячно либо в конце срока',
+  payout: 'Выплата дохода авансом при открытии счёта, ежемесячно либо в конце срока',
 };
 
 const rows = [
@@ -23,7 +23,7 @@ const rows = [
 ];
 
 const advantages = [
-  { icon: 'TrendingUp', title: 'Доход пайщика', text: 'Расчётная доходность по правилам кооператива. По итогам периода, не фиксированная.' },
+  { icon: 'TrendingUp', title: 'Доходность фонда', text: 'Расчётная доходность по правилам кооператива. По итогам периода, не фиксированная.' },
   { icon: 'Shield', title: 'Правовая основа — ст. 123.2 ГК РФ', text: 'Потребительский кооператив. Паевой счёт не является банковским счётом.' },
   { icon: 'Wallet', title: 'Гибкие выплаты', text: 'Получайте доход авансом, ежемесячно или в конце срока' },
   { icon: 'Coins', title: 'От 50 000 ₽', text: 'Минимальный паевой взнос доступен большинству пайщиков' },
@@ -108,7 +108,7 @@ export default function IndividualSavings() {
                   <div className="text-lg font-bold">{program.amountFrom} — {program.amountTo}</div>
                 </div>
                 <div>
-                  <div className="text-xs text-muted-foreground mb-1">Выплата %</div>
+                  <div className="text-xs text-muted-foreground mb-1">Выплата дохода</div>
                   <div className="text-sm font-semibold">{program.payout}</div>
                 </div>
               </div>
@@ -122,11 +122,11 @@ export default function IndividualSavings() {
                 <TableHeader>
                   <TableRow className="bg-muted/60 hover:bg-muted/60">
                     <TableHead rowSpan={2} className="font-bold text-foreground align-middle">Срок</TableHead>
-                    <TableHead colSpan={2} className="font-bold text-foreground text-center border-l">Ставка (годовых)</TableHead>
+                    <TableHead colSpan={2} className="font-bold text-foreground text-center border-l">Доходность фонда (годовых)</TableHead>
                   </TableRow>
                   <TableRow className="bg-muted/40 hover:bg-muted/40">
-                    <TableHead className="font-semibold text-foreground border-l">% Ежемесячно или авансом</TableHead>
-                    <TableHead className="font-semibold text-foreground">% В конце срока</TableHead>
+                    <TableHead className="font-semibold text-foreground border-l">Выплата дохода ежемесячно или авансом</TableHead>
+                    <TableHead className="font-semibold text-foreground">Выплата дохода в конце срока</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -190,7 +190,7 @@ export default function IndividualSavings() {
       <section className="py-10 md:py-14 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Рассчитайте свой доход</h2>
-          <p className="text-center text-muted-foreground mb-8">Выберите сумму, срок и способ выплаты процентов</p>
+          <p className="text-center text-muted-foreground mb-8">Выберите сумму, срок и способ выплаты дохода</p>
           <SavingsCalculator />
         </div>
       </section>

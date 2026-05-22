@@ -53,7 +53,7 @@ export default function Savings() {
       subtitle: 'Паевой счёт на срок от 3 до 18 месяцев',
       rateNode: (
         <div className="flex items-baseline gap-2 mb-5">
-          <span className="text-2xl md:text-3xl font-bold text-primary leading-snug">Доходность фонда</span>
+          <span className="text-2xl md:text-3xl font-bold text-primary leading-snug">Доходность до 18,5%</span>
         </div>
       ),
       rateHint: 'Переменная, по итогам периода. Не является фиксированной.',
@@ -73,7 +73,7 @@ export default function Savings() {
       subtitle: 'Краткосрочный паевой взнос 7–30 дней',
       rateNode: (
         <div className="flex items-baseline gap-2 mb-5">
-          <span className="text-2xl md:text-3xl font-bold text-emerald-600 leading-snug">Доход пайщика</span>
+          <span className="text-2xl md:text-3xl font-bold text-emerald-600 leading-snug">Доходность 14%</span>
         </div>
       ),
       rateHint: 'Расчёт дохода ежедневно на фактический остаток. Доходность ориентировочная, не фиксированная.',

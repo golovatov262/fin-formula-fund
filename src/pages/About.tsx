@@ -1,7 +1,6 @@
 import Layout from '@/components/Layout';
 import AdvantagesAndMembership from '@/components/sections/AdvantagesAndMembership';
 import DocumentsSection from '@/components/sections/DocumentsSection';
-import ComparisonSection from '@/components/sections/ComparisonSection';
 import TestimonialsAndContact from '@/components/sections/TestimonialsAndContact';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -53,7 +52,6 @@ export default function About() {
       {/* Якорные разделы */}
       <AdvantagesAndMembership />
       <DocumentsSection />
-      <ComparisonSection />
       <TestimonialsAndContact />
     </Layout>
   );

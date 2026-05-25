@@ -187,6 +187,9 @@ export default function Loans() {
               );
             })}
           </div>
+          <p className="text-xs text-muted-foreground mt-6 max-w-4xl mx-auto text-center leading-relaxed">
+            <span className="font-semibold">* Стоимость</span> — членский взнос на развитие фонда, выражается в % годовых от суммы предоставленной финансовой поддержки.
+          </p>
         </div>
       </section>
 

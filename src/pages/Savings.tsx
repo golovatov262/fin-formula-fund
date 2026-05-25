@@ -107,7 +107,7 @@ export default function Savings() {
             Паевой счёт
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Вносите паевые взносы <span className="text-gradient">как альтернативу банку</span>
+            Вносите паевые взносы <span className="text-gradient">и формируйте общий фонд поддержки бизнеса</span>
           </h1>
           <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Две программы для разных задач: долгосрочное участие в паевом фонде или краткосрочный оборотный доход с периодическим расчётом и свободным выводом.

@@ -8,7 +8,7 @@ import SEO from '@/components/SEO';
 const steps = [
   { icon: 'Send', title: 'Оставить заявку', text: 'Заполните форму на сайте — укажите ИНН и контакт. Данные о компании подгрузятся автоматически из реестра.' },
   { icon: 'Phone', title: 'Консультация', text: 'Менеджер свяжется в течение рабочего дня, ответит на вопросы и расскажет об условиях.' },
-  { icon: 'FileSignature', title: 'Подписать документы', text: 'Заключить договор о вступлении и внести паевой взнос — от 30 000 ₽ частями.' },
+  { icon: 'FileSignature', title: 'Подписать документы', text: 'Заключить договор о вступлении, внести вступительный взнос 2 500 ₽ и паевой взнос.' },
   { icon: 'CheckCircle', title: 'Стать пайщиком', text: 'Получить доступ к паевому фонду, финансовой поддержке и управлению кооперативом.' },
 ];
 
@@ -60,7 +60,7 @@ export default function Membership() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
             {[
               { value: '2016', label: 'Год основания' },
-              { value: 'от 30 000 ₽', label: 'Паевой взнос' },
+              { value: '2 500 ₽', label: 'Вступительный взнос' },
               { value: '100%', label: 'Возврат взноса при выходе' },
               { value: '1 голос', label: 'Равное право у каждого' },
             ].map((f, i) => (
@@ -80,7 +80,7 @@ export default function Membership() {
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
                   <div className="text-xs text-muted-foreground mb-1">Вступительный взнос</div>
-                  <div className="text-xl font-bold">10 000 ₽</div>
+                  <div className="text-xl font-bold">2 500 ₽</div>
                   <div className="text-xs text-muted-foreground">единоразово</div>
                 </div>
                 <div>
@@ -90,8 +90,8 @@ export default function Membership() {
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground mb-1">Членский взнос</div>
-                  <div className="text-xl font-bold">12 000 ₽/год</div>
-                  <div className="text-xs text-muted-foreground">= 1 000 ₽ в месяц · только со 2-го года членства</div>
+                  <div className="text-xl font-bold">6 000 / 18 000 / 36 000 ₽ / год</div>
+                  <div className="text-xs text-muted-foreground">в зависимости от масштабов вашего бизнеса и потребностей</div>
                 </div>
               </div>
               <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-3 flex gap-2">
@@ -100,7 +100,7 @@ export default function Membership() {
               </div>
               <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg p-3 flex gap-2">
                 <Icon name="CalendarClock" size={16} className="text-amber-600 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-amber-900">Членский взнос 12 000 ₽/год (1 000 ₽ в месяц) уплачивается только со <strong>второго года</strong> членства в кооперативе. В первый год — вступительный и паевой взносы.</p>
+                <p className="text-xs text-amber-900">Членский взнос уплачивается только со <strong>второго года</strong> членства в кооперативе. В первый год — вступительный и паевой взносы.</p>
               </div>
             </CardContent>
           </Card>
@@ -162,7 +162,7 @@ export default function Membership() {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Паевой взнос</h3>
-                    <p className="text-sm text-muted-foreground">Минимальный размер — 30 000 ₽. Размер может зависеть от активов организации. Допускается внесение частями. Взнос возвращается в полном объёме при выходе из кооператива.</p>
+                    <p className="text-sm text-muted-foreground">Размер определяется индивидуально в зависимости от масштабов бизнеса. Допускается внесение частями. Взнос возвращается в полном объёме при выходе из кооператива.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">

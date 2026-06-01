@@ -69,9 +69,7 @@ export default function IndividualMembership() {
               </div>
               <div className="text-sm text-muted-foreground mb-2">Единовременный вступительный взнос</div>
               <div className="text-5xl md:text-6xl font-bold text-emerald-700 mb-3">2 500 ₽</div>
-              <p className="text-muted-foreground max-w-md mx-auto mb-6">
-                Единоразовый взнос — открывает доступ ко всем продуктам кооператива и закрепляет ваш статус пайщика
-              </p>
+              <p className="text-muted-foreground max-w-md mx-auto mb-6">Обязательный взнос — открывает доступ ко всем продуктам кооператива и закрепляет ваш статус пайщика</p>
               <IndividualApplicationForm
                 source="Страница «Условия членства для физлиц» — главный блок"
                 defaultMessage="Хочу вступить в кооператив"

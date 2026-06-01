@@ -43,31 +43,6 @@ export default function TestimonialsAndContact() {
     <>
       <Testimonials />
 
-      <section id="faq" className="py-12 md:py-20 px-4">
-        <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Вопросы и ответы</h2>
-            <p className="text-base md:text-lg text-muted-foreground px-4">
-              Раздел обновляется
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-dashed border-muted-foreground/30 bg-muted/20 px-6 py-10 text-center">
-            <Icon name="HelpCircle" size={32} className="mx-auto mb-4 text-muted-foreground" />
-            <p className="text-base md:text-lg text-muted-foreground leading-snug">
-              Раздел FAQ обновляется. Скоро здесь появятся ответы на популярные вопросы о кооперативе ФИН ФОРМУЛА.
-            </p>
-          </div>
-
-          <div className="mt-8 flex gap-3 items-start rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-4">
-            <Icon name="ShieldCheck" size={20} className="text-emerald-600 flex-shrink-0 mt-0.5" />
-            <p className="text-sm md:text-base text-emerald-800 leading-snug">
-              <span className="font-bold">Важно:</span> паевой взнос — это не безвозвратный платёж. При выходе из кооператива ваши средства возвращаются в полном объёме. Правовая основа — ст. 123.2 ГК РФ.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section id="contact" className="py-12 md:py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-8 md:mb-12">

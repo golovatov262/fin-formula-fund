@@ -7,9 +7,6 @@ import MembershipForm from './MembershipForm';
 
 const aboutSubmenu = [
   { label: 'Преимущества', href: '/about', icon: 'Star' },
-  { label: 'Документы', href: '/about#documents', icon: 'FileText' },
-  { label: 'Чем мы отличаемся', href: '/about#comparison', icon: 'BarChart2' },
-  { label: 'FAQ', href: '/about#faq', icon: 'HelpCircle' },
   { label: 'Контакты', href: '/about#contact', icon: 'Phone' },
 ];
 

@@ -1,6 +1,5 @@
 import Layout from '@/components/Layout';
 import AdvantagesAndMembership from '@/components/sections/AdvantagesAndMembership';
-import DocumentsSection from '@/components/sections/DocumentsSection';
 import TestimonialsAndContact from '@/components/sections/TestimonialsAndContact';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -11,8 +10,8 @@ export default function About() {
   return (
     <Layout>
       <SEO
-        title="О кооперативе ФИН ФОРМУЛА — преимущества, документы, FAQ"
-        description="О потребительском кооперативе ФИН ФОРМУЛА: документы, сравнение с банком, ответы на частые вопросы и контакты. Работаем в Ростовской области и Краснодарском крае. Правовая основа — ст. 123.2 ГК РФ."
+        title="О кооперативе ФИН ФОРМУЛА — преимущества и контакты"
+        description="О потребительском кооперативе ФИН ФОРМУЛА: преимущества, сравнение с банком и контакты. Работаем в Ростовской области и Краснодарском крае. Правовая основа — ст. 123.2 ГК РФ."
         path="/about"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
@@ -51,7 +50,6 @@ export default function About() {
 
       {/* Якорные разделы */}
       <AdvantagesAndMembership />
-      <DocumentsSection />
       <TestimonialsAndContact />
     </Layout>
   );

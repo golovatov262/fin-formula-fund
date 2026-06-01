@@ -67,7 +67,7 @@ export default function IndividualMembership() {
               <div className="w-16 h-16 mx-auto bg-emerald-600 rounded-2xl flex items-center justify-center mb-4">
                 <Icon name="CreditCard" size={32} className="text-white" />
               </div>
-              <div className="text-sm text-muted-foreground mb-2">Паевой взнос при вступлении</div>
+              <div className="text-sm text-muted-foreground mb-2">Единовременный вступительный взнос</div>
               <div className="text-5xl md:text-6xl font-bold text-emerald-700 mb-3">2 500 ₽</div>
               <p className="text-muted-foreground max-w-md mx-auto mb-6">
                 Единоразовый взнос — открывает доступ ко всем продуктам кооператива и закрепляет ваш статус пайщика

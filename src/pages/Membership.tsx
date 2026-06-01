@@ -90,7 +90,7 @@ export default function Membership() {
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground mb-1">Членский взнос</div>
-                  <div className="text-xl font-bold">6 000 / 18 000 / 36 000 ₽ / год</div>
+                  <div className="text-xl font-bold">от 6 000 в год</div>
                   <div className="text-xs text-muted-foreground">в зависимости от масштабов вашего бизнеса и потребностей</div>
                 </div>
               </div>

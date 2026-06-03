@@ -72,12 +72,12 @@ export default function IndividualSavings() {
                     Рассчитать доход
                   </Button>
                 </a>
-                <IndividualApplicationForm source="Страница «Паевой счёт для физлиц» — Hero">
+                <a href="https://max.ru/u/f9LHodD0cOKlhlHdQBcCTxnF2xJzOrOZrDbcKvHWJZ8kAoLbEol6TCNeJOc" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline">
                     <Icon name="Phone" size={18} />
                     Консультация в МАХ
                   </Button>
-                </IndividualApplicationForm>
+                </a>
               </div>
             </div>
             {/* Правая часть — иллюстрация */}
@@ -189,44 +189,7 @@ export default function IndividualSavings() {
         </div>
       </section>
 
-      {/* Карточки сроков */}
-      <section className="py-10 md:py-14 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Выберите подходящий срок</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {rows.map((r) => (
-              <Card key={r.term} className="border-2 hover:shadow-xl hover:border-purple-400 transition-all">
-                <CardContent className="pt-6 pb-6 text-center">
-                  <div className="w-12 h-12 mx-auto gradient-purple-blue rounded-xl flex items-center justify-center mb-3">
-                    <Icon name="Clock" size={22} className="text-white" />
-                  </div>
-                  <div className="text-sm text-muted-foreground mb-1">Срок участия</div>
-                  <div className="text-2xl font-bold mb-4">{r.term}</div>
-                  <div className="space-y-2 mb-4">
-                    <div className="bg-muted/40 rounded-lg p-2">
-                      <div className="text-xs text-muted-foreground">Ежемесячно</div>
-                      <div className="text-xl font-bold text-primary">{r.monthly}</div>
-                    </div>
-                    <div className="bg-purple-50 rounded-lg p-2">
-                      <div className="text-xs text-muted-foreground">В конце срока</div>
-                      <div className="text-xl font-bold text-purple-700">{r.end}</div>
-                    </div>
-                  </div>
-                  <IndividualApplicationForm
-                    source={`Страница «Паевой счёт для физлиц» — срок ${r.term}`}
-                    defaultMessage={`Интересует паевой взнос на срок ${r.term}`}
-                  >
-                    <Button className="w-full" variant="outline" size="sm">
-                      <Icon name="ArrowRight" size={14} />
-                      Выбрать
-                    </Button>
-                  </IndividualApplicationForm>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Калькулятор доходности */}
       <section id="calculator" className="py-10 md:py-14 px-4 bg-muted/30">

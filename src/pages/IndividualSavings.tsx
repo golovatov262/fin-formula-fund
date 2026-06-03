@@ -91,34 +91,14 @@ export default function IndividualSavings() {
                   backgroundPosition: 'center',
                 }}
               >
-                <div className="relative flex flex-col items-center justify-center h-full gap-4">
-                  <div className="text-center">
-                    <div
-                      className="text-8xl font-black leading-none"
-                      style={{
-                        color: '#ff6b00',
-                        textShadow: '0 1px 0 #cc4400, 0 2px 0 #aa3300, 0 3px 0 #882200, 0 4px 0 #661100, 0 6px 14px rgba(180,60,0,0.4)',
-                      }}
-                    >18,5%</div>
-                    <div
-                      className="text-base font-bold mt-2 px-3 py-0.5 rounded-full"
-                      style={{ color: '#ff6b00', backgroundColor: 'rgba(255,255,255,0.85)' }}
-                    >расчётная доходность</div>
-                  </div>
-                  <div className="w-16 h-0.5 bg-orange-400/60 rounded-full" />
-                  <div className="text-center">
-                    <div
-                      className="text-2xl font-black"
-                      style={{
-                        color: '#ff6b00',
-                        textShadow: '0 1px 0 #cc4400, 0 2px 0 #882200, 0 4px 10px rgba(180,60,0,0.4)',
-                      }}
-                    >от 50 000 ₽</div>
-                    <div
-                      className="text-sm font-semibold mt-0.5 px-3 py-0.5 rounded-full inline-block"
-                      style={{ color: '#ff6b00', backgroundColor: 'rgba(255,255,255,0.85)' }}
-                    >сумма взноса</div>
-                  </div>
+                <div className="relative flex items-center justify-center h-full">
+                  <div
+                    className="text-8xl font-black leading-none"
+                    style={{
+                      color: '#ff6b00',
+                      textShadow: '0 1px 0 #cc4400, 0 2px 0 #aa3300, 0 3px 0 #882200, 0 4px 0 #661100, 0 6px 14px rgba(180,60,0,0.4)',
+                    }}
+                  >18,5%</div>
                 </div>
               </div>
             </div>

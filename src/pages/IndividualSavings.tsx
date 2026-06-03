@@ -86,20 +86,21 @@ export default function IndividualSavings() {
               <div
                 className="relative w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden"
                 style={{
-                  backgroundImage: 'url(https://cdn.poehali.dev/projects/1051bbab-a467-4b71-b050-32335ddce05d/files/2da15988-bd4c-453d-b788-d13e3b144b43.jpg)',
+                  backgroundImage: 'url(https://cdn.poehali.dev/projects/1051bbab-a467-4b71-b050-32335ddce05d/files/625ce2bc-949f-4d58-98f3-c444f8af768d.jpg)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
               >
-                <div className="absolute inset-0 bg-white/10" />
-                <div className="relative flex flex-col items-center justify-center h-full gap-3">
+                <div className="absolute inset-0 bg-black/45" />
+                <div className="relative flex flex-col items-center justify-center h-full gap-4">
                   <div className="text-center">
-                    <div className="text-7xl font-black leading-none drop-shadow-lg" style={{ color: '#fff', textShadow: '0 2px 16px rgba(80,40,180,0.4)' }}>18,5%</div>
-                    <div className="text-sm font-semibold text-white/90 mt-2 drop-shadow">расчётная доходность</div>
+                    <div className="text-8xl font-black leading-none text-white" style={{ textShadow: '0 0 30px rgba(140,100,255,0.8), 0 2px 8px rgba(0,0,0,0.8)' }}>18,5%</div>
+                    <div className="text-base font-semibold text-white mt-2" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.9)' }}>расчётная доходность</div>
                   </div>
-                  <div className="text-center mt-1">
-                    <div className="text-lg font-bold text-white drop-shadow-lg">от 50 000 ₽</div>
-                    <div className="text-xs text-white/80">сумма взноса</div>
+                  <div className="w-16 h-0.5 bg-white/40 rounded-full" />
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}>от 50 000 ₽</div>
+                    <div className="text-sm text-white/80" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.9)' }}>сумма взноса</div>
                   </div>
                 </div>
               </div>

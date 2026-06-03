@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import Icon from '@/components/ui/icon';
 import IndividualApplicationForm from '@/components/IndividualApplicationForm';
 import SavingsCalculator from '@/components/SavingsCalculator';
@@ -126,57 +125,65 @@ export default function IndividualSavings() {
       </section>
 
       {/* Описание программы */}
-      <section className="py-10 md:py-14 px-4 bg-muted/30">
+      <section className="py-10 md:py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Программа «Динамичный доход»</h2>
-          <p className="text-center text-muted-foreground mb-8">Чем дольше срок — тем выше расчётная доходность</p>
+          <p className="text-center text-muted-foreground mb-10">Чем дольше срок — тем выше расчётная доходность</p>
 
-          <Card className="border-2 mb-6">
-            <CardContent className="pt-6 pb-6">
-              <div className="grid md:grid-cols-3 gap-4">
-                <div>
-                  <div className="text-xs text-muted-foreground mb-1">Программа</div>
-                  <div className="text-lg font-bold">{program.name}</div>
+          {/* Параметры программы */}
+          <div className="grid md:grid-cols-3 gap-4 mb-10">
+            {[
+              { icon: 'Sparkles', label: 'Программа', value: '«Динамичный доход»' },
+              { icon: 'Wallet', label: 'Сумма взноса', value: '50 000 ₽ — 30 000 000 ₽' },
+              { icon: 'CalendarClock', label: 'Выплата дохода', value: 'Авансом, ежемесячно или в конце срока' },
+            ].map((item) => (
+              <div key={item.label} className="bg-white rounded-2xl border p-5 flex gap-4 items-start shadow-sm">
+                <div className="w-10 h-10 gradient-purple-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon name={item.icon} size={18} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-xs text-muted-foreground mb-1">Сумма</div>
-                  <div className="text-lg font-bold">{program.amountFrom} — {program.amountTo}</div>
-                </div>
-                <div>
-                  <div className="text-xs text-muted-foreground mb-1">Выплата дохода</div>
-                  <div className="text-sm font-semibold">{program.payout}</div>
+                  <div className="text-xs text-muted-foreground mb-1">{item.label}</div>
+                  <div className="font-bold text-sm leading-snug">{item.value}</div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            ))}
+          </div>
 
-          {/* Таблица ставок */}
-          <Card className="border-2 overflow-hidden">
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-muted/60 hover:bg-muted/60">
-                    <TableHead rowSpan={2} className="font-bold text-foreground align-middle">Срок</TableHead>
-                    <TableHead colSpan={2} className="font-bold text-foreground text-center border-l">Доходность фонда (годовых)</TableHead>
-                  </TableRow>
-                  <TableRow className="bg-muted/40 hover:bg-muted/40">
-                    <TableHead className="font-semibold text-foreground border-l">Выплата дохода ежемесячно или авансом</TableHead>
-                    <TableHead className="font-semibold text-foreground">Выплата дохода в конце срока</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {rows.map((r) => (
-                    <TableRow key={r.term}>
-                      <TableCell className="font-semibold">{r.term}</TableCell>
-                      <TableCell className="font-bold text-lg text-primary">{r.monthly}</TableCell>
-                      <TableCell className="font-bold text-lg text-purple-700">{r.end}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </Card>
-          <p className="text-xs text-muted-foreground mt-3 text-center">
+          {/* Карточки ставок */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+            {rows.map((r, i) => (
+              <div
+                key={r.term}
+                className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1"
+              >
+                {/* Шапка */}
+                <div className="gradient-purple-blue px-5 py-3 flex items-center justify-between">
+                  <span className="text-white font-bold text-lg">{r.term}</span>
+                  <div className="bg-white/20 rounded-full px-2 py-0.5 text-white text-xs font-medium">срок</div>
+                </div>
+                {/* Тело */}
+                <div className="bg-white px-5 py-4 space-y-3">
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-0.5">Ежемесячно / авансом</div>
+                    <div className="text-3xl font-black text-primary">{r.monthly}</div>
+                  </div>
+                  <div className="h-px bg-muted" />
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-0.5">В конце срока</div>
+                    <div className="text-3xl font-black text-purple-600">{r.end}</div>
+                  </div>
+                </div>
+                {/* Акцент последней карточки */}
+                {i === rows.length - 1 && (
+                  <div className="bg-orange-50 border-t border-orange-200 px-5 py-2 text-center">
+                    <span className="text-xs font-bold text-orange-600">Максимальная доходность</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <p className="text-xs text-muted-foreground text-center">
             Паевые взносы принимаются только от пайщиков кооператива. Указанные значения доходности — ориентировочные, по итогам периода. Доходность не является фиксированной.
           </p>
         </div>

@@ -86,7 +86,7 @@ export default function IndividualSavings() {
               <div
                 className="relative w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden"
                 style={{
-                  backgroundImage: 'url(https://cdn.poehali.dev/projects/1051bbab-a467-4b71-b050-32335ddce05d/files/625ce2bc-949f-4d58-98f3-c444f8af768d.jpg)',
+                  backgroundImage: 'url(https://cdn.poehali.dev/projects/1051bbab-a467-4b71-b050-32335ddce05d/files/2da15988-bd4c-453d-b788-d13e3b144b43.jpg)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}

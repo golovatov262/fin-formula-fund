@@ -86,16 +86,15 @@ export default function IndividualSavings() {
               <div className="relative w-72 h-72 md:w-96 md:h-96">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-100 to-blue-100 opacity-60" />
                 <div className="relative flex flex-col items-center justify-center h-full gap-3">
-                  <div className="bg-white rounded-2xl shadow-xl px-8 py-5 text-center">
-                    <div className="text-5xl font-black text-gradient">18,5%</div>
-                    <div className="text-sm text-muted-foreground mt-1">расчётная доходность</div>
+                  <div className="bg-white rounded-2xl shadow-xl px-10 py-6 text-center">
+                    <div className="text-7xl font-black text-gradient leading-none">18,5%</div>
+                    <div className="text-sm text-muted-foreground mt-2">расчётная доходность</div>
                   </div>
                   <div className="flex gap-3">
                     {[
                       { label: 'от 50 000 ₽', sub: 'сумма взноса' },
-                      { label: '3–18 мес.', sub: 'срок' },
                     ].map((b) => (
-                      <div key={b.label} className="bg-white rounded-xl shadow-md px-4 py-3 text-center">
+                      <div key={b.label} className="bg-white rounded-xl shadow-md px-6 py-3 text-center">
                         <div className="text-base font-bold text-primary">{b.label}</div>
                         <div className="text-xs text-muted-foreground">{b.sub}</div>
                       </div>

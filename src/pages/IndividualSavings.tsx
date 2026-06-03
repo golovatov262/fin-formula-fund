@@ -101,8 +101,8 @@ export default function IndividualSavings() {
                       }}
                     >18,5%</div>
                     <div
-                      className="text-base font-bold mt-2"
-                      style={{ color: '#ff6b00', textShadow: '0 1px 4px rgba(100,30,0,0.5)' }}
+                      className="text-base font-bold mt-2 px-3 py-0.5 rounded-full"
+                      style={{ color: '#ff6b00', backgroundColor: 'rgba(255,255,255,0.85)' }}
                     >расчётная доходность</div>
                   </div>
                   <div className="w-16 h-0.5 bg-orange-400/60 rounded-full" />
@@ -115,8 +115,8 @@ export default function IndividualSavings() {
                       }}
                     >от 50 000 ₽</div>
                     <div
-                      className="text-sm font-semibold mt-0.5"
-                      style={{ color: '#ff6b00', textShadow: '0 1px 4px rgba(100,30,0,0.4)' }}
+                      className="text-sm font-semibold mt-0.5 px-3 py-0.5 rounded-full inline-block"
+                      style={{ color: '#ff6b00', backgroundColor: 'rgba(255,255,255,0.85)' }}
                     >сумма взноса</div>
                   </div>
                 </div>

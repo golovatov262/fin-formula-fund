@@ -33,8 +33,8 @@ export default function IndividualSavings() {
   return (
     <Layout>
       <SEO
-        title="Паевой счёт для физлиц — ФИН ФОРМУЛА"
-        description="Программа «Динамичный доход» для физических лиц и самозанятых — паевой взнос от 50 000 ₽ до 30 000 000 ₽, срок 3–18 месяцев. Выплата дохода пайщика ежемесячно, авансом или в конце срока."
+        title="Паевой счёт с доходностью до 18,5% годовых — ФИН ФОРМУЛА"
+        description="Откройте паевой счёт с доходностью до 18,5% годовых. Срок от 3 до 18 месяцев, взнос от 50 000 ₽. Выплата дохода авансом, ежемесячно или в конце срока. Программа «Динамичный доход»."
         path="/individual/savings"
         breadcrumbs={[
           { name: 'Главная', path: '/' },
@@ -42,31 +42,68 @@ export default function IndividualSavings() {
         ]}
       />
       {/* Hero */}
-      <section className="py-14 md:py-20 px-4 bg-gradient-to-b from-purple-50/60 to-transparent">
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-medium mb-5">
-            <Icon name="TrendingUp" size={15} />
-            Для физических лиц
-          </div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-            Паевой счёт <span className="text-gradient">для пайщиков</span>
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Программа «Динамичный доход» — для пайщиков кооператива. Паевой взнос от 50 000 ₽ на срок от 3 до 18 месяцев с гибкими выплатами дохода пайщика.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <IndividualApplicationForm source="Страница «Паевой счёт для физлиц» — Hero">
-              <Button size="lg" className="gradient-purple-blue text-white px-10">
-                <Icon name="Send" size={18} />
-                Оставить заявку
-              </Button>
-            </IndividualApplicationForm>
-            <Link to="/individual/membership">
-              <Button size="lg" variant="outline">
-                <Icon name="Users" size={18} />
-                Условия членства
-              </Button>
-            </Link>
+      <section className="py-12 md:py-18 px-4 bg-gradient-to-b from-purple-50/60 to-transparent overflow-hidden">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+            {/* Левая часть */}
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-medium mb-5">
+                <Icon name="TrendingUp" size={15} />
+                Для физических лиц
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
+                Откройте паевой счёт<br />с доходностью<br /><span className="text-gradient">до 18,5% годовых</span>
+              </h1>
+              <ul className="space-y-2 mb-7">
+                {[
+                  'Высокий доход',
+                  'Выбирайте, когда получать проценты',
+                  'Срок от 3 до 18 месяцев',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-base text-muted-foreground">
+                    <span className="w-5 h-0.5 bg-primary rounded-full flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <a href="#calculator">
+                  <Button size="lg" className="gradient-purple-blue text-white px-8">
+                    <Icon name="Calculator" size={18} />
+                    Рассчитать доход
+                  </Button>
+                </a>
+                <IndividualApplicationForm source="Страница «Паевой счёт для физлиц» — Hero">
+                  <Button size="lg" variant="outline">
+                    <Icon name="Phone" size={18} />
+                    Консультация в МАХ
+                  </Button>
+                </IndividualApplicationForm>
+              </div>
+            </div>
+            {/* Правая часть — иллюстрация */}
+            <div className="flex-shrink-0 w-full md:w-auto flex justify-center">
+              <div className="relative w-72 h-72 md:w-96 md:h-96">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-100 to-blue-100 opacity-60" />
+                <div className="relative flex flex-col items-center justify-center h-full gap-3">
+                  <div className="bg-white rounded-2xl shadow-xl px-8 py-5 text-center">
+                    <div className="text-5xl font-black text-gradient">18,5%</div>
+                    <div className="text-sm text-muted-foreground mt-1">расчётная доходность</div>
+                  </div>
+                  <div className="flex gap-3">
+                    {[
+                      { label: 'от 50 000 ₽', sub: 'сумма взноса' },
+                      { label: '3–18 мес.', sub: 'срок' },
+                    ].map((b) => (
+                      <div key={b.label} className="bg-white rounded-xl shadow-md px-4 py-3 text-center">
+                        <div className="text-base font-bold text-primary">{b.label}</div>
+                        <div className="text-xs text-muted-foreground">{b.sub}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -187,7 +224,7 @@ export default function IndividualSavings() {
       </section>
 
       {/* Калькулятор доходности */}
-      <section className="py-10 md:py-14 px-4 bg-muted/30">
+      <section id="calculator" className="py-10 md:py-14 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Рассчитайте свой доход</h2>
           <p className="text-center text-muted-foreground mb-8">Выберите сумму, срок и способ выплаты дохода</p>
